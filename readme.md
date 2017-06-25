@@ -1,6 +1,5 @@
 # Laravel 5.4 & ZURB Foundation 6.3.1
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-<p align="center"><img width="50" src="http://foundation.zurb.com/assets/img/homepage/responsive-through-and-through.svg"></p>
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"> <img width="250" src="http://foundation.zurb.com/assets/img/homepage/responsive-through-and-through.svg"></p>
 
 Пакет предназначен для разработки сайтов на Laravel 5.4 + ZURB Foundation (Bootstrap вырезан и присутствует только в админ-панеле).
 
