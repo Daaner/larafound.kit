@@ -7,17 +7,28 @@
 Для установки сделайте клон репозитория (или распакуйте в папку).
 - Выполните обновление пакетов через `composer update`
 - Установите ключ командой `php artisan key:generate`
+- `npm install`
 
 ## Комплект
 - BrowserSync
-- DebugBar (https://github.com/barryvdh/laravel-debugbar)
-- Локализация
+- DebugBar [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
+- Локализация [caouecs/laravel-lang](https://github.com/caouecs/Laravel-lang)
 
 ## BrowserSync
-Администрируется через порт :3001
-Для выключения уберите в файле webpack.mix.js строку mix.browserSync('larafound.kit')
+Включается при `npm run watch`
+Администрируется через порт 127.0.0.1:3001
+Для отключения уберите в файле webpack.mix.js строку mix.browserSync('larafound.kit').
 
+## DebugBar
+Для удаления достаточно удалить зависимость `/config/app.php`.
 
+## Локализация
+Для добавления языка нужно:
+- подправить файлик `/config/app.php` параметр `locales`
+- добавить роуты
+- поправить посредника `/app/Http/Middleware/Locale.php`
+
+Для удаления модуля достаточно удалить 2 зависимости в `/config/app.php` и удалить посредника.
 
 ## License
 

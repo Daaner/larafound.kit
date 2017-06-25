@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+
+//lng
+Route::get('lang/{locale}/', function ($locale) {
+	if (in_array($locale, \Config::get('app.locales'))) {
+		Cookie::queue(Cookie::forever('lang', $locale));
+	}
+	return redirect()->back();
+});

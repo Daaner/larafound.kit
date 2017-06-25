@@ -129,6 +129,7 @@ The <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="
         </div>
 
 
+@include('block.lang')
 
 
     <script src="/public/js/app.js"></script>
