@@ -7,6 +7,9 @@
 
 @include foundation-everything(true);
 
+//if need flex-grid off
+//@include foundation-everything(false);
+
 @import "node_modules/motion-ui/motion-ui";
 
 // Custom CSS

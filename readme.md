@@ -35,10 +35,12 @@
 ## SleepingOwlAdmin
 Вход в админ-панель без пароля по адресу `/admin` (можно переназначить в настройках).
 
-Демо можно восмотреть [тут](http://demo.sleepingowladmin.ru/).
+Демо можно посмотреть [тут](http://demo.sleepingowladmin.ru/).
 
 [Вопросы](https://gitter.im/LaravelRUS/SleepingOwlAdmin).
 
+## Flex / обычная сетка
+По умолчанию включена flex сетка. Если нужно выключить flex и включить обычную разметку, нужно раскоментировать строчку `@include foundation-everything(false);` в файле `/resurses/assets/sass/app.scss`. Соответственно строчку `@include foundation-everything(true);` нужно закомментировать или удалить.
 
 
 ## License
