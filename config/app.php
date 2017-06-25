@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
     'locales' => ['ru', 'en'],
 
     /*
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * SleepingOwl Service Provider
+         */
+        SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
 
         //dev
         Barryvdh\Debugbar\ServiceProvider::class,

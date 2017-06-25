@@ -9,15 +9,17 @@
 - Установите ключ командой `php artisan key:generate`
 - `npm install`
 
+
 ## Комплект
 - BrowserSync
 - DebugBar [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 - Локализация [caouecs/laravel-lang](https://github.com/caouecs/Laravel-lang)
+- Админ-панель 4.dev [SleepingOwlAdmin](https://github.com/LaravelRUS/SleepingOwlAdmin)
 
 ## BrowserSync
-Включается при `npm run watch`
-Администрируется через порт 127.0.0.1:3001
-Для отключения уберите в файле webpack.mix.js строку mix.browserSync('larafound.kit').
+Включается при `npm run watch`. Администрируется через порт `127.0.0.1:3001`
+
+Для отключения уберите в файле `webpack.mix.js` строку `mix.browserSync('larafound.kit')`.
 
 ## DebugBar
 Для удаления достаточно удалить зависимость `/config/app.php`.
@@ -29,6 +31,15 @@
 - поправить посредника `/app/Http/Middleware/Locale.php`
 
 Для удаления модуля достаточно удалить 2 зависимости в `/config/app.php` и удалить посредника.
+
+## SleepingOwlAdmin
+Вход в админ-панель /admin (можно переназначить в настройках)
+
+Демо можно восмотреть [тут](http://demo.sleepingowladmin.ru/).
+
+[Вопросы](https://gitter.im/LaravelRUS/SleepingOwlAdmin)
+
+
 
 ## License
 
