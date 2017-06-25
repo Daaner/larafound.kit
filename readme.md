@@ -10,11 +10,11 @@
 
 ## Комплект
 - BrowserSync
-- DebugBar ()
+- DebugBar (https://github.com/barryvdh/laravel-debugbar)
 - Локализация
 
 ## BrowserSync
-Администрируется
+Администрируется через порт :3001
 Для выключения уберите в файле webpack.mix.js строку mix.browserSync('larafound.kit')
 
 
