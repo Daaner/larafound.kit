@@ -33,11 +33,9 @@
 Для удаления модуля достаточно удалить 2 зависимости в `/config/app.php` и удалить посредника.
 
 ## SleepingOwlAdmin
-Вход в админ-панель /admin (можно переназначить в настройках)
-
+Вход в админ-панель без пароля по адресу `/admin` (можно переназначить в настройках).
 Демо можно восмотреть [тут](http://demo.sleepingowladmin.ru/).
-
-[Вопросы](https://gitter.im/LaravelRUS/SleepingOwlAdmin)
+[Вопросы](https://gitter.im/LaravelRUS/SleepingOwlAdmin).
 
 
 
