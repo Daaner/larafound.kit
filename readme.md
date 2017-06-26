@@ -37,11 +37,13 @@
 
 Демо можно посмотреть [тут](http://demo.sleepingowladmin.ru/).
 
-[Вопросы](https://gitter.im/LaravelRUS/SleepingOwlAdmin).
+[Вопросы по админке](https://gitter.im/LaravelRUS/SleepingOwlAdmin).
 
 ## Flex / обычная сетка
 По умолчанию включена flex сетка. Если нужно выключить flex и включить обычную разметку, нужно раскоментировать строчку `@include foundation-everything(false);` в файле `/resurses/assets/sass/app.scss`. Соответственно строчку `@include foundation-everything(true);` нужно закомментировать или удалить.
 
+## Добавлено
+- Регистрация пользователей (admin:admin - Администратор; user:user - Пользователь)
 
 ## License
 
