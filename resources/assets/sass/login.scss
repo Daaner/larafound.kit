@@ -1,0 +1,20 @@
+#login {
+  .username {
+    // color: $primary-color;
+    text-transform: capitalize;
+  }
+
+  .logout,
+  .login {
+    a {
+      border-bottom: 0;
+      font-size: 1.5em;
+
+      &:active,
+      &:focus,
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}

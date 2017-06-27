@@ -11,6 +11,7 @@
 
 
 ## Комплект
+- Font Awesome 4.7.0 или Foundation Icon Fonts 3
 - BrowserSync
 - DebugBar [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 - Локализация [caouecs/laravel-lang](https://github.com/caouecs/Laravel-lang)
@@ -22,15 +23,15 @@
 Для отключения уберите в файле `webpack.mix.js` строку `mix.browserSync('larafound.kit')`.
 
 ## DebugBar
-Для удаления достаточно удалить зависимость `/config/app.php`.
+Для удаления достаточно удалить зависимость `config\app.php`.
 
 ## Локализация
 Для добавления языка нужно:
-- подправить файлик `/config/app.php` параметр `locales`
+- подправить файлик `config\app.php` параметр `locales`
 - добавить роуты
-- поправить посредника `/app/Http/Middleware/Locale.php`
+- поправить посредника `app\Http\Middleware\Locale.php`
 
-Для удаления модуля достаточно удалить 2 зависимости в `/config/app.php` и удалить посредника.
+Для удаления модуля достаточно удалить 2 зависимости в `config\app.php` и удалить посредника из `app\Http\Kernel.php`.
 
 ## SleepingOwlAdmin
 Вход в админ-панель без пароля по адресу `/admin` (можно переназначить в настройках).
@@ -40,10 +41,11 @@
 [Вопросы по админке](https://gitter.im/LaravelRUS/SleepingOwlAdmin).
 
 ## Flex / обычная сетка
-По умолчанию включена flex сетка. Если нужно выключить flex и включить обычную разметку, нужно раскоментировать строчку `@include foundation-everything(false);` в файле `/resurses/assets/sass/app.scss`. Соответственно строчку `@include foundation-everything(true);` нужно закомментировать или удалить.
+По умолчанию включена flex сетка. Если нужно выключить flex и включить обычную разметку, нужно раскоментировать строчку `@include foundation-everything(false);` в файле `resurses\assets\sass\app.scss`. Соответственно строчку `@include foundation-everything(true);` нужно закомментировать или удалить.
 
 ## Добавлено
 - Регистрация пользователей (admin:admin - Администратор; user:user - Пользователь)
+- Роли
 
 ## License
 

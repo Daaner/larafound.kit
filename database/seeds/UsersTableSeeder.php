@@ -2,7 +2,10 @@
 
 use Illuminate\Database\Seeder;
 
-class Users extends Seeder
+use App\User;
+// use Faker\Factory as Faker;
+
+class UsersTableSeeder extends Seeder
 {
     /**
     * Run the database seeds.
@@ -18,11 +21,13 @@ class Users extends Seeder
                 'name' => 'admin',
                 'email' => 'admin@admin.com',
                 'password' => 'admin',
+                'role_id' => 5,
             ],
             [
                 'name' => 'user',
                 'email' => 'user@admin.com',
                 'password' => 'user',
+                'role_id' => 0,
             ]
         ];
 

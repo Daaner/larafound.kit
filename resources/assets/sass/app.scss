@@ -12,9 +12,14 @@
 
 @import "node_modules/motion-ui/motion-ui";
 
+// fonts
+@import "font-awesome/font-awesome";
+
 // Custom CSS
 @import "lang";
+@import "color";
 @import "custom";
 
 //dev
 @import "preview";
+@import "login";

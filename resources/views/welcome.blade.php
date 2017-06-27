@@ -16,7 +16,9 @@
 </head>
 <body>
 
-    @include('foundation-items.top-bar')
+    @include('block.header')
+
+
 
     @include('foundation-items.orbit')
     @include('foundation-items.grid')
@@ -33,7 +35,7 @@
 
 
     @include('block.footer')
-    
+
     @include('block.lang')
 
     <script src="/public/js/app.js"></script>
