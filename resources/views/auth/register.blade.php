@@ -1,76 +1,72 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
+<div class="reveal tiny" id="register_form" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <form method="POST" id="register-form" action="{{ url('/register') }}" data-abide novalidate>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+      <div class="small-12 columns">
+        {{ csrf_field() }}
+        <h3 class="text-center">
+          {{ trans('site.register_header') }}
+        </h3>
+      </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+      <div class="small-4 columns">
+        <label for="middle-label" class="text-right middle">{{ trans('site.name') }}</label>
+      </div>
+      <div class="small-8 columns">
+        <input type="text" id="name" pattern="name" required>
+        <span class="form-error">
+          {{ trans('site.form_name_error') }}
+        </span>
+      </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+      <div class="small-4 columns">
+        <label for="middle-label" class="text-right middle">{{ trans('site.email') }}</label>
+      </div>
+      <div class="small-8 columns">
+        <input type="email" id="email" pattern="email" required>
+        <span class="form-error">
+          {{ trans('site.form_email_error') }}
+        </span>
+      </div>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+      <div class="small-4 columns">
+        <label for="middle-label" class="text-right middle">{{ trans('site.password') }}</label>
+      </div>
+      <div class="small-8 columns">
+        <input type="password" id="password" pattern="password" autocomplete="off" required>
+        <span class="form-error">
+          {{ trans('site.form_password_error') }}
+        </span>
+      </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+      <div class="small-4 columns">
+        <label for="middle-label" class="text-right middle">{{ trans('site.password_again') }}</label>
+      </div>
+      <div class="small-8 columns">
+        <input type="password" data-equalto="password" pattern="password" autocomplete="off" required>
+          <span class="form-error">
+            {{ trans('site.form_password_re_enter_error') }}
+          </span>
+      </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <div class="small-12">
+        <div data-abide-error class="alert callout" style="display: none;">
+          <p>{{ trans('site.form_error') }}</p>
         </div>
+
+      </div>
+
     </div>
+
+    <div class="row">
+      <fieldset class="small-6 columns">
+      <button class="button expanded" type="submit" value="Submit">{{ trans('site.form_btn_register') }}</button>
+    </fieldset>
+    <fieldset class="small-6 columns">
+      <button class="button alert expanded" type="reset" value="Reset">{{ trans('site.form_btn_reset') }}</button>
+    </fieldset>
+    </div>
+  </form>
 </div>
-@endsection

@@ -1217,12 +1217,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
-                "reference": "b9e142097bc50dc5b48300c226337be4d1ef9d21"
+                "reference": "39bc5fdec09b17f8977eea372f64f127c09e8580"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/b9e142097bc50dc5b48300c226337be4d1ef9d21",
-                "reference": "b9e142097bc50dc5b48300c226337be4d1ef9d21",
+                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/39bc5fdec09b17f8977eea372f64f127c09e8580",
+                "reference": "39bc5fdec09b17f8977eea372f64f127c09e8580",
                 "shasum": ""
             },
             "require": {
@@ -1275,7 +1275,7 @@
                 "crud",
                 "laravel"
             ],
-            "time": "2017-06-24 00:20:00"
+            "time": "2017-06-26 22:59:51"
         },
         {
             "name": "league/flysystem",
@@ -1598,16 +1598,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "2b9e2f71b722f7c53918ab0c25f7646c2013f17d"
+                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2b9e2f71b722f7c53918ab0c25f7646c2013f17d",
-                "reference": "2b9e2f71b722f7c53918ab0c25f7646c2013f17d",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0808939f81c1347a3c8a82a5925385a08074b0f1",
+                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1",
                 "shasum": ""
             },
             "require": {
@@ -1645,7 +1645,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-03-05T18:23:57+00:00"
+            "time": "2017-06-28T20:53:48+00:00"
         },
         {
             "name": "paragonie/random_compat",

@@ -1,11 +1,10 @@
 #login {
   .username {
-    // color: $primary-color;
     text-transform: capitalize;
   }
 
-  .logout,
-  .login {
+  .login,
+  .logout {
     a {
       border-bottom: 0;
       font-size: 1.5em;
@@ -16,5 +15,33 @@
         color: $red;
       }
     }
+  }
+}
+
+//login-form
+#login_form {
+  .switch {
+    .switch-paddle {
+      border-radius: 15px;
+      &::after {
+        border-radius: 15px;
+      }
+    }
+  }
+
+  .switch.ru {
+    .switch-active {
+      left: 15%;
+    }
+
+    .switch-inactive {
+      right: 9%;
+    }
+  }
+
+  .remember-me {
+    margin: rem-calc(5 0 0);
+    color: $dark-gray;
+    font-size: 0.9em;
   }
 }

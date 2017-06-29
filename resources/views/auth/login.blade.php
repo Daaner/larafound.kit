@@ -1,68 +1,53 @@
-@extends('layouts.app')
+<div class="reveal tiny" id="login_form" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 
-@section('content')
-<div class="container">
+  <form method="POST" action="{{ url('/login') }}" id="login-form" data-abide novalidate>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+      <div class="small-12 columns">
+        {{ csrf_field() }}
+        <h3 class="text-center">
+          {{ trans('site.login_header') }}
+        </h3>
+      </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+      <div class="small-12 columns">
+        <label for="login">{{ trans('site.login_name') }}
+          <input type="text" name="email" id="email" pattern="login" required>
+        </label>
+      </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+      <div class="small-12 columns">
+        <label>{{ trans('site.password') }}
+          <input type="password" name="password" id="password" pattern="password" autocomplete="off" required>
+        </label>
+      </div>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <div class="small-3 columns">
+        <div class="switch {{ config('app.locale') }}">
+          <input class="switch-input" id="yes-no" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+          <label class="switch-paddle" for="yes-no">
+            <span class="show-for-sr">{{ trans('site.remember_me') }}</span>
+            <span class="switch-active" aria-hidden="true">{{ trans('site.yes') }}</span>
+            <span class="switch-inactive" aria-hidden="true">{{ trans('site.no') }}</span>
+          </label>
         </div>
+      </div>
+      <div class="small-9">
+        <p class="remember-me">{{ trans('site.remember_me') }}</p>
+      </div>
+
+      <div class="small-12 columns hide" id="login-error"><p class="alert callout"></p></div>
+
     </div>
+
+    <div class="row">
+      <fieldset class="small-12 columns text-center">
+        <button class="button expanded" type="submit" value="Submit">{{ trans('site.login') }}</button>
+        <a href="#" class="forgot">{{ trans('site.forgot_password') }}</a>
+      </fieldset>
+    </div>
+
+  </form>
 </div>
-@endsection

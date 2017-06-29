@@ -12,7 +12,16 @@ window.$ = window.jQuery = require('jquery');
 require('what-input');
 require('foundation-sites');
 
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 $(document).foundation();
+Foundation.Abide.defaults.patterns['login'] = /^([a-zA-Zа-яА-Я0-9\s\@\.\_\-()]){3,}$/;
+Foundation.Abide.defaults.patterns['password'] = /^(.){6,}$/;
+
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -28,9 +37,47 @@ window.Vue = require('vue');
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+// window.axios = require('axios');
+//
+// window.axios.defaults.headers.common = {
+//     'X-CSRF-TOKEN': window.Laravel.csrfToken,
+//     'X-Requested-With': 'XMLHttpRequest'
+// };
 
-window.axios.defaults.headers.common = {
-    'X-CSRF-TOKEN': window.Laravel.csrfToken,
-    'X-Requested-With': 'XMLHttpRequest'
-};
+$('#register-form').on('submit', function(e){
+    e.preventDefault();
+    console.log('submit');
+});
+
+var loginForm = $("#login-form");
+loginForm.submit(function(e) {
+    e.preventDefault();
+    var formData = loginForm.serialize();
+    $('#login-error p').html("");
+    $("#login-error").addClass("hide");
+    $.ajax({
+        url: '/login',
+        type: 'POST',
+        data: formData,
+        success: function(data) {
+            $('#login_form').foundation('close');
+            location.reload(true);
+        },
+        error: function(data) {
+            console.log(data.responseText);
+            var obj = jQuery.parseJSON(data.responseText);
+            if (obj.email) {
+                $("#login-error").removeClass("hide");
+                $('#login-error p').html(obj.email);
+            }
+            if (obj.password) {
+                $("#login-error").addClass("hide");
+                $('#login-error p').html(obj.password);
+            }
+            if (obj.error) {
+                $("#login-error").addClass("hide");
+                $('#login-error p').html(obj.error);
+            }
+        }
+    });
+});

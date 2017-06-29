@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
-
-
+//Auth
+Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout');
+Route::post('/register', 'Auth\RegisterController@register');
 
 //lng
 Route::get('lang/{locale}/', function ($locale) {
@@ -26,7 +30,3 @@ Route::get('lang/{locale}/', function ($locale) {
 	}
 	return redirect()->back();
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
