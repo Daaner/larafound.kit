@@ -14,7 +14,7 @@
 
       <div class="small-12 columns">
         <label for="login">{{ trans('site.login_name') }}
-          <input type="text" name="email" id="email" pattern="login" required>
+          <input type="text" name="login" id="email" pattern="login" required>
         </label>
       </div>
 

@@ -132,8 +132,14 @@ loginForm.submit(function (e) {
         type: 'POST',
         data: formData,
         success: function success(data) {
-            $('#login_form').foundation('close');
-            location.reload(true);
+            console.log(data.error);
+            if (data.error) {
+                $("#login-error").removeClass("hide");
+                $('#login-error p').html(data.error);
+            } else {
+                $('#login_form').foundation('close');
+                location.reload(true);
+            }
         },
         error: function error(data) {
             console.log(data.responseText);
