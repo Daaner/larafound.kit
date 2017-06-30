@@ -1,5 +1,7 @@
 @extends('layouts.mainpage')
 
+@section('title', 'Главная страница')
+
 @section('content')
 
 

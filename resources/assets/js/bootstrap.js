@@ -19,6 +19,7 @@ $.ajaxSetup({
 });
 
 $(document).foundation();
+
 Foundation.Abide.defaults.patterns['login'] = /^([a-zA-Zа-яА-Я0-9\s\@\.\_\-()]){3,}$/;
 Foundation.Abide.defaults.patterns['password'] = /^(.){6,}$/;
 
