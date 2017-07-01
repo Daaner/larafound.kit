@@ -3,7 +3,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 
-  <form method="POST" id="login-form" data-abide novalidate>
+  <form id="login-form" data-abide novalidate>
     <div class="row">
       <div class="small-12 columns">
         {{ csrf_field() }}
@@ -14,7 +14,7 @@
 
       <div class="small-12 columns">
         <label for="login">{{ trans('site.login_name') }}
-          <input type="text" name="login" id="email" pattern="login" required>
+          <input type="text" name="login" pattern="login" required>
           <span class="form-error">
             {{ trans('site.form_login_error') }}
           </span>
@@ -23,7 +23,7 @@
 
       <div class="small-12 columns">
         <label>{{ trans('site.password') }}
-          <input type="password" name="password" id="password" pattern="password" autocomplete="off" required>
+          <input type="password" name="password" pattern="password" autocomplete="off" required>
           <span class="form-error">
             {{ trans('site.form_password_error') }}
           </span>

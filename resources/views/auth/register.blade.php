@@ -3,7 +3,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 
-  <form method="POST" id="register-form" data-abide novalidate>
+  <form id="register-form" data-abide novalidate>
 
     <div class="row">
       <div class="small-12 columns">

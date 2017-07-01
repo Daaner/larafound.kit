@@ -65,4 +65,17 @@ class LoginController extends Controller
 
     }
 
+    protected function authenticated(\Illuminate\Http\Request $request, $user)
+  {
+      if ($request->ajax()){
+
+          return response()->json([
+              'auth' => auth()->check(),
+              'user' => $user,
+              'intended' => $this->redirectPath(),
+          ]);
+
+      }
+  }
+
 }

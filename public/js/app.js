@@ -156,40 +156,40 @@ registerForm.submit(function (e) {
 });
 
 var loginForm = $("#login-form");
-loginForm.submit(function (e) {
-    e.preventDefault();
-    var formData = loginForm.serialize();
-    $('#login-error p').html("");
-    $("#login-error").addClass("hide");
-    $.ajax({
-        url: '/login',
-        type: 'POST',
-        data: formData,
-        success: function success(data) {
-            if (data.error) {
-                $("#login-error").removeClass("hide");
-                $('#login-error p').html(data.error);
-            } else {
-                $('#login_form').foundation('close');
-                location.reload(true);
+loginForm.on({
+    'submit': function submit() {
+        $("#login-error").addClass("hide");
+        return false;
+    },
+    'formvalid.zf.abide': function formvalidZfAbide(e) {
+        e.preventDefault();
+        var formData = loginForm.serialize();
+        $('#login-error p').html("");
+        $("#login-error").addClass("hide");
+
+        $.ajax({
+            url: '/login',
+            type: 'POST',
+            data: formData,
+            success: function success(data) {
+                if (data.error) {
+                    $("#login-error").removeClass("hide");
+                    $('#login-error p').html(data.error);
+                } else {
+                    $('#login_form').foundation('close');
+                    // location.reload(true);
+                }
+            },
+            error: function error(data) {
+                var obj = jQuery.parseJSON(data.responseText);
+                console.log(obj);
+                if (obj.error) {
+                    $("#login-error").addClass("hide");
+                    $('#login-error p').html(obj.error);
+                }
             }
-        },
-        error: function error(data) {
-            var obj = jQuery.parseJSON(data.responseText);
-            if (obj.email) {
-                $("#login-error").removeClass("hide");
-                $('#login-error p').html(obj.email);
-            }
-            if (obj.password) {
-                $("#login-error").addClass("hide");
-                $('#login-error p').html(obj.password);
-            }
-            if (obj.error) {
-                $("#login-error").addClass("hide");
-                $('#login-error p').html(obj.error);
-            }
-        }
-    });
+        });
+    }
 });
 
 /***/ }),
