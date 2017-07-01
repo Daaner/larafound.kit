@@ -24,6 +24,7 @@ return [
 	'login_header' => 'Вход на сайт',
 	'login_name' => 'Почта или логин',
 	'name' => 'Имя',
+	'name_login' => 'Логин',
 	'email' => 'Почта',
 	'password' => 'Пароль',
 	'password_again' => 'Повтор пароля',
@@ -31,10 +32,11 @@ return [
 	'forgot_password' => 'Забыли пароль?',
 	
 	'form_name_error' => 'Имя должно быть от 3 символов',
+	'form_login_error' => 'Логин должен быть от 3 символов',
 	'form_email_error' => 'Почта указана не корректно',
-	'form_password_error' => 'Пароль от 6 символов',
-	'form_password_re_enter_error' => 'Пароли должны совпадать',
-	'form_error' => 'В заполненной форме есть некоторые ошибки.',
+	'form_password_error' => 'Пароль должен быть от 6 символов',
+	'form_password_re_enter_error' => 'Пароли не совпадают',
+	'form_error' => 'В форме есть некоторые ошибки.',
 	
 	'form_btn_register' => 'Регистрация',
 	'form_btn_send' => 'Отправить',

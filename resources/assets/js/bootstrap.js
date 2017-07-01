@@ -45,9 +45,42 @@ window.Vue = require('vue');
 //     'X-Requested-With': 'XMLHttpRequest'
 // };
 
-$('#register-form').on('submit', function(e){
+var registerForm = $("#register-form");
+registerForm.submit(function(e) {
     e.preventDefault();
-    console.log('submit');
+    var formData2 = registerForm.serialize();
+    $('#register-error p').html("");
+    $("#register-error").addClass("hide");
+    $.ajax({
+        url: '/register',
+        type: 'POST',
+        data: formData2,
+        success: function(data) {
+            if (data.error) {
+                $("#register-error").removeClass("hide");
+                $('#register-error p').html(data.error);
+            } else {
+                $('#register_form').foundation('close');
+                // location.reload(true);
+            }
+        },
+        error: function(data) {
+            console.log(data.responseText);
+            var obj = jQuery.parseJSON(data.responseText);
+            if (obj.email) {
+                $("#register-error").removeClass("hide");
+                $('#register-error p').html(obj.email);
+            }
+            if (obj.password) {
+                $("#register-error").addClass("hide");
+                $('#register-error p').html(obj.password);
+            }
+            if (obj.error) {
+                $("#register-error").addClass("hide");
+                $('#register-error p').html(obj.error);
+            }
+        }
+    });
 });
 
 var loginForm = $("#login-form");
@@ -61,7 +94,6 @@ loginForm.submit(function(e) {
         type: 'POST',
         data: formData,
         success: function(data) {
-            console.log(data.error);
             if (data.error) {
                 $("#login-error").removeClass("hide");
                 $('#login-error p').html(data.error);
@@ -71,7 +103,6 @@ loginForm.submit(function(e) {
             }
         },
         error: function(data) {
-            console.log(data.responseText);
             var obj = jQuery.parseJSON(data.responseText);
             if (obj.email) {
                 $("#login-error").removeClass("hide");
