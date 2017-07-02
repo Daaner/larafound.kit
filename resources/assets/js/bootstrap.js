@@ -46,41 +46,52 @@ window.Vue = require('vue');
 // };
 
 var registerForm = $("#register-form");
-registerForm.submit(function(e) {
+registerForm.on({
+  'submit': function() {
+    $("#register-error").addClass("hide");
+    return false;
+  },
+  'formvalid.zf.abide': function(e) {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
     e.preventDefault();
-    var formData2 = registerForm.serialize();
+    var formDataReg = registerForm.serialize();
     $('#register-error p').html("");
     $("#register-error").addClass("hide");
     $.ajax({
-        url: '/register',
-        type: 'POST',
-        data: formData2,
-        success: function(data) {
-            if (data.error) {
-                $("#register-error").removeClass("hide");
-                $('#register-error p').html(data.error);
-            } else {
-                $('#register_form').foundation('close');
-                // location.reload(true);
-            }
-        },
-        error: function(data) {
-            console.log(data.responseText);
-            var obj = jQuery.parseJSON(data.responseText);
-            if (obj.email) {
-                $("#register-error").removeClass("hide");
-                $('#register-error p').html(obj.email);
-            }
-            if (obj.password) {
-                $("#register-error").addClass("hide");
-                $('#register-error p').html(obj.password);
-            }
-            if (obj.error) {
-                $("#register-error").addClass("hide");
-                $('#register-error p').html(obj.error);
-            }
+      url: '/register',
+      type: 'POST',
+      data: formDataReg,
+      success: function(data) {
+        if (data.error) {
+          $("#register-error").removeClass("hide");
+          $('#register-error p').html(data.error);
+        } else {
+          $('#register_form').foundation('close');
+          $('#login').html(data);
         }
+      },
+      error: function(data) {
+        console.log(data.responseText);
+        var obj = jQuery.parseJSON(data.responseText);
+        if (obj.email) {
+          $("#register-error").removeClass("hide");
+          $('#register-error p').html(obj.email);
+        }
+        if (obj.password) {
+          $("#register-error").addClass("hide");
+          $('#register-error p').html(obj.password);
+        }
+        if (obj.error) {
+          $("#register-error").addClass("hide");
+          $('#register-error p').html(obj.error);
+        }
+      }
     });
+  }
 });
 
 
@@ -91,22 +102,27 @@ loginForm.on({
     return false;
   },
   'formvalid.zf.abide': function(e) {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
     e.preventDefault();
-    var formData = loginForm.serialize();
+    var formDataLogin = loginForm.serialize();
     $('#login-error p').html("");
     $("#login-error").addClass("hide");
 
     $.ajax({
       url: '/login',
       type: 'POST',
-      data: formData,
+      data: formDataLogin,
       success: function(data) {
         if (data.error) {
           $("#login-error").removeClass("hide");
           $('#login-error p').html(data.error);
         } else {
           $('#login_form').foundation('close');
-          // location.reload(true);
+          $('#login').html(data);
         }
       },
       error: function(data) {
@@ -118,6 +134,5 @@ loginForm.on({
         }
       }
     });
-
   }
 });

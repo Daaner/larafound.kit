@@ -86,9 +86,9 @@ __webpack_require__(33);
 __webpack_require__(28);
 
 $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
 });
 
 $(document).foundation();
@@ -118,78 +118,94 @@ window.Vue = __webpack_require__(31);
 // };
 
 var registerForm = $("#register-form");
-registerForm.submit(function (e) {
+registerForm.on({
+  'submit': function submit() {
+    $("#register-error").addClass("hide");
+    return false;
+  },
+  'formvalid.zf.abide': function formvalidZfAbide(e) {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
     e.preventDefault();
-    var formData2 = registerForm.serialize();
+    var formDataReg = registerForm.serialize();
     $('#register-error p').html("");
     $("#register-error").addClass("hide");
     $.ajax({
-        url: '/register',
-        type: 'POST',
-        data: formData2,
-        success: function success(data) {
-            if (data.error) {
-                $("#register-error").removeClass("hide");
-                $('#register-error p').html(data.error);
-            } else {
-                $('#register_form').foundation('close');
-                // location.reload(true);
-            }
-        },
-        error: function error(data) {
-            console.log(data.responseText);
-            var obj = jQuery.parseJSON(data.responseText);
-            if (obj.email) {
-                $("#register-error").removeClass("hide");
-                $('#register-error p').html(obj.email);
-            }
-            if (obj.password) {
-                $("#register-error").addClass("hide");
-                $('#register-error p').html(obj.password);
-            }
-            if (obj.error) {
-                $("#register-error").addClass("hide");
-                $('#register-error p').html(obj.error);
-            }
+      url: '/register',
+      type: 'POST',
+      data: formDataReg,
+      success: function success(data) {
+        if (data.error) {
+          $("#register-error").removeClass("hide");
+          $('#register-error p').html(data.error);
+        } else {
+          $('#register_form').foundation('close');
+          $('#login').html(data);
         }
+      },
+      error: function error(data) {
+        console.log(data.responseText);
+        var obj = jQuery.parseJSON(data.responseText);
+        if (obj.email) {
+          $("#register-error").removeClass("hide");
+          $('#register-error p').html(obj.email);
+        }
+        if (obj.password) {
+          $("#register-error").addClass("hide");
+          $('#register-error p').html(obj.password);
+        }
+        if (obj.error) {
+          $("#register-error").addClass("hide");
+          $('#register-error p').html(obj.error);
+        }
+      }
     });
+  }
 });
 
 var loginForm = $("#login-form");
 loginForm.on({
-    'submit': function submit() {
-        $("#login-error").addClass("hide");
-        return false;
-    },
-    'formvalid.zf.abide': function formvalidZfAbide(e) {
-        e.preventDefault();
-        var formData = loginForm.serialize();
-        $('#login-error p').html("");
-        $("#login-error").addClass("hide");
+  'submit': function submit() {
+    $("#login-error").addClass("hide");
+    return false;
+  },
+  'formvalid.zf.abide': function formvalidZfAbide(e) {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    e.preventDefault();
+    var formDataLogin = loginForm.serialize();
+    $('#login-error p').html("");
+    $("#login-error").addClass("hide");
 
-        $.ajax({
-            url: '/login',
-            type: 'POST',
-            data: formData,
-            success: function success(data) {
-                if (data.error) {
-                    $("#login-error").removeClass("hide");
-                    $('#login-error p').html(data.error);
-                } else {
-                    $('#login_form').foundation('close');
-                    // location.reload(true);
-                }
-            },
-            error: function error(data) {
-                var obj = jQuery.parseJSON(data.responseText);
-                console.log(obj);
-                if (obj.error) {
-                    $("#login-error").addClass("hide");
-                    $('#login-error p').html(obj.error);
-                }
-            }
-        });
-    }
+    $.ajax({
+      url: '/login',
+      type: 'POST',
+      data: formDataLogin,
+      success: function success(data) {
+        if (data.error) {
+          $("#login-error").removeClass("hide");
+          $('#login-error p').html(data.error);
+        } else {
+          $('#login_form').foundation('close');
+          $('#login').html(data);
+        }
+      },
+      error: function error(data) {
+        var obj = jQuery.parseJSON(data.responseText);
+        console.log(obj);
+        if (obj.error) {
+          $("#login-error").addClass("hide");
+          $('#login-error p').html(obj.error);
+        }
+      }
+    });
+  }
 });
 
 /***/ }),

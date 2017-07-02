@@ -6,7 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use App\Traits\CaptureIpTrait;
+
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -93,6 +96,21 @@ class RegisterController extends Controller
     //     return redirect('login')
     //             ->with('status', 'Надо подтвердить почту');
     // }
+
+    public function register(Request $request)  {
+        $validation = $this->validator($request->all());
+        if ($validation->fails())  {
+            return response()->json($validation->errors()->toArray());
+        }
+        else{
+            $user = $this->create($request->all());
+            Auth::login($user);
+            if (Auth::user()){
+              return view('block.login')->with('status', trans('site.info_register_complite'));
+                // return response()->json(['response' => trans('site.info_register_complite') ]);
+            }
+        }
+    }
 
 
 }

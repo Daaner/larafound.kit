@@ -58,7 +58,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only($login_type, 'password'))) {
-            return redirect()->intended($this->redirectPath());
+            return view('block.login');
         }
 
         return response()->json(['error' => trans('passwords.user')]);

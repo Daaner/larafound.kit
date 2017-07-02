@@ -43,5 +43,8 @@ return [
 	'form_btn_ok' => 'Ок',
 	'form_btn_cancel' => 'Отмена',
 	'form_btn_reset' => 'Стереть',
+	
+	'info_register_complite' => 'Регистрация прошла успешно',	
+	'info_login_complite' => 'Вход выполнен',	
 
 ];
