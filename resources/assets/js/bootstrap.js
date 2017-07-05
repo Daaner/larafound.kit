@@ -21,7 +21,7 @@ $.ajaxSetup({
 $(document).foundation();
 
 Foundation.Abide.defaults.patterns['login'] = /^([a-zA-Zа-яА-Я0-9\s\@\.\_\-()]){3,}$/;
-Foundation.Abide.defaults.patterns['password'] = /^(.){6,}$/;
+Foundation.Abide.defaults.patterns['password'] = /^(.){1,}$/;
 
 
 /**
@@ -44,6 +44,7 @@ window.Vue = require('vue');
 //     'X-CSRF-TOKEN': window.Laravel.csrfToken,
 //     'X-Requested-With': 'XMLHttpRequest'
 // };
+
 $(document).ready(function(){
 
   var registerForm = $("#register-form");
@@ -68,7 +69,23 @@ $(document).ready(function(){
         cache: false,
         data: formDataReg,
         success: function(data) {
-          if (data.error) {
+          if (data.name) {
+            $("#register-error").removeClass("hide");
+            $('#register-error p').html(data.name);
+          }
+          else if (data.email) {
+            $("#register-error").removeClass("hide");
+            $('#register-error p').html(data.email);
+          }
+          else if (data.username) {
+            $("#register-error").removeClass("hide");
+            $('#register-error p').html(data.username);
+          }
+          else if (data.password) {
+            $("#register-error").removeClass("hide");
+            $('#register-error p').html(data.password);
+          }
+          else if (data.error) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.error);
           } else {
@@ -78,7 +95,6 @@ $(document).ready(function(){
           }
         },
         error: function(data) {
-          console.log(data.responseText);
           var obj = jQuery.parseJSON(data.responseText);
           if (obj.email) {
             $("#register-error").removeClass("hide");
@@ -130,7 +146,6 @@ $(document).ready(function(){
         },
         error: function(data) {
           var obj = jQuery.parseJSON(data.responseText);
-          console.log(obj);
           if (obj.error) {
             $("#login-error").addClass("hide");
             $('#login-error p').html(obj.error);

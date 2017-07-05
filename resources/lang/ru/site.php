@@ -40,6 +40,7 @@ return [
 	'form_error' => 'В форме есть некоторые ошибки.',
 	
 	'form_btn_register' => 'Регистрация',
+	'error_reg_username' => 'Логин занят',
 	'form_btn_send' => 'Отправить',
 	'form_btn_ok' => 'Ок',
 	'form_btn_cancel' => 'Отмена',
