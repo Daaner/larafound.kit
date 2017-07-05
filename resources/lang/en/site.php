@@ -8,6 +8,7 @@ return [
     'login' => 'Login',
     'register' => 'Register',
 	'logout' => 'Logout',
+	'adm_panel' => 'Admin panel',
 	
 	'register_header' => 'Registration',
 	'name' => 'Name',

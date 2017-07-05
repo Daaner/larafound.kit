@@ -19,6 +19,7 @@ return [
 	'login' => 'Вход',
     'register' => 'Регистрация',
     'logout' => 'Выйти',
+    'adm_panel' => 'Панель администрирования',
 	
 	'register_header' => 'Регистрация',
 	'login_header' => 'Вход на сайт',

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Auth;
 
 
@@ -58,6 +59,8 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only($login_type, 'password'))) {
+            // $request->session()->regenerate();
+            Session::regenerate();
             return view('block.login');
         }
 
@@ -65,17 +68,12 @@ class LoginController extends Controller
 
     }
 
-    protected function authenticated(\Illuminate\Http\Request $request, $user)
-  {
-      if ($request->ajax()){
-
-          return response()->json([
-              'auth' => auth()->check(),
-              'user' => $user,
-              'intended' => $this->redirectPath(),
-          ]);
-
-      }
-  }
+    public function logout()
+    {
+        $user = Auth::user();
+        Auth::logout();
+        Session::flush();
+        return view('block.login');
+    }
 
 }

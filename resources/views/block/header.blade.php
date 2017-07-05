@@ -2,7 +2,10 @@
   <div class="top-bar stacked-for-large">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">Laravel + Foundation</li>
+        <li class="menu-text">
+          <a href="/">
+            Laravel + Foundation</li>
+          </a>
         <li>
           <a href="#">Item 1</a>
           <ul class="menu">

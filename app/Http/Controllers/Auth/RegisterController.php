@@ -106,8 +106,8 @@ class RegisterController extends Controller
             $user = $this->create($request->all());
             Auth::login($user);
             if (Auth::user()){
+              $request->session()->regenerate();
               return view('block.login')->with('status', trans('site.info_register_complite'));
-                // return response()->json(['response' => trans('site.info_register_complite') ]);
             }
         }
     }
