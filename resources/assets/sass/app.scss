@@ -12,8 +12,12 @@
 
 @import "node_modules/motion-ui/motion-ui";
 
-// fonts
-@import "font-awesome/font-awesome";
+// fonts sass (slo-o-o-o-o-ow watch)
+// @import "font-awesome/font-awesome";
+
+// fonts css (fast watch)
+@import "../../../public/fonts/font-awesome/font-awesome.css";
+@import "../../../public/fonts/foundation-icons/foundation-icons.css";
 
 // Custom CSS
 @import "lang";

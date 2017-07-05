@@ -14,12 +14,12 @@
     <li class="username">{{ Auth::user()->name }}</li>
     <li class="admin">
       <a href="{{ route('admin.dashboard') }}" target="_Blank" title="{{ trans('site.adm_panel') }}" data-tooltip>
-        <i class="fa fa-unlock-alt"></i>
+        <i class="fa fa-cog fa-spin-h"></i>
       </a>
     </li>
     <li class="logout">
       <a id="logout" title="{{ trans('site.logout') }}" data-tooltip>
-        <i class="fa fa-sign-out"></i>
+        <i class="fi-power"></i>
       </a>
       <span class="hide">
         {{ csrf_field() }}
