@@ -609,6 +609,11 @@ $tooltip-pip-width: 0.75rem;
 $tooltip-pip-height: $tooltip-pip-width * 0.866;
 $tooltip-radius: rem-calc(5);
 
+.tooltip {
+  text-align: center;
+  line-height: 1.2;
+}
+
 // 37. Top Bar
 // -----------
 
