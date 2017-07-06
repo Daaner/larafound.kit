@@ -19,7 +19,7 @@ class CreateUser extends Migration
              $table->string('username')->unique();
              $table->string('email')->unique();
              $table->string('password');
-             $table->integer('role_id')->default(1)->unsigned()->nullable();
+             $table->integer('role_id')->default(1)->unsigned();
              $table->ipAddress('signup_ip')->nullable();
              $table->ipAddress('confirm_ip')->nullable();
              $table->string('token')->nullable();

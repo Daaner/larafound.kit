@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\CaptureIpTrait;
 
+use App\Role;
+
 class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -57,6 +61,13 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function isManager(){
+      $request=false;
+      if ((Auth::user()->role_id) == 2){
+        $request=true;
+      };
+      return $request;
+    }
     public function isAdmin(){
         $request=false;
         if ((Auth::user()->role_id) == 3){
@@ -65,12 +76,23 @@ class User extends Authenticatable
         return $request;
     }
 
-    public function isManager(){
-        $request=false;
-        if ((Auth::user()->role_id) == 2){
-            $request=true;
-        };
-        return $request;
+    public function roles() {
+        return $this->belongsTo(Role::class,'role_id', 'id');
+    }
+
+
+    //Admin
+    public function scopeUsrAll($query){
+       return $query->where('deleted_at', null);
+    }
+    public function scopeUsrDel($query){
+       return $query->whereNotNull('deleted_at', null);
+    }
+    public function scopeUsrModer($query){
+       return $query->where('role_id', '=', 2)->where('deleted_at', null);
+    }
+    public function scopeUsrAdm($query){
+       return $query->where('role_id', '=', 3)->where('deleted_at', null);
     }
 
 }

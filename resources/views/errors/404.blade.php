@@ -17,7 +17,7 @@
 </div>
 
 <script type="text/javascript">
-  var i = 115;
+  var i = 10;
   function time(){
      document.getElementById("time").innerHTML = i;
      i--;

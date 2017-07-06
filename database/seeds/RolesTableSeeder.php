@@ -14,17 +14,17 @@ class RolesTableSeeder extends Seeder
     {
         $roles = [
             [
-                'name'          => 'users',
+                'name'          => 'Users',
                 'description'   => 'Пользователи',
 
             ],
             [
-                'name'          => 'managers',
+                'name'          => 'Managers',
                 'description'   => 'Менеджеры',
 
             ],
             [
-                'name'          => 'admins',
+                'name'          => 'Administrators',
                 'description'   => 'Администраторы',
             ]
         ];
