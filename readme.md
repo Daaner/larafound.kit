@@ -11,7 +11,7 @@
 
 
 ## Комплект
-- Font Awesome 4.7.0 или Foundation Icon Fonts 3
+- Font Awesome 4.7.0 и Foundation Icon Fonts 3 (отключаются оба и добавлены через CSS, а не SCSS, дабы не ждать компиллирования при watch)
 - BrowserSync
 - DebugBar [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 - Локализация [caouecs/laravel-lang](https://github.com/caouecs/Laravel-lang)
@@ -30,25 +30,39 @@
 - подправить файлик `config\app.php` параметр `locales`
 - добавить роуты
 - поправить посредника `app\Http\Middleware\Locale.php`
+- перевести файлы из уже имеющегося языка
 
 Для удаления модуля достаточно удалить 2 зависимости в `config\app.php` и удалить посредника из `app\Http\Kernel.php`.
 
 ## SleepingOwlAdmin
-Вход в админ-панель без пароля по адресу `/admin` (можно переназначить в настройках).
+Вход в админ-панель только авторизованным по адресу `/admin` (можно переназначить в настройках).
 
 Демо можно посмотреть [тут](http://demo.sleepingowladmin.ru/).
 
 [Вопросы по админке](https://gitter.im/LaravelRUS/SleepingOwlAdmin).
 
+За админку огромное спасибо [Дейву](https://github.com/aios)
+
 ## Flex / обычная сетка
 По умолчанию включена flex сетка. Если нужно выключить flex и включить обычную разметку, нужно раскоментировать строчку `@include foundation-everything(false);` в файле `resurses\assets\sass\app.scss`. Соответственно строчку `@include foundation-everything(true);` нужно закомментировать или удалить.
 
 ## Добавлено
-- Seeds (admin:admin - Администратор; user:user - Пользователь)
+- Seeds (admin:admin111 - Администратор; user:user111 - Пользователь)
 - Регистрация переделана на Ajax + Виды (логин, регистрация, -восстановление пароля, -смена пароля)
-- Подтверждение почты по токену
+- Двухфакторная регистрация (Подтверждение почты по токену)
 - Добавлен запрос IP при регистрации пользователя и -верификации почты
-- Роли
+- Роли (очень просто - админ и юзер, может еще каких-то)
+
+## Прочая информация
+- На логаут наложено обновление страницы, дабы не плодить много регов
+
+## В планах
+- Invisible reCAPTCHA на регистрацию
+- Соц реги от laravel/socialite (ФБ, ВК, Гугл, LinkedIn, GitHub, Twitter, Instagram, OK, MailRu, Яндекс)
+- Статические страницы (Контакты, О нас, прочее)
+- Бложик
+- Добавить языков (+RU, EN, DE, IT, FR)
+- Профайлы и страницу редактирования (CRUD из фронтенда с подключением/отключением социалок к акку)
 
 ## License
 

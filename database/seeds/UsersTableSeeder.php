@@ -18,16 +18,28 @@ class UsersTableSeeder extends Seeder
 
         $users = [
             [
-                'name' => 'admin',
+                'name' => 'Администратор',
+                'username' => 'admin',
                 'email' => 'admin@admin.com',
-                'password' => 'admin',
-                'role_id' => 5,
+                'password' => 'admin111',
+                'active' => true,
+                'role_id' => 2,
             ],
             [
-                'name' => 'user',
-                'email' => 'user@admin.com',
-                'password' => 'user',
-                'role_id' => 0,
+                'name' => 'Пользователь',
+                'username' => 'user',
+                'email' => 'user@user.com',
+                'password' => 'user111',
+                'active' => true,
+                'role_id' => 1,
+            ],
+            [
+                'name' => 'vasya',
+                'username' => 'Вася',
+                'email' => 'vasiliy@google.com',
+                'password' => 'user111',
+                'active' => 0,
+                'role_id' => 1,
             ]
         ];
 
@@ -35,8 +47,11 @@ class UsersTableSeeder extends Seeder
             $newUser = User::where('username', '=', $user['username'])->first();
             if ($newUser === null) {
                 $newUser = User::create(array(
-                    'name'			=> $user['name'],
+                    'name'          => $user['name'],
+                    'username'		=> $user['username'],
                     'email'			=> $user['email'],
+                    'role_id'		=> $user['role_id'],
+                    'active'		=> $user['active'],
                     'password'		=> Hash::make ($user['password']),
                 ));
             }
@@ -48,6 +63,7 @@ class UsersTableSeeder extends Seeder
         // foreach (range(1,1000) as $index) {
         //     DB::table('users')->insert([
         //         'name' => $faker->name,
+        //         'username' => $faker->name,
         //         'email' => $faker->email,
         //         'password' => bcrypt('secret'),
         //     ]);
