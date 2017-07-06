@@ -33,6 +33,4 @@ return [
                 ->setPriority(400),
         ],
     ]
-
-
 ];

@@ -5,6 +5,7 @@ return [
     'adm_information' => 'Информация',
 	
     'adm_users_group' => 'Пользователи',
+    'adm_users_2' => 'Пользователей',
     'adm_users_all' => 'Все пользователи',
     'adm_users_edit' => 'Редактирование пользователя',
     'adm_users_create' => 'Создание пользователя',
@@ -13,6 +14,8 @@ return [
     'adm_users_admins' => 'Администраторы',
 	
     'adm_roles' => 'Роли',
+    'adm_roles_edit' => 'Редактирование ролей',
+    'adm_roles_create' => 'Создание новой роли',
     'adm_role' => 'Роль',
 	
 	
@@ -29,6 +32,7 @@ return [
 	'adm_avatar' => 'Аватар',
 	'adm_all' => 'Все',
 	'adm_edit' => 'Редактирование',
+	'adm_desc' => 'Описание',
     
 	
 	'adm_active' => 'Активен',
