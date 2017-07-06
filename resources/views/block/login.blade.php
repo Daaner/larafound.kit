@@ -12,11 +12,13 @@
 
   @if (Auth::check())
     <li class="username">{{ Auth::user()->name }}</li>
-    <li class="admin">
-      <a href="{{ route('admin.dashboard') }}" target="_Blank" title="{{ trans('site.adm_panel') }}" data-tooltip>
-        <i class="fa fa-cog fa-spin-h"></i>
-      </a>
-    </li>
+    @if (Auth::user()->isAdmin())
+      <li class="admin">
+        <a href="{{ route('admin.dashboard') }}" target="_Blank" title="{{ trans('site.adm_panel') }}" data-tooltip>
+          <i class="fa fa-cog fa-spin-h"></i>
+        </a>
+      </li>
+    @endif
     <li class="logout">
       <a id="logout" title="{{ trans('site.logout') }}" data-tooltip>
         <i class="fi-power"></i>

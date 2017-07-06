@@ -30,6 +30,13 @@
         @include('block.header')
     </header>
 
+    @if (session('status'))
+      <section id="status">
+        <div class="carret alert-success">
+            {{ session('status') }}
+        </div>
+      </section>
+    @endif
 
     <section id="content">
         @yield('content')

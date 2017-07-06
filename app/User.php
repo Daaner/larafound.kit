@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 use App\Traits\CaptureIpTrait;
 
 class User extends Authenticatable
@@ -18,7 +19,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'signup_ip',
+        'name',
+        'username',
+        'email',
+        'password',
     ];
 
     /**
@@ -27,7 +31,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'role_id',
+        'role_id',
+        'signup_ip',
+        'confirm_ip',
+        'password',
+        'remember_token',
+        'token',
+        'active',
     ];
 
     public static function boot() {
@@ -43,8 +53,24 @@ class User extends Authenticatable
         $this->active = true;
         $this->token = null;
         $this->confirm_ip = $ipAddress->getClientIp();
-        
+
         $this->save();
+    }
+
+    public function isAdmin(){
+        $request=false;
+        if ((Auth::user()->role_id) == 3){
+            $request=true;
+        };
+        return $request;
+    }
+
+    public function isManager(){
+        $request=false;
+        if ((Auth::user()->role_id) == 2){
+            $request=true;
+        };
+        return $request;
     }
 
 }

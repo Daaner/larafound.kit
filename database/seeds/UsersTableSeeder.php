@@ -22,15 +22,15 @@ class UsersTableSeeder extends Seeder
                 'username' => 'admin',
                 'email' => 'admin@admin.com',
                 'password' => 'admin111',
-                'active' => true,
-                'role_id' => 2,
+                'active' => 1,
+                'role_id' => 3,
             ],
             [
                 'name' => 'Пользователь',
                 'username' => 'user',
                 'email' => 'user@user.com',
                 'password' => 'user111',
-                'active' => true,
+                'active' => 1,
                 'role_id' => 1,
             ],
             [
