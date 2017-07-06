@@ -63,12 +63,41 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 27:
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+__webpack_require__(2);
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+/*Vue.component('example', require('./components/Example.vue'));
+const app = new Vue({
+    el: '#app'
+});*/
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -80,21 +109,21 @@
  * code may be modified to fit the specific needs of your application.
  */
 
-window.$ = window.jQuery = __webpack_require__(29);
+window.$ = window.jQuery = __webpack_require__(4);
 
-__webpack_require__(33);
-__webpack_require__(28);
+__webpack_require__(7);
+__webpack_require__(3);
 
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
+// $.ajaxSetup({
+//     headers: {
+//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     }
+// });
 
 $(document).foundation();
 
 Foundation.Abide.defaults.patterns['login'] = /^([a-zA-Zа-яА-Я0-9\s\@\.\_\-()]){3,}$/;
-Foundation.Abide.defaults.patterns['password'] = /^(.){1,}$/;
+Foundation.Abide.defaults.patterns['password'] = /^(.){6,}$/;
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -102,7 +131,7 @@ Foundation.Abide.defaults.patterns['password'] = /^(.){1,}$/;
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(31);
+window.Vue = __webpack_require__(5);
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -119,29 +148,49 @@ window.Vue = __webpack_require__(31);
 
 $(document).ready(function () {
 
+  function verify_csrf() {
+    $.ajax({
+      url: '/csrf-token',
+      type: 'GET',
+      cache: false,
+      async: false,
+      success: function success(data) {
+        $('meta[name="csrf-token"]').attr('content', data);
+      }
+    });
+  };
+
   var registerForm = $("#register-form");
   registerForm.on({
     'submit': function submit() {
-      $("#register-error").addClass("hide");
       return false;
     },
     'formvalid.zf.abide': function formvalidZfAbide(e) {
-      $.ajaxSetup({
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
+      verify_csrf();
+      $("#register-error").addClass("hide");
+
       e.preventDefault();
-      var formDataReg = registerForm.serialize();
+      RegData = {
+        'name': registerForm.find("input[name='name']").val(),
+        'username': registerForm.find("input[name='username']").val(),
+        'email': registerForm.find("input[name='email']").val(),
+        'password': registerForm.find("input[name='password']").val(),
+        'password_confirmation': registerForm.find("input[name='password_confirmation']").val(),
+        '_token': $('meta[name="csrf-token"]').attr('content')
+      };
+
       $('#register-error p').html("");
       $("#register-error").addClass("hide");
       $.ajax({
         url: '/register',
         type: 'POST',
         cache: false,
-        data: formDataReg,
+        data: RegData,
         success: function success(data) {
-          if (data.name) {
+          if (data.token) {
+            $("#register-error").removeClass("hide");
+            $('#register-error p').html(data.token);
+          } else if (data.name) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.name);
           } else if (data.email) {
@@ -184,27 +233,34 @@ $(document).ready(function () {
   var loginForm = $("#login-form");
   loginForm.on({
     'submit': function submit() {
-      $("#login-error").addClass("hide");
       return false;
     },
     'formvalid.zf.abide': function formvalidZfAbide(e) {
+      verify_csrf();
+      $('#login-error').addClass('hide');
+
       e.preventDefault();
-      var formDataLogin = loginForm.serialize();
-      $('#login-error p').html("");
-      $("#login-error").addClass("hide");
-      var fdata = {
+      loginData = {
         'login': loginForm.find("input[name='login']").val(),
         'password': loginForm.find("input[name='password']").val(),
-        '_token': loginForm.find('input[name="_token"]').val()
+        '_token': $('meta[name="csrf-token"]').attr('content')
       };
+
       $.ajax({
         url: '/login',
         type: 'POST',
         cache: false,
-        data: fdata,
+        async: false,
+        data: loginData,
         success: function success(data) {
-          if (data.error) {
-            $("#login-error").removeClass("hide");
+          if (data.token) {
+            $('#login-error').removeClass('hide');
+            $('#login-error p').html(data.token);
+          } else if (data.tokenerror) {
+            $('#login-error').removeClass('hide');
+            $('#login-error p').html(data.tokenerror);
+          } else if (data.error) {
+            $('#login-error').removeClass('hide');
             $('#login-error p').html(data.error);
           } else {
             $('#login_form').foundation('close');
@@ -215,8 +271,11 @@ $(document).ready(function () {
         error: function error(data) {
           var obj = jQuery.parseJSON(data.responseText);
           if (obj.error) {
-            $("#login-error").addClass("hide");
+            $('#login-error').removeClass('hide');
             $('#login-error p').html(obj.error);
+          } else if (data.tokenerror) {
+            $('#login-error').removeClass('hide');
+            $('#login-error p').html('data.tokenerror');
           }
         }
       });
@@ -224,25 +283,25 @@ $(document).ready(function () {
   });
 
   $("#login").on('click', 'a#logout', function (e) {
+    verify_csrf();
     e.preventDefault();
     $.ajax({
       url: '/logout',
       type: 'POST',
       cache: false,
-      data: { '_token': $('#login input[name="_token"]').val() },
+      data: { '_token': $('meta[name="csrf-token"]').attr('content') },
       success: function success(data) {
         location.reload();
       },
       error: function error(data) {
-        // location.reload();
+        location.reload();
       }
     });
   });
 });
 
 /***/ }),
-
-/***/ 28:
+/* 3 */
 /***/ (function(module, exports) {
 
 !function ($) {
@@ -10454,8 +10513,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 }(jQuery);
 
 /***/ }),
-
-/***/ 29:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -20715,8 +20773,7 @@ return jQuery;
 
 
 /***/ }),
-
-/***/ 31:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30412,11 +30469,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }),
-
-/***/ 32:
+/* 6 */
 /***/ (function(module, exports) {
 
 var g;
@@ -30443,8 +30499,7 @@ module.exports = g;
 
 
 /***/ }),
-
-/***/ 33:
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -30810,46 +30865,12 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-
-/***/ 34:
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(7);
-module.exports = __webpack_require__(8);
+__webpack_require__(0);
+module.exports = __webpack_require__(1);
 
-
-/***/ }),
-
-/***/ 7:
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-__webpack_require__(27);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-/*Vue.component('example', require('./components/Example.vue'));
-const app = new Vue({
-    el: '#app'
-});*/
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
-
-/******/ });
+/******/ ]);

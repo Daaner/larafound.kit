@@ -6,7 +6,6 @@
   <form id="login-form" data-abide novalidate>
     <div class="row">
       <div class="small-12 columns">
-        {{ csrf_field() }}
         <h3 class="text-center">
           {{ trans('site.login_header') }}
         </h3>

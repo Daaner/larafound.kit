@@ -22,7 +22,6 @@
         <i class="fi-power"></i>
       </a>
       <span class="hide">
-        {{ csrf_field() }}
       </span>
     </li>
   @endif

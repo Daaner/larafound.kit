@@ -12,16 +12,16 @@ window.$ = window.jQuery = require('jquery');
 require('what-input');
 require('foundation-sites');
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
+// $.ajaxSetup({
+//     headers: {
+//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     }
+// });
 
 $(document).foundation();
 
 Foundation.Abide.defaults.patterns['login'] = /^([a-zA-Zа-яА-Я0-9\s\@\.\_\-()]){3,}$/;
-Foundation.Abide.defaults.patterns['password'] = /^(.){1,}$/;
+Foundation.Abide.defaults.patterns['password'] = /^(.){6,}$/;
 
 
 /**
@@ -47,29 +47,51 @@ window.Vue = require('vue');
 
 $(document).ready(function(){
 
+  function verify_csrf() {
+    $.ajax ({
+      url: '/csrf-token',
+      type: 'GET',
+      cache: false,
+      async: false,
+      success: function(data) {
+        $('meta[name="csrf-token"]').attr('content', data);
+      }
+    });
+  };
+
+
   var registerForm = $("#register-form");
   registerForm.on({
     'submit': function() {
-      $("#register-error").addClass("hide");
       return false;
     },
     'formvalid.zf.abide': function(e) {
-      $.ajaxSetup({
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
+      verify_csrf();
+      $("#register-error").addClass("hide");
+
       e.preventDefault();
-      var formDataReg = registerForm.serialize();
+      RegData = {
+        'name': registerForm.find("input[name='name']" ).val(),
+        'username': registerForm.find("input[name='username']" ).val(),
+        'email': registerForm.find("input[name='email']" ).val(),
+        'password': registerForm.find("input[name='password']" ).val(),
+        'password_confirmation': registerForm.find("input[name='password_confirmation']" ).val(),
+        '_token': $('meta[name="csrf-token"]').attr('content'),
+      };
+
       $('#register-error p').html("");
       $("#register-error").addClass("hide");
       $.ajax({
         url: '/register',
         type: 'POST',
         cache: false,
-        data: formDataReg,
+        data: RegData,
         success: function(data) {
-          if (data.name) {
+          if (data.token) {
+            $("#register-error").removeClass("hide");
+            $('#register-error p').html(data.token);
+          }
+          else if (data.name) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.name);
           }
@@ -116,27 +138,36 @@ $(document).ready(function(){
   var loginForm = $("#login-form");
   loginForm.on({
     'submit': function() {
-      $("#login-error").addClass("hide");
       return false;
     },
     'formvalid.zf.abide': function(e) {
+      verify_csrf();
+      $('#login-error').addClass('hide');
+
       e.preventDefault();
-      var formDataLogin = loginForm.serialize();
-      $('#login-error p').html("");
-      $("#login-error").addClass("hide");
-      var fdata = {
+      loginData = {
         'login': loginForm.find("input[name='login']" ).val(),
         'password': loginForm.find("input[name='password']" ).val(),
-        '_token': loginForm.find('input[name="_token"]').val()
+        '_token': $('meta[name="csrf-token"]').attr('content'),
       };
+
       $.ajax({
         url: '/login',
         type: 'POST',
         cache: false,
-        data: fdata,
+        async: false,
+        data: loginData,
         success: function(data) {
-          if (data.error) {
-            $("#login-error").removeClass("hide");
+          if (data.token) {
+            $('#login-error').removeClass('hide');
+            $('#login-error p').html(data.token);
+          }
+          else if (data.tokenerror) {
+            $('#login-error').removeClass('hide');
+            $('#login-error p').html(data.tokenerror);
+          }
+          else if (data.error) {
+            $('#login-error').removeClass('hide');
             $('#login-error p').html(data.error);
           } else {
             $('#login_form').foundation('close');
@@ -147,8 +178,12 @@ $(document).ready(function(){
         error: function(data) {
           var obj = jQuery.parseJSON(data.responseText);
           if (obj.error) {
-            $("#login-error").addClass("hide");
+            $('#login-error').removeClass('hide');
             $('#login-error p').html(obj.error);
+          }
+          else if (data.tokenerror) {
+            $('#login-error').removeClass('hide');
+            $('#login-error p').html('data.tokenerror');
           }
         }
       });
@@ -156,17 +191,18 @@ $(document).ready(function(){
   });
 
   $("#login").on('click', 'a#logout', function(e){
+    verify_csrf();
     e.preventDefault();
     $.ajax({
       url: '/logout',
       type: 'POST',
       cache: false,
-      data: {'_token': $('#login input[name="_token"]').val()},
+      data: {'_token': $('meta[name="csrf-token"]').attr('content')},
       success: function(data) {
         location.reload();
       },
       error: function(data) {
-        // location.reload();
+        location.reload();
       }
     });
   });

@@ -59,8 +59,6 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only($login_type, 'password'))) {
-            // $request->session()->regenerate();
-            Session::regenerate();
             return view('block.login');
         }
 

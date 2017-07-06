@@ -7,7 +7,6 @@
 
     <div class="row">
       <div class="small-12 columns">
-        {{ csrf_field() }}
         <h3 class="text-center">
           {{ trans('site.register_header') }}
         </h3>

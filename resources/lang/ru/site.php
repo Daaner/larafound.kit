@@ -38,6 +38,7 @@ return [
 	'form_password_error' => 'Пароль должен быть от 6 символов',
 	'form_password_re_enter_error' => 'Пароли не совпадают',
 	'form_error' => 'В форме есть некоторые ошибки.',
+	'error_token' => 'Ошибка сессии. Перегрузите страницу и попробуйте снова',
 	
 	'form_btn_register' => 'Регистрация',
 	'error_reg_username' => 'Логин занят',

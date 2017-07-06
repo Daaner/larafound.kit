@@ -12,7 +12,7 @@
 	<link rel="apple-touch-icon-precomposed" href="/favicon.ico"/>
 	<meta name="msapplication-TileImage" content="/favicon.ico"/>
 
-   <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+   <meta name="csrf-token" content="">
 
    <title>
       @hasSection ('title')
@@ -24,10 +24,6 @@
 
    <link href="/public/css/app.css" rel="stylesheet">
 
-
-   <script>
-     window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token(),]); ?>
-   </script>
 </head>
 <body>
     <header>
