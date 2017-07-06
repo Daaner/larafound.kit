@@ -834,16 +834,16 @@
         },
         {
             "name": "kodicms/laravel-assets",
-            "version": "v0.3.5",
+            "version": "v0.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KodiCMS/laravel-assets.git",
-                "reference": "aea1cb2cd9790a7e942185a8b3686be73fef44f8"
+                "reference": "664f33cd155a07c67671762a32edc68444b2e2d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KodiCMS/laravel-assets/zipball/aea1cb2cd9790a7e942185a8b3686be73fef44f8",
-                "reference": "aea1cb2cd9790a7e942185a8b3686be73fef44f8",
+                "url": "https://api.github.com/repos/KodiCMS/laravel-assets/zipball/664f33cd155a07c67671762a32edc68444b2e2d8",
+                "reference": "664f33cd155a07c67671762a32edc68444b2e2d8",
                 "shasum": ""
             },
             "require": {
@@ -870,7 +870,7 @@
                     "email": "butschster@gmail.com"
                 }
             ],
-            "time": "2016-11-08T12:17:23+00:00"
+            "time": "2017-07-06T15:50:56+00:00"
         },
         {
             "name": "kodicomponents/navigation",
@@ -1217,12 +1217,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
-                "reference": "29f4d2a3448c590ca9808e12c87824bc7efdad05"
+                "reference": "eb56614d0b86793c3c840aa056f6597f8ee8c29b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/29f4d2a3448c590ca9808e12c87824bc7efdad05",
-                "reference": "29f4d2a3448c590ca9808e12c87824bc7efdad05",
+                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/eb56614d0b86793c3c840aa056f6597f8ee8c29b",
+                "reference": "eb56614d0b86793c3c840aa056f6597f8ee8c29b",
                 "shasum": ""
             },
             "require": {
@@ -1275,7 +1275,7 @@
                 "crud",
                 "laravel"
             ],
-            "time": "2017-07-05 18:06:35"
+            "time": "2017-07-06 12:38:02"
         },
         {
             "name": "league/flysystem",
@@ -1744,16 +1744,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.8",
+            "version": "v0.8.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "fe65c30cbc55c71e61ba3a38b5a581149be31b8e"
+                "reference": "58a31cc4404c8f632d8c557bc72056af2d3a83db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/fe65c30cbc55c71e61ba3a38b5a581149be31b8e",
-                "reference": "fe65c30cbc55c71e61ba3a38b5a581149be31b8e",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/58a31cc4404c8f632d8c557bc72056af2d3a83db",
+                "reference": "58a31cc4404c8f632d8c557bc72056af2d3a83db",
                 "shasum": ""
             },
             "require": {
@@ -1813,7 +1813,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-06-24T06:16:19+00:00"
+            "time": "2017-07-06T14:53:52+00:00"
         },
         {
             "name": "ramsey/uuid",

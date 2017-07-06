@@ -13,9 +13,12 @@ Route::group(['middleware' => 'auth'], function(){
 
 
 // Auth
-Route::post('/login', 'Auth\LoginController@login');
-Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/csrf-token', 'AjaxTokenVerify@VerifyToken');
+
+Route::group(['middleware' => 'throttle:5'], function () {
+	Route::post('/login', 'Auth\LoginController@login');
+	Route::post('/register', 'Auth\RegisterController@register');
+});
 
 
 //lng
