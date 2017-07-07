@@ -34,6 +34,8 @@ return [
 	'adm_all' => 'Все',
 	'adm_edit' => 'Редактирование',
 	'adm_desc' => 'Описание',
+	'adm_ip_sign' => 'IP при регистрации',
+	'adm_ip_confirm' => 'IP при подтверждении почты',
     
 	
 	'adm_active' => 'Активен',

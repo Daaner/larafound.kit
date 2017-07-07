@@ -21,8 +21,7 @@ use SleepingOwl\Admin\Form\Buttons\SaveAndClose;
 use SleepingOwl\Admin\Form\Buttons\Cancel;
 use SleepingOwl\Admin\Form\Buttons\Delete;
 
-class UsersAdm extends Section implements Initializable
-{
+class UsersAdm extends Section implements Initializable {
 
     public function initialize() {
         $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
@@ -65,15 +64,26 @@ class UsersAdm extends Section implements Initializable
     public function onEdit($id) {
 
         $form=AdminForm::panel()->addBody([
-            AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
-            AdminFormElement::text('name', trans('admin.adm_name'))->required(),
-            AdminFormElement::text('username', trans('admin.adm_username'))->required(),
-            AdminFormElement::select('role_id', 'Роли', Role::class)->setDisplay('name')->setSortable(false)->required(),
-            AdminFormElement::text('email', trans('admin.adm_email'))->required(),
-            AdminFormElement::checkbox('active', trans('admin.adm_email_check'))->required(),
-            AdminFormElement::password('password', trans('admin.adm_password')),
-            AdminFormElement::datetime('created_at', trans('admin.adm_created'))->setReadonly(1),
-            AdminFormElement::datetime('deleted_at', trans('admin.adm_delete'))->setReadonly(1),
+            AdminFormElement::columns()->addColumn([
+                AdminFormElement::text('id', trans('admin.adm_id'))->required()->setReadonly(1),
+                AdminFormElement::image('avatar', trans('admin.adm_avatar')),
+            ], 3)->addColumn([
+                AdminFormElement::text('name', trans('admin.adm_name'))->required(),
+                AdminFormElement::text('username', trans('admin.adm_username'))->required(),
+                AdminFormElement::text('email', trans('admin.adm_email'))->required(),
+                AdminFormElement::checkbox('active', trans('admin.adm_email_check')),
+                AdminFormElement::select('role_id', trans('admin.adm_role'), Role::class)
+                                ->setDisplay('name')->setSortable(false)->required(),
+                // AdminFormElement::password('password', trans('admin.adm_password')),
+            ]),
+
+            AdminFormElement::columns()->addColumn([
+                AdminFormElement::datetime('created_at', trans('admin.adm_created'))->setReadonly(1),
+            ], 3)->addColumn([
+                AdminFormElement::text('signup_ip', trans('admin.adm_ip_sign'))->setReadonly(1),
+            ], 3)->addColumn([
+                AdminFormElement::text('confirm_ip', trans('admin.adm_ip_confirm'))->setReadonly(1),
+            ], 3)
         ]);
 
         $form->getButtons()->setButtons ([
