@@ -4,8 +4,8 @@
     padding: 0.7rem 1rem;
   }
 
-  .login,
   .admin,
+  .login,
   .logout {
     a {
       border-bottom: 0;
@@ -20,11 +20,16 @@
   }
 }
 
+a.bottom_form {
+  border-bottom: 1px dotted;
+}
 //login-form
+
 #login_form {
   .switch {
     .switch-paddle {
       border-radius: 15px;
+
       &::after {
         border-radius: 15px;
       }

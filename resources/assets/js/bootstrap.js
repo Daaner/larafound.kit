@@ -190,6 +190,55 @@ $(document).ready(function(){
     }
   });
 
+  var ForgotForm = $("#reset-form");
+  ForgotForm.on({
+    'submit': function() {
+      return false;
+    },
+    'formvalid.zf.abide': function(e) {
+      verify_csrf();
+      $('#forgot-error').addClass('hide');
+
+      e.preventDefault();
+      forgotData = {
+        'email': ForgotForm.find("input[name='email']" ).val(),
+        '_token': $('meta[name="csrf-token"]').attr('content'),
+      };
+
+      $.ajax({
+        url: '/forgot',
+        type: 'POST',
+        cache: false,
+        async: false,
+        data: forgotData,
+        success: function(data) {
+          if (data.error) {
+            $('#forgot-error').removeClass('hide');
+            $('#forgot-error p').html(data.error);
+          }
+          else if (data.reset) {
+            $('#reset-form').addClass('hide');
+            $('#login_form .forgot').addClass('hide');
+            $('#reset-form_info').removeClass('hide');
+            $('#reset-form_info').html(data.reset);
+            setTimeout(function(){$('#reset_form').foundation('close')},5000);
+          }
+        },
+        error: function(data) {
+          var obj = jQuery.parseJSON(data.responseText);
+          if (obj.error) {
+            $('#forgot-error').removeClass('hide');
+            $('#forgot-error p').html(obj.error);
+          }
+          else if (data.tokenerror) {
+            $('#forgot-error').removeClass('hide');
+            $('#forgot-error p').html('data.tokenerror');
+          }
+        }
+      });
+    }
+  });
+
   $("#login").on('click', 'a#logout', function(e){
     verify_csrf();
     e.preventDefault();

@@ -8,6 +8,7 @@
       </a>
     </li>
     @include('auth.login')
+    @include('auth.passwords.reset')
   @endif
 
   @if (Auth::check())

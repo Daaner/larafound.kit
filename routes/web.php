@@ -6,7 +6,7 @@ Route::get('/', function () {
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-// Auth::routes();
+Auth::routes();
 Route::group(['middleware' => 'auth'], function(){
   Route::post('/logout', 'Auth\LoginController@logout');
 });
@@ -15,9 +15,11 @@ Route::group(['middleware' => 'auth'], function(){
 // Auth
 Route::get('/csrf-token', 'AjaxTokenVerify@VerifyToken');
 
-Route::group(['middleware' => 'throttle:5'], function () {
-	Route::post('/login', 'Auth\LoginController@login');
+Route::group(['middleware' => 'throttle:50'], function () {
 	Route::post('/register', 'Auth\RegisterController@register');
+	Route::post('/login', 'Auth\LoginController@login');
+
+	Route::post('/forgot', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 });
 
 

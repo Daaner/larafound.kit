@@ -50,7 +50,7 @@
     <div class="row">
       <fieldset class="small-12 columns text-center">
         <button class="button expanded" type="submit" value="Submit">{{ trans('site.login') }}</button>
-        <a href="#" class="forgot">{{ trans('site.forgot_password') }}</a>
+        <a  data-open="reset_form" class="forgot bottom_form">{{ trans('site.forgot_password') }}</a>
       </fieldset>
     </div>
 

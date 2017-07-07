@@ -1,76 +1,45 @@
-@extends('layouts.app')
+<div class="reveal tiny" id="reset_form" data-animation-out="spin-out" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+  @if (session('status'))
+  <div class="alert alert-success">
+    {{ session('status') }}
+  </div>
+  @endif
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.request') }}">
-                        {{ csrf_field() }}
-
-                        <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <h3>{{ trans('site.forgoting_header') }}</h3>
     </div>
+    <div class="small-12 columns">
+      <h4 id="reset-form_info" class="success callout text-center hide">123</h4>
+    </div>
+  </div>
+    <form id="reset-form" data-abide novalidate>
+      <div class="row">
+      <div class="small-12 columns">
+        <label for="email">{{ trans('site.email') }}
+          <input type="email" name="email" value="{{ $email or old('email') }}" required autofocus>
+          <span class="form-error">
+            {{ trans('site.form_email_error') }}
+          </span>
+        </label>
+      </div>
+
+      <div class="small-12 columns hide" id="forgot-error"><p class="alert callout"></p></div>
+
+      <fieldset class="small-12 columns text-center">
+        <button class="button expanded" type="submit" value="Submit">{{ trans('site.send_pass') }}</button>
+      </fieldset>
+    </div>
+    </form>
+
+  <div class="row">
+    <div class="small-12 text-center columns">
+      <a  data-open="login_form" class="login bottom_form">{{ trans('site.login2') }}</a>
+    </div>
+  </div>
+
 </div>
-@endsection
