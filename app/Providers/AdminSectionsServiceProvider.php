@@ -2,15 +2,15 @@
 
 namespace App\Providers;
 
+use SleepingOwl\Admin\Contracts\Widgets\WidgetsRegistryInterface;
 use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
 
-use SleepingOwl\Admin\Contracts\Widgets\WidgetsRegistryInterface;
 
 class AdminSectionsServiceProvider extends ServiceProvider
 {
 
     protected $widgets = [
-        \Admin\Widgets\NavigationUserBlock::class
+        \App\Admin\Widgets\NavigationUserBlock::class
     ];
 
     /**

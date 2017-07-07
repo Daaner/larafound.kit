@@ -1,2 +1,19 @@
-
 /* Admin custom CSS */
+header .navbar-right i {
+  margin-right: 5px;
+}
+#lng ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+#lng li {
+  padding: 5px;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+#lng li:hover {
+  background-color: #efefef;
+}

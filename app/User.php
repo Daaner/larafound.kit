@@ -61,6 +61,14 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function getAvatarUrlOrBlankAttribute() {
+      if (empty($url = $this->avatar)) {
+          return asset('images/avatars/default.jpg');
+      }
+
+      return $url;
+    }
+
     public function isManager(){
       $request=false;
       if ((Auth::user()->role_id) == 2){

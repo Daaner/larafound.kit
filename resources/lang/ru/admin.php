@@ -3,6 +3,7 @@
 return [
     'adm_dashboard' => 'Панель виджетов',
     'adm_information' => 'Информация',
+    'adm_lng' => 'Язык',
 	
     'adm_users_group' => 'Пользователи',
     'adm_users_2' => 'Пользователей',
