@@ -4,8 +4,14 @@ namespace App\Providers;
 
 use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
 
+use SleepingOwl\Admin\Contracts\Widgets\WidgetsRegistryInterface;
+
 class AdminSectionsServiceProvider extends ServiceProvider
 {
+
+    protected $widgets = [
+        \Admin\Widgets\NavigationUserBlock::class
+    ];
 
     /**
      * @var array
@@ -26,7 +32,17 @@ class AdminSectionsServiceProvider extends ServiceProvider
     public function boot(\SleepingOwl\Admin\Admin $admin)
     {
     	//
+        $this->loadViewsFrom(base_path("resources/views/admin"), 'admin');
 
         parent::boot($admin);
+
+        $this->app->call([$this, 'registerViews']);
+    }
+
+    public function registerViews(WidgetsRegistryInterface $widgetsRegistry)
+    {
+        foreach ($this->widgets as $widget) {
+            $widgetsRegistry->registerWidget($widget);
+        }
     }
 }
