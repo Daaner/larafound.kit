@@ -1,7 +1,7 @@
 <tr>
     <td class="header">
         <a href="{{ $url }}">
-            {{ $slot }}
+            {{ trans('email.mail_header') }}
         </a>
     </td>
 </tr>

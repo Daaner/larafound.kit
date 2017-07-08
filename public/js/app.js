@@ -208,6 +208,9 @@ $(document).ready(function () {
           } else {
             $('#register_form').foundation('close');
             $('#login').html(data);
+            $('#login_form').html('');
+            $('#register_form').html('');
+            $('#reset_form').html('');
             $('#login').foundation();
           }
         },
@@ -265,6 +268,9 @@ $(document).ready(function () {
           } else {
             $('#login_form').foundation('close');
             $('#login').html(data);
+            $('#login_form').html('');
+            $('#register_form').html('');
+            $('#reset_form').html('');
             $('#login').foundation();
           }
         },
@@ -318,14 +324,8 @@ $(document).ready(function () {
           }
         },
         error: function error(data) {
-          var obj = jQuery.parseJSON(data.responseText);
-          if (obj.error) {
-            $('#forgot-error').removeClass('hide');
-            $('#forgot-error p').html(obj.error);
-          } else if (data.tokenerror) {
-            $('#forgot-error').removeClass('hide');
-            $('#forgot-error p').html('data.tokenerror');
-          }
+          // location.reload();
+          console.log(data);
         }
       });
     }

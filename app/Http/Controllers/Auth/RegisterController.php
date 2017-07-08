@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use App\Traits\CaptureIpTrait;
 
 use Auth;
+use Mail;
+use App\Mail\Register;
 
 class RegisterController extends Controller
 {
@@ -91,23 +93,6 @@ class RegisterController extends Controller
         return $user;
     }
 
-    // public function register(Request $request)
-    // {
-    //     $this->validator($request->all())->validate();
-    //     event(
-    //         new Registered(
-    //             $user = $this->create(
-    //                 $request->all()
-    //             )
-    //         )
-    //     );
-    //
-    //     // Mail::to($user->email)->send(new ConfirmationEmail($user));
-    //
-    //     return redirect('login')
-    //             ->with('status', 'Надо подтвердить почту');
-    // }
-
     public function register(Request $request)  {
         $validation = $this->validator($request->all());
         if ($validation->fails())  {
@@ -116,9 +101,12 @@ class RegisterController extends Controller
         else{
             $user = $this->create($request->all());
             Auth::login($user);
+
+            Mail::to($user)->send(new Register($user));
+
             if (Auth::user()){
               $request->session()->regenerate();
-              return view('block.login')->with('status', trans('site.info_register_complite'));
+              return view('block.login')->with('status', trans('email.info_register_complite'));
             }
         }
     }

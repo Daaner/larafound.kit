@@ -2,24 +2,25 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('site');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 Route::group(['middleware' => 'auth'], function(){
-  Route::post('/logout', 'Auth\LoginController@logout');
+  Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 });
 
 
 // Auth
-Route::get('/csrf-token', 'AjaxTokenVerify@VerifyToken');
+Route::get('/csrf-token', 'AjaxTokenVerify@VerifyToken')->name('token');
 
 Route::group(['middleware' => 'throttle:50'], function () {
-	Route::post('/register', 'Auth\RegisterController@register');
-	Route::post('/login', 'Auth\LoginController@login');
+	Route::post('/register', 'Auth\RegisterController@register')->name('register');
+	Route::get('/register', 'Auth\RegisterController@register')->name('regtoken');
+	Route::post('/login', 'Auth\LoginController@login')->name('login');
 
-	Route::post('/forgot', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+	Route::post('/forgot', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.reset');
 });
 
 
