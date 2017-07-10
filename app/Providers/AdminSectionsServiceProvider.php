@@ -22,6 +22,9 @@ class AdminSectionsServiceProvider extends ServiceProvider
         \App\Admin\Model\UserAdm::class        => '\App\Admin\Sections\UsersAdm',
         \App\Admin\Model\UserDel::class        => '\App\Admin\Sections\UsersDel',
         \App\Role::class                       => '\App\Admin\Sections\Roles',
+
+        \App\Models\StaticText::class          => '\App\Admin\Sections\StaticTexts',
+        \App\Models\StaticTextAdd::class       => '\App\Admin\Sections\StaticTextsADD',
     ];
 
     /**
