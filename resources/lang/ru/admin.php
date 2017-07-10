@@ -19,13 +19,27 @@ return [
     'adm_roles_create' => 'Создание новой роли',
     'adm_role' => 'Роль',
 	
-    'adm_static' => 'Основные пункты',
+    'adm_static' => 'Статические тексты',
+    'adm_static_list' => 'Список',
+    'adm_static_list_header' => 'Список статических текстов',
     'adm_static_edit' => 'Редактирование основного пункта',
     'adm_static_create' => 'Создание основного пункта',
+    'adm_static_add_ru' => 'Русские',
+    'adm_static_add_ru_header' => 'Русские статические тексты',
+	'adm_static_add_en' => 'Английские',
+    'adm_static_add_en_header' => 'Английские статические тексты',
 	
-	
-	
-	
+	'adm_label' => 'Название',
+	'adm_title' => 'Тайтл',
+	'adm_metakey' => 'Meta ключи',
+	'adm_metadesc' => 'Meta описание',
+	'adm_text_prev' => 'Предварительный текст',
+	'adm_text_full' => 'Полный текст',
+	'adm_video' => 'Видео',
+	'adm_published' => 'Отображать',
+	'adm_lng_ru' => 'RU',
+	'adm_lng_en' => 'EN',
+	'adm_user_id' => 'Редакция',
 	
 	'adm_id' => '№',
 	'adm_name' => 'Имя',

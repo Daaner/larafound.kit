@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Traits\CaptureIpTrait;
 
 use App\Role;
+use App\Models\StaticText;
 
 class User extends Authenticatable
 {
@@ -90,6 +91,7 @@ class User extends Authenticatable
 
 
     //Admin
+
     public function scopeUsrAll($query){
        return $query->where('deleted_at', null);
     }

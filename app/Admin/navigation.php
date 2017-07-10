@@ -13,10 +13,32 @@ return [
         'icon'  => 'fa fa-exclamation-circle',
         'url'   => route('admin.information'),
     ],
+
+    //static
+    [
+        'title' => trans('admin.adm_static'),
+        'icon' => 'fa fa-file-text',
+        'priority' => 400,
+        'pages' =>
+        [
+            (new Page(\App\Model\StaticText::class))
+                ->setTitle(trans('admin.adm_static_list'))
+                ->setPriority(100),
+            (new Page(\App\Admin\Model\StaticTextAddRu::class))
+                ->setTitle(trans('admin.adm_static_add_ru'))
+                ->setPriority(200),
+            (new Page(\App\Admin\Model\StaticTextAddEn::class))
+                ->setTitle(trans('admin.adm_static_add_en'))
+                ->setPriority(300),
+
+        ],
+    ],
+
+    //users
     [
         'title' => trans('admin.adm_users_group'),
         'icon' => 'fa fa-users',
-        'priority' => 300,
+        'priority' => 900,
         'pages' =>
         [
             (new Page(\App\Admin\Model\UserAll::class))

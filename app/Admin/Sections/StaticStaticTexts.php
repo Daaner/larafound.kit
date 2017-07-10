@@ -13,30 +13,30 @@ use AdminForm;
 use AdminFormElement;
 use SleepingOwl\Admin\Contracts\Initializable;
 
-use App\User;
-use App\Role;
+use AdminColumnEditable;
 
 use SleepingOwl\Admin\Form\Buttons\Save;
 use SleepingOwl\Admin\Form\Buttons\SaveAndClose;
 use SleepingOwl\Admin\Form\Buttons\Cancel;
 use SleepingOwl\Admin\Form\Buttons\Delete;
 
+use App\Model\StaticText;
+
 class StaticTexts extends Section implements Initializable
 {
 
     public function initialize() {
-        $this->addToNavigation()
-            ->setPriority(500);
+        $model = $this;
     }
 
     protected $checkAccess = false;
     protected $alias = 'static';
 
     public function getIcon() {
-        return 'fa fa-file-text';
+        return 'fa fa-indent';
     }
     public function getTitle() {
-        return trans('admin.adm_static');
+        return trans('admin.adm_static_list_header');
     }
     public function getEditTitle() {
         return trans('admin.adm_static_edit');
@@ -47,17 +47,23 @@ class StaticTexts extends Section implements Initializable
 
     public function onDisplay() {
 
-       $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-danger table-hover');
+       $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-success table-hover th-center');
 
         $display->setOrder([[0, 'asc']]);
 
         $display->setColumns([
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
-            AdminColumn::link('name', trans('admin.adm_role')),
-            // AdminColumn::text('description', trans('admin.adm_desc')),
-            // AdminColumn::count('users.id', trans('admin.adm_users_2'))
-            //     ->setWidth('120px')
-            //     ->setHtmlAttribute('class', 'text-center'),
+            AdminColumn::link('name', trans('admin.adm_label')),
+            AdminColumnEditable::checkbox('published', trans('admin.adm_published')),
+
+            AdminColumn::relatedLink('StaticAddru.title', trans('admin.adm_lng_ru'))
+                        ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+            AdminColumn::relatedLink('StaticAdden.title', trans('admin.adm_lng_en'))
+                        ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+
+            AdminColumn::custom(trans('admin.adm_user_id'), function ($model) {
+                return $model->updated_at ? $model->user['username'] .'<br/><small>'. $model->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
+            })->setWidth('150px')->setHtmlAttribute('class', 'text-center')->setOrderable(false),
         ]);
         $display->getColumns()->getControlColumn();
 
@@ -70,6 +76,7 @@ class StaticTexts extends Section implements Initializable
             AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
             AdminFormElement::text('name', trans('admin.adm_role'))->required(),
             // AdminFormElement::textarea('description', trans('admin.adm_desc')),
+            AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
         ]);
 
         $form->getButtons()->setButtons ([
