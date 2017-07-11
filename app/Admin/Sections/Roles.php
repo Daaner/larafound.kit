@@ -59,6 +59,7 @@ class Roles extends Section implements Initializable
                 ->setHtmlAttribute('class', 'text-center'),
         ]);
         $display->getColumns()->getControlColumn()->setDeletable(false);
+        $display->setDatatableAttributes(['searching' => false]);
 
         return $display;
     }

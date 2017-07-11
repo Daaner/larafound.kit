@@ -131,8 +131,8 @@ class StaticTexts extends Section implements Initializable
 
             ], 9)->addColumn([
                 AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
-                AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
-                AdminFormElement::timestamp('publish_up', trans('admin.adm_publish_up'))->required(),
+                AdminFormElement::timestamp('created_at', trans('admin.adm_created1')),
+                AdminFormElement::timestamp('publish_up', trans('admin.adm_publish_up')),
                 AdminFormElement::timestamp('publish_down', trans('admin.adm_publish_down')),
                 AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
             ]),

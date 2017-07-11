@@ -50,13 +50,16 @@ class StaticTextsAddRu extends Section implements Initializable
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link('title', trans('admin.adm_title')),
             AdminColumn::relatedLink('stextru.name', trans('admin.adm_related'))->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::custom( trans('admin.adm_metakey'), function ($instance) {
-                    return strlen($instance->keywords);})->setWidth('100px')->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::custom( trans('admin.adm_metadesc'), function ($instance) {
-                    return strlen($instance->description);})->setWidth('100px')->setHtmlAttribute('class', 'text-center'),
 
+            AdminColumn::custom( trans('admin.adm_seo'), function ($instance) {
+                      $metatitle = iconv_strlen($instance->title);
+                      $keyword = iconv_strlen($instance->keywords);
+                      $description = iconv_strlen($instance->description);
+                    return $metatitle.' / '.$keyword.' / '.$description;
+                })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::custom(trans('admin.adm_user_id'), function ($model) {
-                return $model->updated_at ? $model->user['username'] .'<br/><small>'. $model->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
+                return $model->updated_at ? $model->user['username']
+                .'<br/><small>'. $model->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
             })->setWidth('150px')->setHtmlAttribute('class', 'text-center')->setOrderable(false),
         ];
 
@@ -97,8 +100,7 @@ class StaticTextsAddRu extends Section implements Initializable
 
         $form=AdminForm::panel()->addBody([
             AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
-            AdminFormElement::text('title', trans('admin.adm_role'))->required(),
-            // AdminFormElement::radio('published', '1')->setOptions(['0' => 'Not ok', '1' => 'ok']),
+            AdminFormElement::text('title', trans('admin.adm_title'))->required(),
             AdminFormElement::textarea('keywords', trans('admin.adm_metakey')),
             AdminFormElement::textarea('description', trans('admin.adm_metadesc')),
 
