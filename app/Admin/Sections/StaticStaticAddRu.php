@@ -49,7 +49,7 @@ class StaticTextsAddRu extends Section implements Initializable
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link('title', trans('admin.adm_title')),
-            AdminColumnEditable::checkbox('published', trans('admin.adm_published')),
+            AdminColumn::relatedLink('stextru.name', trans('admin.adm_related'))->setHtmlAttribute('class', 'text-center'),
             AdminColumn::custom( trans('admin.adm_metakey'), function ($instance) {
                     return strlen($instance->keywords);})->setWidth('100px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::custom( trans('admin.adm_metadesc'), function ($instance) {

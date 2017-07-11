@@ -17,12 +17,14 @@ class StaticTextTable extends Migration
       Schema::create('statictexts', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name')->comment('Название в админке');
-          $table->string('alias');
+          $table->string('alias')->unique();
           $table->boolean('published')->index('published')->default(true);
           $table->integer('ru')->nullable()->unsigned();
           $table->integer('en')->nullable()->unsigned();
           // add next lng
 
+          $table->timestamp('publish_up')->useCurrent();
+          $table->timestamp('publish_down')->nullable();
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
           $table->softDeletes();
@@ -32,7 +34,6 @@ class StaticTextTable extends Migration
       Schema::create('static_en', function (Blueprint $table) {
           $table->increments('id');
           $table->string('title', 75);
-          $table->boolean('published')->index('published')->default(true);
           $table->string('keywords', 250)->nullable();
           $table->string('description', 200)->nullable();
           $table->text('preview_text')->nullable();
@@ -48,7 +49,6 @@ class StaticTextTable extends Migration
       Schema::create('static_ru', function (Blueprint $table) {
           $table->increments('id');
           $table->string('title', 75);
-          $table->boolean('published')->index('published')->default(true);
           $table->string('keywords', 250)->nullable();
           $table->string('description', 200)->nullable();
           $table->text('preview_text')->nullable();

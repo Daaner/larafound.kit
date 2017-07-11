@@ -4,6 +4,7 @@ namespace App\Admin\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Model\StaticText;
 use App\Model\StaticTextAdd;
 
 class StaticTextAddRu extends StaticTextAdd
@@ -19,6 +20,10 @@ class StaticTextAddRu extends StaticTextAdd
     }
     public function scopeStaticDel($query){
        return $query->where('deleted_at', '<>', null);
+    }
+
+    public function stextru() {
+      return $this->hasOne(StaticText::class, 'ru');
     }
 
 }

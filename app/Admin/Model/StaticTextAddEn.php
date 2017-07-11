@@ -21,4 +21,8 @@ class StaticTextAddEn extends StaticTextAdd
        return $query->where('deleted_at', '<>', null);
     }
 
+    public function stexten() {
+        return $this->hasMany(StaticTextAdd::class, 'en', 'id');
+      }
+
 }

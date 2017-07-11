@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Models\StaticText;
+use App\Model\StaticText;
 
 class StaticTextSeeder extends Seeder
 {

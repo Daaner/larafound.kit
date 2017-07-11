@@ -31,6 +31,8 @@ return [
 	
 	'adm_label' => 'Название',
 	'adm_title' => 'Тайтл',
+	'adm_related' => 'Связано',
+	'adm_alias' => 'Алиас (ссылка)',
 	'adm_metakey' => 'Meta ключи',
 	'adm_metadesc' => 'Meta описание',
 	'adm_text_prev' => 'Предварительный текст',
@@ -38,10 +40,14 @@ return [
 	'adm_video' => 'Видео',
 	'adm_published' => 'Отображать',
 	'adm_lng_ru' => 'RU',
+	'adm_lng_ru_link' => 'Русский вариант',
 	'adm_lng_en' => 'EN',
-	'adm_user_id' => 'Редакция',
+	'adm_lng_en_link' => 'Английский вариант',
+	'adm_user_id' => '<small>Последняя редакция</small>',
+	'adm_date_up' => 'Будет опубликовано',
+	'adm_date_down' => 'Окончилось',
 	
-	'adm_id' => '№',
+	'adm_id' => '#',
 	'adm_name' => 'Имя',
 	'adm_username' => 'Логин',
 	'adm_password' => 'Пароль',
@@ -54,7 +60,6 @@ return [
 	'adm_desc' => 'Описание',
 	'adm_ip_sign' => 'IP при регистрации',
 	'adm_ip_confirm' => 'IP при подтверждении почты',
-    
 	
 	'adm_active' => 'Активен',
 	'adm_actives' => 'Активны',
@@ -65,6 +70,8 @@ return [
 	'adm_createds' => 'Созданы',
 	'adm_created1' => 'Создано',
 	'adm_created2' => 'Созданные',
+	'adm_publish_up' => 'Показывать с',
+	'adm_publish_down' => 'Показывать до',
 	
 	'adm_delete' => 'Удален',
 	'adm_deletes' => 'Удаленные',

@@ -28,12 +28,22 @@ class StaticText extends Model
       return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function StaticAddru() {
+    public function StaticAddRu() {
       return $this->hasOne(StaticTextAddRu::class, 'id', 'ru');
     }
 
-    public function StaticAdden() {
+    public function StaticAddEn() {
       return $this->hasOne(StaticTextAddEn::class, 'id', 'en');
+    }
+
+    public function scopeStaticActive($query){
+       return $query->where('published', '=', 1)->where('deleted_at', null);
+    }
+    public function scopeStaticDraft($query){
+       return $query->where('published', '=', 0)->where('deleted_at', null);
+    }
+    public function scopeStaticDel($query){
+       return $query->where('deleted_at', '<>', null);
     }
 
 

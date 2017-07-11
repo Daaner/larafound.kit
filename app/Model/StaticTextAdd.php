@@ -15,10 +15,6 @@ class StaticTextAdd extends Model
   // default table
   // protected $table = 'static_ru';
 
-  public function StaticTru() {
-    return $this->hasOne(StaticText, 'ru', 'id');
-  }
-
   public function user() {
     return $this->belongsTo(User::class, 'user_id', 'id');
   }
