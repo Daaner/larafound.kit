@@ -1,4 +1,3 @@
-<header>
   <div class="top-bar stacked-for-large">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
@@ -38,4 +37,3 @@
       @include('block.login')
     </div>
   </div>
-</header>
