@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bd0a9b5a71755526c067dc62fe6c2db",
+    "content-hash": "bc44ce736241ec9cfce6ffbc64c0680d",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1339,12 +1339,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
-                "reference": "cc5772d96ac5e52ab5cebab2bae962cb96378255"
+                "reference": "a379c9b3176c21bb5e3604e86e08e8a5d2a90a17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/cc5772d96ac5e52ab5cebab2bae962cb96378255",
-                "reference": "cc5772d96ac5e52ab5cebab2bae962cb96378255",
+                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/a379c9b3176c21bb5e3604e86e08e8a5d2a90a17",
+                "reference": "a379c9b3176c21bb5e3604e86e08e8a5d2a90a17",
                 "shasum": ""
             },
             "require": {
@@ -1399,7 +1399,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2017-07-14 12:03:12"
+            "time": "2017-07-14 12:56:41"
         },
         {
             "name": "league/flysystem",

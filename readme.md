@@ -16,6 +16,7 @@
 - DebugBar [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 - Локализация [caouecs/laravel-lang](https://github.com/caouecs/Laravel-lang)
 - Админ-панель 4.dev [SleepingOwlAdmin](https://github.com/LaravelRUS/SleepingOwlAdmin)
+- barryvdh/laravel-ide-helper
 
 ## BrowserSync
 Включается при `npm run watch`. Администрируется через порт `127.0.0.1:3001`
@@ -34,7 +35,7 @@
 
 Для удаления модуля достаточно удалить 2 зависимости в `config\app.php` и удалить посредника из `app\Http\Kernel.php`.
 
-## SleepingOwlAdmin (cc5772d)
+## SleepingOwlAdmin (a379c9b)
 Вход в админ-панель только админам по адресу `/admin` (можно переназначить в настройках).
 
 Демо можно посмотреть [тут](http://demo.sleepingowladmin.ru/).

@@ -9,12 +9,19 @@ use App\Admin\Model\StaticTextAddRu;
 use App\Admin\Model\StaticTextAddEn;
 use App\User;
 
+use App\Traits\DatesTraitTimestamp;
+use App\Traits\DatesTraitPublished;
+
 class StaticText extends Model
 {
     use SoftDeletes;
+    use DatesTraitTimestamp;
+    use DatesTraitPublished;
 
 
     protected $table = 'statictexts';
+
+    protected $dates = ['publish_up', 'publish_down'];
 
     protected $fillable = [
         'name',

@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "barryvdh/laravel-debugbar": "^2.4",
+        "barryvdh/laravel-ide-helper": "^2.4",
         "caouecs/laravel-lang": "~3.0",
         "components/jquery": "^3.2",
         "laravel/framework": "5.4.*",
@@ -45,8 +46,10 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize",
-            "php artisan vendor:publish --tag=assets --force"
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
+            "php artisan sleepingowl:update",
+            "php artisan optimize"
         ]
     },
     "config": {

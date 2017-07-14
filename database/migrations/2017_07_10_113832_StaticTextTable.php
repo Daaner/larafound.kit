@@ -23,7 +23,7 @@ class StaticTextTable extends Migration
           $table->integer('en')->nullable()->unsigned();
           // add next lng
 
-          $table->timestamp('publish_up')->useCurrent();
+          $table->timestamp('publish_up')->nullable();
           $table->timestamp('publish_down')->nullable();
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
@@ -40,6 +40,7 @@ class StaticTextTable extends Migration
           $table->longText('full_text')->nullable();
           $table->string('picture')->nullable();
           $table->string('video')->nullable();
+          $table->string('images')->nullable();
 
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
@@ -55,6 +56,7 @@ class StaticTextTable extends Migration
           $table->longText('full_text')->nullable();
           $table->string('picture')->nullable();
           $table->string('video')->nullable();
+          $table->string('images')->nullable();
 
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();

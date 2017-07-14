@@ -16,6 +16,7 @@ use SleepingOwl\Admin\Contracts\Initializable;
 use KodiComponents\Navigation\Badge;
 
 use App\Admin\Model\StaticTextAddRu;
+use App\Model\StaticText;
 
 use SleepingOwl\Admin\Form\Buttons\Save;
 use SleepingOwl\Admin\Form\Buttons\SaveAndClose;
@@ -103,12 +104,24 @@ class StaticTextsAddRu extends Section implements Initializable
     public function onEdit($id)
     {
         $form=AdminForm::panel()->addBody([
-            AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
+          AdminFormElement::columns()->addColumn([
             AdminFormElement::text('title', trans('admin.adm_title'))->required(),
-            AdminFormElement::textarea('keywords', trans('admin.adm_metakey')),
-            AdminFormElement::textarea('description', trans('admin.adm_metadesc')),
+            AdminFormElement::select('stextru.id', trans('admin.adm_related'), StaticText::class)
+              ->setDisplay('name')->setReadonly(1),
+            AdminFormElement::wysiwyg('preview_text', trans('admin.adm_text_prev'))->setHeight(100),
+            AdminFormElement::wysiwyg('full_text', trans('admin.adm_text_full'))->setHeight(300),
 
+          ],7)->addColumn([
+            AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
+            AdminFormElement::image('picture', trans('admin.adm_image')),
+            AdminFormElement::text('video', trans('admin.adm_video')),
+
+            AdminFormElement::textarea('keywords', trans('admin.adm_metakey'))->setRows(3),
+            AdminFormElement::textarea('description', trans('admin.adm_metadesc'))->setRows(3),
+            AdminFormElement::timestamp('created_at', trans('admin.adm_created1')),
             AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
+          ]),
+
         ]);
 
         $form->getButtons()->setButtons([

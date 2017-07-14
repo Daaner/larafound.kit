@@ -15,6 +15,8 @@ use AdminFormElement;
 use SleepingOwl\Admin\Contracts\Initializable;
 use KodiComponents\Navigation\Badge;
 
+use Carbon\Carbon;
+
 use App\Model\StaticText;
 use App\Admin\Model\StaticTextAddRu;
 use App\Admin\Model\StaticTextAddEn;
@@ -61,14 +63,15 @@ class StaticTexts extends Section implements Initializable
 
             AdminColumn::custom(trans('admin.adm_published'), function ($model) {
                 $publ = '<i class="fa fa-close text-primary"></i>';
-                $date = date('Y-m-d H:i:s');
+                $date = Carbon::now()->format('Y-m-d H:i:s');
+                // $date = date('Y-m-d H:i:s');
                 if ($model->published) {
-                    $publ = '<i class="fa fa-check text-success"></i> ';
-                    if ($date < $model->publish_up) {
-                        $publ ='<i class="fa fa-pause text-warning" data-toggle="tooltip" title="'. trans('admin.adm_date_up') .' '. $model->publish_up .'"></i> ';
+                    $publ = '<i class="fa fa-check text-success"></i>' .$date;
+                    if (Carbon::parse($date) < Carbon::parse($model->publish_up)) {
+                        $publ ='<i class="fa fa-pause text-warning" data-toggle="tooltip" title="'. trans('admin.adm_date_up') .' '.$date .'__'. $model->publish_up .'"></i>' .$date;
                     }
                     if ($model->publish_down and $date > $model->publish_down) {
-                        $publ ='<i class="fa fa-stop text-danger" data-toggle="tooltip" title="'. trans('admin.adm_date_down') .' '. $model->publish_down .'"></i> ';
+                        $publ ='<i class="fa fa-stop text-danger" data-toggle="tooltip" title="'. trans('admin.adm_date_down') .' '. $model->publish_down .'"></i>' .$date;
                     }
                 }
                 return $publ;
