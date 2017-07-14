@@ -90,7 +90,7 @@ class StaticTextsAddRu extends Section implements Initializable
                         return StaticTextAddRu::StaticDraft()->count();
                     }),
             AdminDisplay::tab($tableDeleted)
-                ->setLabel('Удаленные')->seticon('<i class="fa fa-trash"></i>'),
+                ->setLabel('Удаленные')->seticon('<i class="fa fa-trash"></i>')->setHtmlAttribute('class', 'tab-delete'),
             ]);
 
         return $tabs;
