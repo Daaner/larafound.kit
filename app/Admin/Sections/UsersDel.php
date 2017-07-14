@@ -21,28 +21,32 @@ use SleepingOwl\Admin\Form\Buttons\SaveAndClose;
 use SleepingOwl\Admin\Form\Buttons\Cancel;
 use SleepingOwl\Admin\Form\Buttons\Delete;
 
-class UsersDel extends Section implements Initializable {
-
-    public function initialize() {
-      $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
-      });
+class UsersDel extends Section implements Initializable
+{
+    public function initialize()
+    {
+        $this->creating(function ($config, \Illuminate\Database\Eloquent\Model $model) {
+        });
     }
 
     protected $checkAccess = false;
     protected $alias = 'deleted';
 
-    public function getIcon() {
+    public function getIcon()
+    {
         return 'fa fa-user-times';
     }
-    public function getTitle() {
+    public function getTitle()
+    {
         return trans('admin.adm_users_deleted');
     }
-    public function getEditTitle() {
+    public function getEditTitle()
+    {
         return trans('admin.adm_users_edit');
     }
 
-    public function onDisplay() {
-
+    public function onDisplay()
+    {
         $display = AdminDisplay::datatablesAsync()->setHtmlAttribute('class', 'table-danger table-hover');
 //        $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-primary table-hover');
 
@@ -54,15 +58,16 @@ class UsersDel extends Section implements Initializable {
             AdminColumn::link('name', trans('admin.adm_name')),
             AdminColumn::text('email', trans('admin.adm_email')),
             AdminColumn::custom(trans('admin.adm_role'), function ($instance) {
-                return $instance->roles->name;})->setWidth('150px'),
+                return $instance->roles->name;
+            })->setWidth('150px'),
         ]);
         $display->paginate(25)->getScopes()->set('UsrDel');
 
         return $display;
     }
 
-    public function onEdit($id) {
-
+    public function onEdit($id)
+    {
         $form=AdminForm::panel()->addBody([
             AdminFormElement::columns()->addColumn([
                 AdminFormElement::text('id', trans('admin.adm_id'))->required()->setReadonly(1),
@@ -86,7 +91,7 @@ class UsersDel extends Section implements Initializable {
             ], 3)
         ]);
 
-        $form->getButtons()->setButtons ([
+        $form->getButtons()->setButtons([
             'save'  => new Save(),
             'save_and_close'  => new SaveAndClose(),
             'cancel'  => (new Cancel()),

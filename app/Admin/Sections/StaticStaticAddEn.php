@@ -24,37 +24,43 @@ use SleepingOwl\Admin\Form\Buttons\Delete;
 
 class StaticTextsAddEn extends Section implements Initializable
 {
-
-    public function initialize() {
+    public function initialize()
+    {
     }
 
     protected $checkAccess = false;
     protected $alias = 'static/static-en';
 
-    public function getIcon() {
+    public function getIcon()
+    {
         return 'fa fa-file-text-o';
     }
-    public function getTitle() {
+    public function getTitle()
+    {
         return trans('admin.adm_static_add_en_header');
     }
-    public function getEditTitle() {
+    public function getEditTitle()
+    {
         return trans('admin.adm_static_edit');
     }
-    public function getCreateTitle() {
+    public function getCreateTitle()
+    {
         return trans('admin.adm_static_create');
     }
 
-    public function onDisplay() {
-
+    public function onDisplay()
+    {
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link('title', trans('admin.adm_title')),
             AdminColumnEditable::checkbox('published', trans('admin.adm_published')),
 
-            AdminColumn::custom( trans('admin.adm_metakey'), function ($instance) {
-                    return strlen($instance->keywords);})->setWidth('100px'),
-            AdminColumn::custom( trans('admin.adm_metadesc'), function ($instance) {
-                    return strlen($instance->description);})->setWidth('100px'),
+            AdminColumn::custom(trans('admin.adm_metakey'), function ($instance) {
+                return strlen($instance->keywords);
+            })->setWidth('100px'),
+            AdminColumn::custom(trans('admin.adm_metadesc'), function ($instance) {
+                return strlen($instance->description);
+            })->setWidth('100px'),
         ];
 
         $tableActive =  AdminDisplay::datatables()
@@ -75,14 +81,14 @@ class StaticTextsAddEn extends Section implements Initializable
         $tabs->setElements([
             AdminDisplay::tab($tableActive)
                 ->setLabel('Активные')->seticon('<i class="fa fa-eye"></i>')
-                ->setBadge(function(){
-                        return StaticTextAddEn::StaticActive()->count();
-                    }),
+                ->setBadge(function () {
+                    return StaticTextAddEn::StaticActive()->count();
+                }),
             AdminDisplay::tab($tableDraft)
                 ->setLabel('Черновики')->seticon('<i class="fa fa-eye-slash"></i>')
-                ->setBadge(function(){
-                        return StaticTextAddEn::StaticDraft()->count();
-                    }),
+                ->setBadge(function () {
+                    return StaticTextAddEn::StaticDraft()->count();
+                }),
             AdminDisplay::tab($tableDeleted)
                 ->setLabel('Удаленные')->seticon('<i class="fa fa-trash"></i>')->setHtmlAttribute('class', 'tab-delete'),
             ]);
@@ -90,8 +96,8 @@ class StaticTextsAddEn extends Section implements Initializable
         return $tabs;
     }
 
-    public function onEdit($id) {
-
+    public function onEdit($id)
+    {
         $form=AdminForm::panel()->addBody([
             AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
             AdminFormElement::text('title', trans('admin.adm_role'))->required(),
@@ -100,7 +106,7 @@ class StaticTextsAddEn extends Section implements Initializable
             AdminFormElement::textarea('description', trans('admin.adm_metadesc')),
         ]);
 
-        $form->getButtons()->setButtons ([
+        $form->getButtons()->setButtons([
             'save'  => new Save(),
             'save_and_close'  => new SaveAndClose(),
             'cancel'  => (new Cancel()),
@@ -110,8 +116,8 @@ class StaticTextsAddEn extends Section implements Initializable
         return $form;
     }
 
-    public function onCreate() {
-
+    public function onCreate()
+    {
         return $this->onEdit(null);
     }
 }

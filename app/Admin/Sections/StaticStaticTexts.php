@@ -26,48 +26,51 @@ use SleepingOwl\Admin\Form\Buttons\Delete;
 
 class StaticTexts extends Section implements Initializable
 {
-
-    public function initialize() {
-
+    public function initialize()
+    {
     }
 
     protected $checkAccess = false;
     protected $alias = 'static';
 
-    public function getIcon() {
+    public function getIcon()
+    {
         return 'fa fa-indent';
     }
-    public function getTitle() {
+    public function getTitle()
+    {
         return trans('admin.adm_static_list_header');
     }
-    public function getEditTitle() {
+    public function getEditTitle()
+    {
         return trans('admin.adm_static_edit');
     }
-    public function getCreateTitle() {
+    public function getCreateTitle()
+    {
         return trans('admin.adm_static_create');
     }
 
-    public function onDisplay() {
-
+    public function onDisplay()
+    {
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link(function ($model) {
-                    echo '<a href="'. $this->alias .'/'. $model->id.'/edit">'
+                echo '<a href="'. $this->alias .'/'. $model->id.'/edit">'
                     . $model->name .'</a><br /><small>'. $model->alias .'</small>';
-                }, trans('admin.adm_label')),
+            }, trans('admin.adm_label')),
 
             AdminColumn::custom(trans('admin.adm_published'), function ($model) {
-                    $publ = '<i class="fa fa-close text-primary"></i>';
-                    $date = date('Y-m-d H:i:s');
-                    if ($model->published){
-                        $publ = '<i class="fa fa-check text-success"></i> ';
-                        if($date < $model->publish_up){
-                            $publ ='<i class="fa fa-pause text-warning" data-toggle="tooltip" title="'. trans('admin.adm_date_up') .' '. $model->publish_up .'"></i> ';
-                        }
-                        if($model->publish_down and $date > $model->publish_down){
-                            $publ ='<i class="fa fa-stop text-danger" data-toggle="tooltip" title="'. trans('admin.adm_date_down') .' '. $model->publish_down .'"></i> ';
-                        }
+                $publ = '<i class="fa fa-close text-primary"></i>';
+                $date = date('Y-m-d H:i:s');
+                if ($model->published) {
+                    $publ = '<i class="fa fa-check text-success"></i> ';
+                    if ($date < $model->publish_up) {
+                        $publ ='<i class="fa fa-pause text-warning" data-toggle="tooltip" title="'. trans('admin.adm_date_up') .' '. $model->publish_up .'"></i> ';
                     }
+                    if ($model->publish_down and $date > $model->publish_down) {
+                        $publ ='<i class="fa fa-stop text-danger" data-toggle="tooltip" title="'. trans('admin.adm_date_down') .' '. $model->publish_down .'"></i> ';
+                    }
+                }
                 return $publ;
             })->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::relatedLink('StaticAddRu.title', trans('admin.adm_lng_ru'))
@@ -98,14 +101,14 @@ class StaticTexts extends Section implements Initializable
         $tabs->setElements([
             AdminDisplay::tab($tableActive)
                 ->setLabel('Активные')->seticon('<i class="fa fa-eye"></i>')
-                ->setBadge(function(){
-                        return StaticText::StaticActive()->count();
-                    }),
+                ->setBadge(function () {
+                    return StaticText::StaticActive()->count();
+                }),
             AdminDisplay::tab($tableDraft)
                 ->setLabel('Черновики')->seticon('<i class="fa fa-eye-slash"></i>')
-                ->setBadge(function(){
-                        return StaticText::StaticDraft()->count();
-                    }),
+                ->setBadge(function () {
+                    return StaticText::StaticDraft()->count();
+                }),
             AdminDisplay::tab($tableDeleted)
                 ->setLabel('Удаленные')->seticon('<i class="fa fa-trash"></i>')->setHtmlAttribute('class', 'tab-delete'),
             ]);
@@ -113,8 +116,8 @@ class StaticTexts extends Section implements Initializable
         return $tabs;
     }
 
-    public function onEdit($id) {
-
+    public function onEdit($id)
+    {
         $form=AdminForm::panel()->addBody([
             AdminFormElement::columns()->addColumn([
                 AdminFormElement::text('name', trans('admin.adm_label'))->required(),
@@ -138,7 +141,7 @@ class StaticTexts extends Section implements Initializable
             ]),
         ]);
 
-        $form->getButtons()->setButtons ([
+        $form->getButtons()->setButtons([
             'save'  => new Save(),
             'save_and_close'  => new SaveAndClose(),
             'cancel'  => (new Cancel()),
@@ -148,8 +151,8 @@ class StaticTexts extends Section implements Initializable
         return $form;
     }
 
-    public function onCreate() {
-
+    public function onCreate()
+    {
         return $this->onEdit(null);
     }
 }

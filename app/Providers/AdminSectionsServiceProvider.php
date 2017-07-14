@@ -5,10 +5,8 @@ namespace App\Providers;
 use SleepingOwl\Admin\Contracts\Widgets\WidgetsRegistryInterface;
 use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
 
-
 class AdminSectionsServiceProvider extends ServiceProvider
 {
-
     protected $widgets = [
         \App\Admin\Widgets\NavigationUserBlock::class
     ];
@@ -35,7 +33,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
      */
     public function boot(\SleepingOwl\Admin\Admin $admin)
     {
-    	//
+        //
         $this->loadViewsFrom(base_path("resources/views/admin"), 'admin');
 
         parent::boot($admin);

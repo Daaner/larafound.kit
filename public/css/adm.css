@@ -44,12 +44,15 @@ header .navbar-right i {
 li.tab-delete {
   float: right!important;
 }
+
 li.tab-delete a {
   color: #ca4440!important;
 }
+
 .nav-tabs-custom>.nav-tabs>li.tab-delete.active {
   border-top-color: #ca4440;
 }
+
 
 /* FIX */
 

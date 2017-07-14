@@ -9,10 +9,8 @@ use App\Admin\Model\StaticTextAddRu;
 use App\Admin\Model\StaticTextAddEn;
 use App\User;
 
-
 class StaticText extends Model
 {
-
     use SoftDeletes;
 
 
@@ -24,28 +22,31 @@ class StaticText extends Model
     ];
 
 
-    public function user() {
-      return $this->belongsTo(User::class, 'user_id', 'id');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function StaticAddRu() {
-      return $this->hasOne(StaticTextAddRu::class, 'id', 'ru');
+    public function StaticAddRu()
+    {
+        return $this->hasOne(StaticTextAddRu::class, 'id', 'ru');
     }
 
-    public function StaticAddEn() {
-      return $this->hasOne(StaticTextAddEn::class, 'id', 'en');
+    public function StaticAddEn()
+    {
+        return $this->hasOne(StaticTextAddEn::class, 'id', 'en');
     }
 
-    public function scopeStaticActive($query){
-       return $query->where('published', '=', 1)->where('deleted_at', null);
+    public function scopeStaticActive($query)
+    {
+        return $query->where('published', '=', 1)->where('deleted_at', null);
     }
-    public function scopeStaticDraft($query){
-       return $query->where('published', '=', 0)->where('deleted_at', null);
+    public function scopeStaticDraft($query)
+    {
+        return $query->where('published', '=', 0)->where('deleted_at', null);
     }
-    public function scopeStaticDel($query){
-       return $query->where('deleted_at', '<>', null);
+    public function scopeStaticDel($query)
+    {
+        return $query->where('deleted_at', '<>', null);
     }
-
-
-
 }

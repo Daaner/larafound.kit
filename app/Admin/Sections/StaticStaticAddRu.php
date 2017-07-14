@@ -24,39 +24,43 @@ use SleepingOwl\Admin\Form\Buttons\Delete;
 
 class StaticTextsAddRu extends Section implements Initializable
 {
-
-    public function initialize() {
+    public function initialize()
+    {
     }
 
     protected $checkAccess = false;
     protected $alias = 'static/static-ru';
 
-    public function getIcon() {
+    public function getIcon()
+    {
         return 'fa fa-file-text-o';
     }
-    public function getTitle() {
+    public function getTitle()
+    {
         return trans('admin.adm_static_add_ru_header');
     }
-    public function getEditTitle() {
+    public function getEditTitle()
+    {
         return trans('admin.adm_static_edit');
     }
-    public function getCreateTitle() {
+    public function getCreateTitle()
+    {
         return trans('admin.adm_static_create');
     }
 
-    public function onDisplay() {
-
+    public function onDisplay()
+    {
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link('title', trans('admin.adm_title')),
             AdminColumn::relatedLink('stextru.name', trans('admin.adm_related'))->setHtmlAttribute('class', 'text-center'),
 
-            AdminColumn::custom( trans('admin.adm_seo'), function ($instance) {
-                      $metatitle = iconv_strlen($instance->title);
-                      $keyword = iconv_strlen($instance->keywords);
-                      $description = iconv_strlen($instance->description);
-                    return $metatitle.' / '.$keyword.' / '.$description;
-                })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+            AdminColumn::custom(trans('admin.adm_seo'), function ($instance) {
+                $metatitle = iconv_strlen($instance->title);
+                $keyword = iconv_strlen($instance->keywords);
+                $description = iconv_strlen($instance->description);
+                return $metatitle.' / '.$keyword.' / '.$description;
+            })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::custom(trans('admin.adm_user_id'), function ($model) {
                 return $model->updated_at ? $model->user['username']
                 .'<br/><small>'. $model->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
@@ -81,14 +85,14 @@ class StaticTextsAddRu extends Section implements Initializable
         $tabs->setElements([
             AdminDisplay::tab($tableActive)
                 ->setLabel('Активные')->seticon('<i class="fa fa-eye"></i>')
-                ->setBadge(function(){
-                        return StaticTextAddRu::StaticActive()->count();
-                    }),
+                ->setBadge(function () {
+                    return StaticTextAddRu::StaticActive()->count();
+                }),
             AdminDisplay::tab($tableDraft)
                 ->setLabel('Черновики')->seticon('<i class="fa fa-eye-slash"></i>')
-                ->setBadge(function(){
-                        return StaticTextAddRu::StaticDraft()->count();
-                    }),
+                ->setBadge(function () {
+                    return StaticTextAddRu::StaticDraft()->count();
+                }),
             AdminDisplay::tab($tableDeleted)
                 ->setLabel('Удаленные')->seticon('<i class="fa fa-trash"></i>')->setHtmlAttribute('class', 'tab-delete'),
             ]);
@@ -96,8 +100,8 @@ class StaticTextsAddRu extends Section implements Initializable
         return $tabs;
     }
 
-    public function onEdit($id) {
-
+    public function onEdit($id)
+    {
         $form=AdminForm::panel()->addBody([
             AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
             AdminFormElement::text('title', trans('admin.adm_title'))->required(),
@@ -107,7 +111,7 @@ class StaticTextsAddRu extends Section implements Initializable
             AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
         ]);
 
-        $form->getButtons()->setButtons ([
+        $form->getButtons()->setButtons([
             'save'  => new Save(),
             'save_and_close'  => new SaveAndClose(),
             'cancel'  => (new Cancel()),
@@ -117,8 +121,8 @@ class StaticTextsAddRu extends Section implements Initializable
         return $form;
     }
 
-    public function onCreate() {
-
+    public function onCreate()
+    {
         return $this->onEdit(null);
     }
 }

@@ -93,23 +93,21 @@ class RegisterController extends Controller
         return $user;
     }
 
-    public function register(Request $request)  {
+    public function register(Request $request)
+    {
         $validation = $this->validator($request->all());
-        if ($validation->fails())  {
+        if ($validation->fails()) {
             return response()->json($validation->errors()->toArray());
-        }
-        else{
+        } else {
             $user = $this->create($request->all());
             Auth::login($user);
 
             Mail::to($user)->send(new Register($user));
 
-            if (Auth::user()){
-              $request->session()->regenerate();
-              return view('block.login')->with('status', trans('email.info_register_complite'));
+            if (Auth::user()) {
+                $request->session()->regenerate();
+                return view('block.login')->with('status', trans('email.info_register_complite'));
             }
         }
     }
-
-
 }

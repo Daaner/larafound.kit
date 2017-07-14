@@ -1,4 +1,3 @@
-
 //window._ = require('lodash');
 
 /**
@@ -45,10 +44,10 @@ window.Vue = require('vue');
 //     'X-Requested-With': 'XMLHttpRequest'
 // };
 
-$(document).ready(function(){
+$(document).ready(function() {
 
   function verify_csrf() {
-    $.ajax ({
+    $.ajax({
       url: '/csrf-token',
       type: 'GET',
       cache: false,
@@ -71,11 +70,11 @@ $(document).ready(function(){
 
       e.preventDefault();
       RegData = {
-        'name': registerForm.find("input[name='name']" ).val(),
-        'username': registerForm.find("input[name='username']" ).val(),
-        'email': registerForm.find("input[name='email']" ).val(),
-        'password': registerForm.find("input[name='password']" ).val(),
-        'password_confirmation': registerForm.find("input[name='password_confirmation']" ).val(),
+        'name': registerForm.find("input[name='name']").val(),
+        'username': registerForm.find("input[name='username']").val(),
+        'email': registerForm.find("input[name='email']").val(),
+        'password': registerForm.find("input[name='password']").val(),
+        'password_confirmation': registerForm.find("input[name='password_confirmation']").val(),
         '_token': $('meta[name="csrf-token"]').attr('content'),
       };
 
@@ -90,24 +89,19 @@ $(document).ready(function(){
           if (data.token) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.token);
-          }
-          else if (data.name) {
+          } else if (data.name) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.name);
-          }
-          else if (data.email) {
+          } else if (data.email) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.email);
-          }
-          else if (data.username) {
+          } else if (data.username) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.username);
-          }
-          else if (data.password) {
+          } else if (data.password) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.password);
-          }
-          else if (data.error) {
+          } else if (data.error) {
             $("#register-error").removeClass("hide");
             $('#register-error p').html(data.error);
           } else {
@@ -149,8 +143,8 @@ $(document).ready(function(){
 
       e.preventDefault();
       loginData = {
-        'login': loginForm.find("input[name='login']" ).val(),
-        'password': loginForm.find("input[name='password']" ).val(),
+        'login': loginForm.find("input[name='login']").val(),
+        'password': loginForm.find("input[name='password']").val(),
         '_token': $('meta[name="csrf-token"]').attr('content'),
       };
 
@@ -164,12 +158,10 @@ $(document).ready(function(){
           if (data.token) {
             $('#login-error').removeClass('hide');
             $('#login-error p').html(data.token);
-          }
-          else if (data.tokenerror) {
+          } else if (data.tokenerror) {
             $('#login-error').removeClass('hide');
             $('#login-error p').html(data.tokenerror);
-          }
-          else if (data.error) {
+          } else if (data.error) {
             $('#login-error').removeClass('hide');
             $('#login-error p').html(data.error);
           } else {
@@ -186,8 +178,7 @@ $(document).ready(function(){
           if (obj.error) {
             $('#login-error').removeClass('hide');
             $('#login-error p').html(obj.error);
-          }
-          else if (data.tokenerror) {
+          } else if (data.tokenerror) {
             $('#login-error').removeClass('hide');
             $('#login-error p').html('data.tokenerror');
           }
@@ -207,7 +198,7 @@ $(document).ready(function(){
 
       e.preventDefault();
       forgotData = {
-        'email': ForgotForm.find("input[name='email']" ).val(),
+        'email': ForgotForm.find("input[name='email']").val(),
         '_token': $('meta[name="csrf-token"]').attr('content'),
       };
 
@@ -221,31 +212,34 @@ $(document).ready(function(){
           if (data.error) {
             $('#forgot-error').removeClass('hide');
             $('#forgot-error p').html(data.error);
-          }
-          else if (data.reset) {
+          } else if (data.reset) {
             $('#reset-form').addClass('hide');
             $('#login_form .forgot').addClass('hide');
             $('#reset-form_info').removeClass('hide');
             $('#reset-form_info').html(data.reset);
-            setTimeout(function(){$('#reset_form').foundation('close')},5000);
+            setTimeout(function() {
+              $('#reset_form').foundation('close')
+            }, 5000);
           }
         },
         error: function(data) {
-          // location.reload();
-          console.log(data);
+          location.reload();
+          // console.log(data);
         }
       });
     }
   });
 
-  $("#login").on('click', 'a#logout', function(e){
+  $("#login").on('click', 'a#logout', function(e) {
     verify_csrf();
     e.preventDefault();
     $.ajax({
       url: '/logout',
       type: 'POST',
       cache: false,
-      data: {'_token': $('meta[name="csrf-token"]').attr('content')},
+      data: {
+        '_token': $('meta[name="csrf-token"]').attr('content')
+      },
       success: function(data) {
         location.reload();
       },

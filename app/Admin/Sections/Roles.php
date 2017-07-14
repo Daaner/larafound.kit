@@ -22,8 +22,8 @@ use SleepingOwl\Admin\Form\Buttons\Cancel;
 
 class Roles extends Section implements Initializable
 {
-
-    public function initialize() {
+    public function initialize()
+    {
         $this->addToNavigation()
             ->setPriority(1000);
     }
@@ -31,22 +31,26 @@ class Roles extends Section implements Initializable
     protected $checkAccess = false;
     protected $alias = 'roles';
 
-    public function getIcon() {
+    public function getIcon()
+    {
         return 'fa fa-shield';
     }
-    public function getTitle() {
+    public function getTitle()
+    {
         return trans('admin.adm_roles');
     }
-    public function getEditTitle() {
+    public function getEditTitle()
+    {
         return trans('admin.adm_roles_edit');
     }
-    public function getCreateTitle() {
+    public function getCreateTitle()
+    {
         return trans('admin.adm_roles_create');
     }
 
-    public function onDisplay() {
-
-       $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-danger table-hover');
+    public function onDisplay()
+    {
+        $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-danger table-hover');
 
         $display->setOrder([[0, 'asc']]);
 
@@ -64,15 +68,15 @@ class Roles extends Section implements Initializable
         return $display;
     }
 
-    public function onEdit($id) {
-
+    public function onEdit($id)
+    {
         $form=AdminForm::panel()->addBody([
             AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
             AdminFormElement::text('name', trans('admin.adm_role'))->required(),
             AdminFormElement::textarea('description', trans('admin.adm_desc')),
         ]);
 
-        $form->getButtons()->setButtons ([
+        $form->getButtons()->setButtons([
             'save'  => new Save(),
             'save_and_close'  => new SaveAndClose(),
             'cancel'  => (new Cancel()),
@@ -81,8 +85,8 @@ class Roles extends Section implements Initializable
         return $form;
     }
 
-    public function onCreate() {
-
+    public function onCreate()
+    {
         return $this->onEdit(null);
     }
 }

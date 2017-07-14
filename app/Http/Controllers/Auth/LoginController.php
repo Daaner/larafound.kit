@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Auth;
 
-
 class LoginController extends Controller
 {
     /*
@@ -50,7 +49,7 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL )
+        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL)
         ? 'email'
         : 'username';
 
@@ -63,7 +62,6 @@ class LoginController extends Controller
         }
 
         return response()->json(['error' => trans('passwords.user')]);
-
     }
 
     public function logout()
@@ -73,5 +71,4 @@ class LoginController extends Controller
         Session::flush();
         return view('block.login');
     }
-
 }

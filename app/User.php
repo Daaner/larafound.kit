@@ -45,15 +45,17 @@ class User extends Authenticatable
         'active',
     ];
 
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
-        static::creating( function($user) {
+        static::creating(function ($user) {
             $user->token = str_random(64);
         });
     }
 
-    public function hasVerified() {
+    public function hasVerified()
+    {
         $ipAddress = new CaptureIpTrait;
         $this->active = true;
         $this->token = null;
@@ -62,47 +64,54 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function getAvatarUrlOrBlankAttribute() {
-      if (empty($url = $this->avatar)) {
-          return asset('images/avatars/default.jpg');
-      }
+    public function getAvatarUrlOrBlankAttribute()
+    {
+        if (empty($url = $this->avatar)) {
+            return asset('images/avatars/default.jpg');
+        }
 
-      return $url;
+        return $url;
     }
 
-    public function isManager(){
-      $request=false;
-      if ((Auth::user()->role_id) == 2){
-        $request=true;
-      };
-      return $request;
-    }
-    public function isAdmin(){
+    public function isManager()
+    {
         $request=false;
-        if ((Auth::user()->role_id) == 3){
+        if ((Auth::user()->role_id) == 2) {
+            $request=true;
+        };
+        return $request;
+    }
+    public function isAdmin()
+    {
+        $request=false;
+        if ((Auth::user()->role_id) == 3) {
             $request=true;
         };
         return $request;
     }
 
-    public function roles() {
-        return $this->belongsTo(Role::class,'role_id', 'id');
+    public function roles()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
 
     //Admin
 
-    public function scopeUsrAll($query){
-       return $query->where('deleted_at', null);
+    public function scopeUsrAll($query)
+    {
+        return $query->where('deleted_at', null);
     }
-    public function scopeUsrDel($query){
-       return $query->whereNotNull('deleted_at', null);
+    public function scopeUsrDel($query)
+    {
+        return $query->whereNotNull('deleted_at', null);
     }
-    public function scopeUsrModer($query){
-       return $query->where('role_id', '=', 2)->where('deleted_at', null);
+    public function scopeUsrModer($query)
+    {
+        return $query->where('role_id', '=', 2)->where('deleted_at', null);
     }
-    public function scopeUsrAdm($query){
-       return $query->where('role_id', '=', 3)->where('deleted_at', null);
+    public function scopeUsrAdm($query)
+    {
+        return $query->where('role_id', '=', 3)->where('deleted_at', null);
     }
-
 }
