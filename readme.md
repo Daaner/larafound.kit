@@ -34,7 +34,7 @@
 
 Для удаления модуля достаточно удалить 2 зависимости в `config\app.php` и удалить посредника из `app\Http\Kernel.php`.
 
-## SleepingOwlAdmin (603ac4d)
+## SleepingOwlAdmin (cc5772d)
 Вход в админ-панель только админам по адресу `/admin` (можно переназначить в настройках).
 
 Демо можно посмотреть [тут](http://demo.sleepingowladmin.ru/).
