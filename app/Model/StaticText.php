@@ -11,12 +11,14 @@ use App\User;
 
 use App\Traits\DatesTraitTimestamp;
 use App\Traits\DatesTraitPublished;
+use App\Traits\AliasTrait;
 
 class StaticText extends Model
 {
     use SoftDeletes;
     use DatesTraitTimestamp;
     use DatesTraitPublished;
+    use AliasTrait;
 
 
     protected $table = 'statictexts';
