@@ -4,12 +4,15 @@ namespace App\Admin\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Model\StaticText;
 use App\Model\StaticTextAdd;
+use App\Traits\DatesTraitTimestamp;
 
 class StaticTextAddEn extends StaticTextAdd
 {
-    protected $table = 'static_en';
+    use DatesTraitTimestamp;
 
+    protected $table = 'static_en';
 
     public function scopeStaticActive($query)
     {

@@ -125,7 +125,7 @@ class StaticTexts extends Section implements Initializable
             AdminFormElement::columns()->addColumn([
                 AdminFormElement::text('name', trans('admin.adm_label'))->required(),
                 AdminFormElement::checkbox('published', trans('admin.adm_published')),
-                AdminFormElement::text('alias', trans('admin.adm_alias')),
+                AdminFormElement::text('alias', trans('admin.adm_alias'))->unique(),
                 // Языковая связка
                 AdminFormElement::columns()->addColumn([
                     AdminFormElement::select('ru', trans('admin.adm_lng_ru_link'), StaticTextAddRu::class)
@@ -138,8 +138,8 @@ class StaticTexts extends Section implements Initializable
             ], 9)->addColumn([
                 AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
                 AdminFormElement::timestamp('created_at', trans('admin.adm_created1')),
-                AdminFormElement::timestamp('publish_up', trans('admin.adm_publish_up')),
-                AdminFormElement::timestamp('publish_down', trans('admin.adm_publish_down')),
+                AdminFormElement::datetime('publish_up', trans('admin.adm_publish_up')),
+                AdminFormElement::datetime('publish_down', trans('admin.adm_publish_down')),
                 AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
             ]),
         ]);

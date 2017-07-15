@@ -106,6 +106,7 @@ class StaticTextsAddRu extends Section implements Initializable
         $form=AdminForm::panel()->addBody([
           AdminFormElement::columns()->addColumn([
             AdminFormElement::text('title', trans('admin.adm_title'))->required(),
+            AdminFormElement::checkbox('published', trans('admin.adm_published')),
             AdminFormElement::select('stextru.id', trans('admin.adm_related'), StaticText::class)
               ->setDisplay('name')->setReadonly(1),
             AdminFormElement::wysiwyg('preview_text', trans('admin.adm_text_prev'))->setHeight(100),
@@ -118,7 +119,7 @@ class StaticTextsAddRu extends Section implements Initializable
 
             AdminFormElement::textarea('keywords', trans('admin.adm_metakey'))->setRows(3),
             AdminFormElement::textarea('description', trans('admin.adm_metadesc'))->setRows(3),
-            AdminFormElement::timestamp('created_at', trans('admin.adm_created1')),
+            AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
             AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
           ]),
 

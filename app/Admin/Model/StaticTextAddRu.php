@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Model\StaticText;
 use App\Model\StaticTextAdd;
+use App\Traits\DatesTraitTimestamp;
 
 class StaticTextAddRu extends StaticTextAdd
 {
-    protected $table = 'static_ru';
+    use DatesTraitTimestamp;
 
+    protected $table = 'static_ru';
 
     public function scopeStaticActive($query)
     {

@@ -41,6 +41,7 @@ class StaticTextTable extends Migration
           $table->string('picture')->nullable();
           $table->string('video')->nullable();
           $table->string('images')->nullable();
+          $table->boolean('published')->index('published')->default(true);
 
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
@@ -57,6 +58,7 @@ class StaticTextTable extends Migration
           $table->string('picture')->nullable();
           $table->string('video')->nullable();
           $table->string('images')->nullable();
+          $table->boolean('published')->index('published')->default(true);
 
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
