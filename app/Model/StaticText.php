@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Support\Facades\Validator;
 
 use App\Admin\Model\StaticTextAddRu;
 use App\Admin\Model\StaticTextAddEn;
