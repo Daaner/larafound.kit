@@ -23,11 +23,6 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    // public $GavatarUrl = GravatarTrait::class;
-
-
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -73,22 +68,6 @@ class User extends Authenticatable
 
         $this->save();
     }
-
-    // public function getAvatarUrlOrBlankAttribute()
-    // {
-    //     if (empty($url = $this->avatar)) {
-    //       $s = 200;
-    //       $d = '404';
-    //       $url = 'https://www.gravatar.com/avatar/';
-    //       $url .= md5(strtolower(trim($this->email)));
-    //       $url .= "?s=$s&d=$d";
-    //
-    //       if (!@fopen($url,'r')) {
-    //         $url = '/images/avatars/default.jpg';
-    //       }
-    //     }
-    //     return $url;
-    // }
 
     public function isManager()
     {

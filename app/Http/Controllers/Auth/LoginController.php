@@ -69,6 +69,6 @@ class LoginController extends Controller
         $user = Auth::user();
         Auth::logout();
         Session::flush();
-        return view('block.login');
+        return redirect('/');
     }
 }
