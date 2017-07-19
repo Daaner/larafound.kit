@@ -16,7 +16,6 @@ use SleepingOwl\Admin\Contracts\Initializable;
 use KodiComponents\Navigation\Badge;
 
 use App\Admin\Model\StaticTextAddRu;
-use App\Model\StaticText;
 
 use SleepingOwl\Admin\Form\Buttons\Save;
 use SleepingOwl\Admin\Form\Buttons\SaveAndClose;
@@ -42,7 +41,7 @@ class StaticTextsAddRu extends Section implements Initializable
     }
     public function getEditTitle()
     {
-        return trans('admin.adm_static_edit');
+        return trans('admin.adm_static_edit_ru');
     }
     public function getCreateTitle()
     {
@@ -85,17 +84,17 @@ class StaticTextsAddRu extends Section implements Initializable
 
         $tabs->setElements([
             AdminDisplay::tab($tableActive)
-                ->setLabel('Активные')->seticon('<i class="fa fa-eye"></i>')
+                ->setLabel(trans('admin.adm_active2'))->seticon('<i class="fa fa-eye"></i>')
                 ->setBadge(function () {
                     return StaticTextAddRu::StaticActive()->count();
                 }),
             AdminDisplay::tab($tableDraft)
-                ->setLabel('Черновики')->seticon('<i class="fa fa-eye-slash"></i>')
+                ->setLabel(trans('admin.adm_drafts'))->seticon('<i class="fa fa-eye-slash"></i>')
                 ->setBadge(function () {
                     return StaticTextAddRu::StaticDraft()->count();
                 }),
             AdminDisplay::tab($tableDeleted)
-                ->setLabel('Удаленные')->seticon('<i class="fa fa-trash"></i>')->setHtmlAttribute('class', 'tab-delete'),
+                ->setLabel(trans('admin.adm_deletes'))->seticon('<i class="fa fa-trash"></i>')->setHtmlAttribute('class', 'tab-delete'),
             ]);
 
         return $tabs;
@@ -107,22 +106,18 @@ class StaticTextsAddRu extends Section implements Initializable
           AdminFormElement::columns()->addColumn([
             AdminFormElement::text('title', trans('admin.adm_title'))->required(),
             AdminFormElement::checkbox('published', trans('admin.adm_published')),
-            AdminFormElement::select('stextru.id', trans('admin.adm_related'), StaticText::class)
-              ->setDisplay('name')->setReadonly(1),
+            AdminFormElement::text('stextru.name', trans('admin.adm_related'))->setReadonly(1),
             AdminFormElement::wysiwyg('preview_text', trans('admin.adm_text_prev'))->setHeight(100),
             AdminFormElement::wysiwyg('full_text', trans('admin.adm_text_full'))->setHeight(300),
-
           ],7)->addColumn([
             AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
             AdminFormElement::image('picture', trans('admin.adm_image')),
             AdminFormElement::text('video', trans('admin.adm_video')),
-
             AdminFormElement::textarea('keywords', trans('admin.adm_metakey'))->setRows(3),
             AdminFormElement::textarea('description', trans('admin.adm_metadesc'))->setRows(3),
             AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
             AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
           ]),
-
         ]);
 
         $form->getButtons()->setButtons([

@@ -31,4 +31,5 @@ class StaticTextAddRu extends StaticTextAdd
     {
         return $this->hasOne(StaticText::class, 'ru');
     }
+
 }

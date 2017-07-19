@@ -4,7 +4,6 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-// use Illuminate\Support\Facades\Validator;
 
 use App\Admin\Model\StaticTextAddRu;
 use App\Admin\Model\StaticTextAddEn;
@@ -37,16 +36,6 @@ class StaticText extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function StaticAddRu()
-    {
-        return $this->hasOne(StaticTextAddRu::class, 'id', 'ru');
-    }
-
-    public function StaticAddEn()
-    {
-        return $this->hasOne(StaticTextAddEn::class, 'id', 'en');
-    }
-
     public function scopeStaticActive($query)
     {
         return $query->where('published', '=', 1)->where('deleted_at', null);
@@ -58,5 +47,15 @@ class StaticText extends Model
     public function scopeStaticDel($query)
     {
         return $query->where('deleted_at', '<>', null);
+    }
+
+    //lng
+    public function StaticAddRu()
+    {
+      return $this->hasOne(StaticTextAddRu::class, 'id', 'ru');
+    }
+    public function StaticAddEn()
+    {
+      return $this->hasOne(StaticTextAddEn::class, 'id', 'en');
     }
 }

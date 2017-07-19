@@ -29,6 +29,7 @@ class StaticTextAddEn extends StaticTextAdd
 
     public function stexten()
     {
-        return $this->hasMany(StaticTextAdd::class, 'en', 'id');
+        return $this->hasOne(StaticText::class, 'en', 'id');
     }
+
 }

@@ -58,8 +58,11 @@ class UsersAll extends Section implements Initializable
             AdminColumn::link('name', trans('admin.adm_name')),
             AdminColumn::text('email', trans('admin.adm_email')),
             AdminColumn::custom(trans('admin.adm_role'), function ($instance) {
-                return $instance->roles->name;
+              return $instance->roles->name;
             })->setWidth('150px'),
+            AdminColumn::custom(trans('admin.adm_email_check'), function ($instance) {
+                return $instance->active ? '<i class="fa fa-check"></i>' : '<i class="fa fa-minus"></i>';})
+                    ->setWidth('30px'),
         ]);
         $display->paginate(25)->getScopes()->set('UsrAll');
 

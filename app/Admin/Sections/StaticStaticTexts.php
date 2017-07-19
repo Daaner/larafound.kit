@@ -64,14 +64,13 @@ class StaticTexts extends Section implements Initializable
             AdminColumn::custom(trans('admin.adm_published'), function ($model) {
                 $publ = '<i class="fa fa-close text-primary"></i>';
                 $date = Carbon::now()->format('Y-m-d H:i:s');
-                // $date = date('Y-m-d H:i:s');
                 if ($model->published) {
-                    $publ = '<i class="fa fa-check text-success"></i>' .$date;
+                    $publ = '<i class="fa fa-check text-success"></i>';
                     if (Carbon::parse($date) < Carbon::parse($model->publish_up)) {
-                        $publ ='<i class="fa fa-pause text-warning" data-toggle="tooltip" title="'. trans('admin.adm_date_up') .' '.$date .'__'. $model->publish_up .'"></i>' .$date;
+                        $publ ='<i class="fa fa-pause text-warning" data-toggle="tooltip" title="'. trans('admin.adm_date_up') .' '. $model->publish_up .'"></i>';
                     }
                     if ($model->publish_down and $date > $model->publish_down) {
-                        $publ ='<i class="fa fa-stop text-danger" data-toggle="tooltip" title="'. trans('admin.adm_date_down') .' '. $model->publish_down .'"></i>' .$date;
+                        $publ ='<i class="fa fa-stop text-danger" data-toggle="tooltip" title="'. trans('admin.adm_date_down') .' '. $model->publish_down .'"></i>';
                     }
                 }
                 return $publ;
@@ -103,17 +102,17 @@ class StaticTexts extends Section implements Initializable
 
         $tabs->setElements([
             AdminDisplay::tab($tableActive)
-                ->setLabel('Активные')->seticon('<i class="fa fa-eye"></i>')
+                ->setLabel(trans('admin.adm_active2'))->seticon('<i class="fa fa-eye"></i>')
                 ->setBadge(function () {
                     return StaticText::StaticActive()->count();
                 }),
             AdminDisplay::tab($tableDraft)
-                ->setLabel('Черновики')->seticon('<i class="fa fa-eye-slash"></i>')
+                ->setLabel(trans('admin.adm_drafts'))->seticon('<i class="fa fa-eye-slash"></i>')
                 ->setBadge(function () {
                     return StaticText::StaticDraft()->count();
                 }),
             AdminDisplay::tab($tableDeleted)
-                ->setLabel('Удаленные')->seticon('<i class="fa fa-trash"></i>')->setHtmlAttribute('class', 'tab-delete'),
+                ->setLabel(trans('admin.adm_deletes'))->seticon('<i class="fa fa-trash"></i>')->setHtmlAttribute('class', 'tab-delete'),
             ]);
 
         return $tabs;
@@ -129,10 +128,10 @@ class StaticTexts extends Section implements Initializable
                 // Языковая связка
                 AdminFormElement::columns()->addColumn([
                     AdminFormElement::select('ru', trans('admin.adm_lng_ru_link'), StaticTextAddRu::class)
-                                    ->setDisplay('title'),
+                                    ->setDisplay('title')->nullable(), //->unique()
                 ], 6)->addColumn([
                     AdminFormElement::select('en', trans('admin.adm_lng_en_link'), StaticTextAddEn::class)
-                                    ->setDisplay('title'),
+                                    ->setDisplay('title')->nullable(), //->unique()
                 ]),
 
             ], 9)->addColumn([

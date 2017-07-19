@@ -47,8 +47,7 @@ class UsersModer extends Section implements Initializable
 
     public function onDisplay()
     {
-        $display = AdminDisplay::datatablesAsync()->setHtmlAttribute('class', 'table-success table-hover');
-        //        $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-primary table-hover');
+        $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-success table-hover');
 
         $display->setOrder([[0, 'asc']]);
 

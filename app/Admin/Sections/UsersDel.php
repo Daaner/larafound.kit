@@ -60,6 +60,9 @@ class UsersDel extends Section implements Initializable
             AdminColumn::custom(trans('admin.adm_role'), function ($instance) {
                 return $instance->roles->name;
             })->setWidth('150px'),
+            AdminColumn::custom(trans('admin.adm_email_check'), function ($instance) {
+                return $instance->active ? '<i class="fa fa-check"></i>' : '<i class="fa fa-minus"></i>';})
+                    ->setWidth('30px'),
         ]);
         $display->paginate(25)->getScopes()->set('UsrDel');
 

@@ -47,8 +47,7 @@ class UsersAdm extends Section implements Initializable
 
     public function onDisplay()
     {
-        $display = AdminDisplay::datatablesAsync()->setHtmlAttribute('class', 'table-warning table-hover');
-//        $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-primary table-hover');
+       $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-warning table-hover');
 
         $display->setOrder([[0, 'asc']]);
 

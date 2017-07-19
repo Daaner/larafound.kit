@@ -23,6 +23,8 @@ return [
     'adm_static_list' => 'Список',
     'adm_static_list_header' => 'Список статических текстов',
     'adm_static_edit' => 'Редактирование основного пункта',
+    'adm_static_edit_ru' => 'Редактирование основного русского пункта',
+    'adm_static_edit_en' => 'Редактирование основного английского пункта',
     'adm_static_create' => 'Создание основного пункта',
     'adm_static_add_ru' => 'Русские',
     'adm_static_add_ru_header' => 'Русские статические тексты',
@@ -31,7 +33,7 @@ return [
 	
 	'adm_label' => 'Метка',
 	'adm_title' => 'Название',
-	'adm_related' => 'Связано с',
+	'adm_related' => 'Связано с пунктом',
 	'adm_alias' => 'Алиас (ссылка)',
 	'adm_metakey' => 'Meta ключи',
 	'adm_metadesc' => 'Meta описание',
@@ -53,7 +55,7 @@ return [
 	'adm_username' => 'Логин',
 	'adm_password' => 'Пароль',
 	'adm_email' => 'Почта',
-	'adm_email_check' => 'Почта подтверждена',
+	'adm_email_check' => 'Подтвержден',
 	'adm_image' => 'Изображение',
 	'adm_avatar' => 'Аватар',
 	'adm_all' => 'Все',
@@ -61,6 +63,9 @@ return [
 	'adm_desc' => 'Описание',
 	'adm_ip_sign' => 'IP при регистрации',
 	'adm_ip_confirm' => 'IP при подтверждении почты',
+	
+	'adm_draft' => 'Черновик',
+	'adm_drafts' => 'Черновики',
 	
 	'adm_active' => 'Активен',
 	'adm_actives' => 'Активны',
