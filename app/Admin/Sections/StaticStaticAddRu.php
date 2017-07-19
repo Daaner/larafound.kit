@@ -15,7 +15,7 @@ use AdminFormElement;
 use SleepingOwl\Admin\Contracts\Initializable;
 use KodiComponents\Navigation\Badge;
 
-use App\Admin\Model\StaticTextAddRu;
+use App\Model\Lng\StaticTextAddRu;
 
 use SleepingOwl\Admin\Form\Buttons\Save;
 use SleepingOwl\Admin\Form\Buttons\SaveAndClose;

@@ -23,6 +23,7 @@ class CreateUser extends Migration
              $table->integer('role_id')->default(1)->unsigned();
              $table->ipAddress('signup_ip')->nullable();
              $table->ipAddress('confirm_ip')->nullable();
+             $table->ipAddress('last_ip')->nullable();
              $table->string('token')->nullable();
              $table->boolean('active')->index('active')->default(false);
              $table->rememberToken();

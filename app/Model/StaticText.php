@@ -5,8 +5,8 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-use App\Admin\Model\StaticTextAddRu;
-use App\Admin\Model\StaticTextAddEn;
+use App\Model\Lng\StaticTextAddRu;
+use App\Model\Lng\StaticTextAddEn;
 use App\User;
 
 use App\Traits\DatesTraitTimestamp;

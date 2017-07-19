@@ -18,8 +18,8 @@ use KodiComponents\Navigation\Badge;
 use Carbon\Carbon;
 
 use App\Model\StaticText;
-use App\Admin\Model\StaticTextAddRu;
-use App\Admin\Model\StaticTextAddEn;
+use App\Model\Lng\StaticTextAddRu;
+use App\Model\Lng\StaticTextAddEn;
 
 use SleepingOwl\Admin\Form\Buttons\Save;
 use SleepingOwl\Admin\Form\Buttons\SaveAndClose;

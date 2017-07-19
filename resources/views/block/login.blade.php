@@ -11,7 +11,7 @@
     @include('auth.passwords.reset')
   @endif
 
-  @if (Auth::check())
+  @if (Auth::check() or Auth::viaRemember())
     <li class="username">{{ Auth::user()->name }}</li>
     @if (Auth::user()->isAdmin())
       <li class="admin">

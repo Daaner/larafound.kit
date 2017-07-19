@@ -24,10 +24,10 @@ return [
             (new Page(\App\Model\StaticText::class))
                 ->setTitle(trans('admin.adm_static_list'))
                 ->setPriority(100),
-            (new Page(\App\Admin\Model\StaticTextAddRu::class))
+            (new Page(\App\Model\Lng\StaticTextAddRu::class))
                 ->setTitle(trans('admin.adm_static_add_ru'))
                 ->setPriority(200),
-            (new Page(\App\Admin\Model\StaticTextAddEn::class))
+            (new Page(\App\Model\Lng\StaticTextAddEn::class))
                 ->setTitle(trans('admin.adm_static_add_en'))
                 ->setPriority(300),
 
