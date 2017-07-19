@@ -118,6 +118,9 @@ class StaticTextsAddRu extends Section implements Initializable
             AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
             AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
           ]),
+          AdminFormElement::columns()->addColumn([
+            AdminFormElement::images('images', trans('admin.adm_images'))->storeAsJson(),
+          ], 12),
         ]);
 
         $form->getButtons()->setButtons([

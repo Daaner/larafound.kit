@@ -57,6 +57,7 @@ return [
 	'adm_email' => 'Почта',
 	'adm_email_check' => 'Подтвержден',
 	'adm_image' => 'Изображение',
+	'adm_images' => 'Изображения к статье',
 	'adm_avatar' => 'Аватар',
 	'adm_all' => 'Все',
 	'adm_edit' => 'Редактирование',
