@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class StaticTextTable extends Migration
+class ArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,25 @@ class StaticTextTable extends Migration
      */
     public function up()
     {
-        // Multi Pivot
-      Schema::create('statictexts', function (Blueprint $table) {
+      Schema::create('news_articles_ru', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('name')->comment('Название в админке');
+          $table->string('title', 75);
           $table->string('alias')->unique();
-          $table->boolean('published')->index('published')->default(true);
-          $table->integer('ru')->nullable()->unsigned();
-          $table->integer('en')->nullable()->unsigned();
-          // add next lng
+          $table->integer('category')->unsigned()->default(0);
+          $table->string('image')->nullable();
 
+          $table->string('keywords', 250)->nullable();
+          $table->string('description', 200)->nullable();
+          $table->string('tags')->nullable();
+
+          $table->text('preview_text')->nullable();
+          $table->longText('full_text')->nullable();
+          $table->string('video')->nullable();
+          $table->text('images')->nullable();
+          $table->text('gallery')->nullable();
+          $table->string('links')->nullable();
+
+          $table->boolean('published')->index('published')->default(true);
           $table->timestamp('publish_up')->nullable();
           $table->timestamp('publish_down')->nullable();
           $table->integer('user_id')->unsigned()->nullable();
@@ -30,43 +39,31 @@ class StaticTextTable extends Migration
           $table->softDeletes();
       });
 
-        // lng database
-      Schema::create('static_en', function (Blueprint $table) {
+      Schema::create('news_articles_en', function (Blueprint $table) {
           $table->increments('id');
           $table->string('title', 75);
+          $table->string('alias')->unique();
+          $table->integer('category')->unsigned()->default(0);
+          $table->string('image')->nullable();
+
           $table->string('keywords', 250)->nullable();
           $table->string('description', 200)->nullable();
+          $table->string('tags')->nullable();
+
           $table->text('preview_text')->nullable();
           $table->longText('full_text')->nullable();
-          $table->string('picture')->nullable();
           $table->string('video')->nullable();
           $table->text('images')->nullable();
-          $table->boolean('published')->index('published')->default(true);
+          $table->text('gallery')->nullable();
+          $table->string('links')->nullable();
 
+          $table->boolean('published')->index('published')->default(true);
+          $table->timestamp('publish_up')->nullable();
+          $table->timestamp('publish_down')->nullable();
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
           $table->softDeletes();
       });
-
-      Schema::create('static_ru', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('title', 75);
-          $table->string('keywords', 250)->nullable();
-          $table->string('description', 200)->nullable();
-          $table->text('preview_text')->nullable();
-          $table->longText('full_text')->nullable();
-          $table->string('picture')->nullable();
-          $table->string('video')->nullable();
-          $table->text('images')->nullable();
-          $table->boolean('published')->index('published')->default(true);
-
-          $table->integer('user_id')->unsigned()->nullable();
-          $table->timestamps();
-          $table->softDeletes();
-      });
-
-      // add next lng
-
     }
 
     /**
@@ -76,9 +73,7 @@ class StaticTextTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statictexts');
-        Schema::dropIfExists('static_ru');
-        Schema::dropIfExists('static_en');
-        // add next
+        Schema::dropIfExists('news_articles_ru');
+        Schema::dropIfExists('news_articles_en');
     }
 }

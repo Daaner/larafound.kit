@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-07-19.
+    * Generated on 2017-07-20.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -38,6 +38,7 @@ namespace PHPSTORM_META {
         'view' => Illuminate\View\Factory::class,
         'view.finder' => Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => Illuminate\View\Engines\EngineResolver::class,
+        'image' => Intervention\Image\ImageManager::class,
         'blade.compiler' => Illuminate\View\Compilers\BladeCompiler::class,
         'sleeping_owl.wysiwyg' => SleepingOwl\Admin\Wysiwyg\Manager::class,
         'assets.packages' => KodiCMS\Assets\PackageManager::class,
@@ -176,6 +177,7 @@ namespace PHPSTORM_META {
         'view' => Illuminate\View\Factory::class,
         'view.finder' => Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => Illuminate\View\Engines\EngineResolver::class,
+        'image' => Intervention\Image\ImageManager::class,
         'blade.compiler' => Illuminate\View\Compilers\BladeCompiler::class,
         'sleeping_owl.wysiwyg' => SleepingOwl\Admin\Wysiwyg\Manager::class,
         'assets.packages' => KodiCMS\Assets\PackageManager::class,
@@ -314,6 +316,7 @@ namespace PHPSTORM_META {
         'view' => Illuminate\View\Factory::class,
         'view.finder' => Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => Illuminate\View\Engines\EngineResolver::class,
+        'image' => Intervention\Image\ImageManager::class,
         'blade.compiler' => Illuminate\View\Compilers\BladeCompiler::class,
         'sleeping_owl.wysiwyg' => SleepingOwl\Admin\Wysiwyg\Manager::class,
         'assets.packages' => KodiCMS\Assets\PackageManager::class,
@@ -452,6 +455,7 @@ namespace PHPSTORM_META {
         'view' => Illuminate\View\Factory::class,
         'view.finder' => Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => Illuminate\View\Engines\EngineResolver::class,
+        'image' => Intervention\Image\ImageManager::class,
         'blade.compiler' => Illuminate\View\Compilers\BladeCompiler::class,
         'sleeping_owl.wysiwyg' => SleepingOwl\Admin\Wysiwyg\Manager::class,
         'assets.packages' => KodiCMS\Assets\PackageManager::class,
@@ -590,6 +594,7 @@ namespace PHPSTORM_META {
         'view' => Illuminate\View\Factory::class,
         'view.finder' => Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => Illuminate\View\Engines\EngineResolver::class,
+        'image' => Intervention\Image\ImageManager::class,
         'blade.compiler' => Illuminate\View\Compilers\BladeCompiler::class,
         'sleeping_owl.wysiwyg' => SleepingOwl\Admin\Wysiwyg\Manager::class,
         'assets.packages' => KodiCMS\Assets\PackageManager::class,
@@ -728,6 +733,7 @@ namespace PHPSTORM_META {
         'view' => Illuminate\View\Factory::class,
         'view.finder' => Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => Illuminate\View\Engines\EngineResolver::class,
+        'image' => Intervention\Image\ImageManager::class,
         'blade.compiler' => Illuminate\View\Compilers\BladeCompiler::class,
         'sleeping_owl.wysiwyg' => SleepingOwl\Admin\Wysiwyg\Manager::class,
         'assets.packages' => KodiCMS\Assets\PackageManager::class,
@@ -866,6 +872,7 @@ namespace PHPSTORM_META {
         'view' => Illuminate\View\Factory::class,
         'view.finder' => Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => Illuminate\View\Engines\EngineResolver::class,
+        'image' => Intervention\Image\ImageManager::class,
         'blade.compiler' => Illuminate\View\Compilers\BladeCompiler::class,
         'sleeping_owl.wysiwyg' => SleepingOwl\Admin\Wysiwyg\Manager::class,
         'assets.packages' => KodiCMS\Assets\PackageManager::class,

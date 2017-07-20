@@ -22,7 +22,6 @@ class UsersTableSeeder extends Seeder
                 'username' => 'admin',
                 'email' => 'admin@admin.com',
                 'password' => 'admin111',
-                'avatar' => '/images/avatars/adm.jpg',
                 'active' => 1,
                 'role_id' => 3,
             ],
@@ -31,7 +30,6 @@ class UsersTableSeeder extends Seeder
                 'username' => 'user',
                 'email' => 'user@user.com',
                 'password' => 'user111',
-                'avatar' => null,
                 'active' => 1,
                 'role_id' => 1,
             ],
@@ -40,7 +38,6 @@ class UsersTableSeeder extends Seeder
                 'username' => 'Вася',
                 'email' => 'vasiliy@google.com',
                 'password' => 'user111',
-                'avatar' => null,
                 'active' => 0,
                 'role_id' => 1,
             ]
@@ -55,7 +52,6 @@ class UsersTableSeeder extends Seeder
                     'email'			=> $user['email'],
                     'role_id'		=> $user['role_id'],
                     'active'		=> $user['active'],
-                    'avatar'		=> $user['avatar'],
                     'password'		=> Hash::make ($user['password']),
                 ));
             }
