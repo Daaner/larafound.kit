@@ -116,6 +116,7 @@ class StaticTextsAddEn extends Section implements Initializable
             AdminFormElement::textarea('keywords', trans('admin.adm_metakey'))->setRows(3),
             AdminFormElement::textarea('description', trans('admin.adm_metadesc'))->setRows(3),
             AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
+            AdminFormElement::timestamp('updated_at', trans('admin.adm_updated'))->setReadonly(1),
             AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
           ]),
           AdminFormElement::columns()->addColumn([

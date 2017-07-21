@@ -24,6 +24,9 @@ class AdminSectionsServiceProvider extends ServiceProvider
         \App\Model\StaticText::class                => 'App\Admin\Sections\StaticTexts',
         \App\Model\Lng\StaticTextAddRu::class     => 'App\Admin\Sections\StaticTextsAddRu',
         \App\Model\Lng\StaticTextAddEn::class     => 'App\Admin\Sections\StaticTextsAddEn',
+
+        \App\Model\Lng\NewsCategoryRu::class     => 'App\Admin\Sections\NewsCategoriesRu',
+        \App\Model\Lng\NewsCategoryEn::class     => 'App\Admin\Sections\NewsCategoriesEn',
     ];
 
     /**

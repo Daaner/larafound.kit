@@ -19,18 +19,6 @@ return [
     'adm_roles_create' => 'Создание новой роли',
     'adm_role' => 'Роль',
 	
-    'adm_static' => 'Статические тексты',
-    'adm_static_list' => 'Список',
-    'adm_static_list_header' => 'Список статических текстов',
-    'adm_static_edit' => 'Редактирование основного пункта',
-    'adm_static_edit_ru' => 'Редактирование основного русского пункта',
-    'adm_static_edit_en' => 'Редактирование основного английского пункта',
-    'adm_static_create' => 'Создание основного пункта',
-    'adm_static_add_ru' => 'Русские',
-    'adm_static_add_ru_header' => 'Русские статические тексты',
-	'adm_static_add_en' => 'Английские',
-    'adm_static_add_en_header' => 'Английские статические тексты',
-	
 	'adm_label' => 'Метка',
 	'adm_title' => 'Название',
 	'adm_related' => 'Связано с пунктом',
@@ -38,6 +26,7 @@ return [
 	'adm_metakey' => 'Meta ключи',
 	'adm_metadesc' => 'Meta описание',
 	'adm_seo' => 'SEO<br/><small>(title / key / desc)</small>',
+	'adm_text' => 'Описание',
 	'adm_text_prev' => 'Предварительный текст',
 	'adm_text_full' => 'Полный текст',
 	'adm_video' => 'Видео из YouTube',
@@ -80,8 +69,44 @@ return [
 	'adm_publish_up' => 'Показывать с',
 	'adm_publish_down' => 'Показывать до',
 	
+	'adm_updated' => 'Изменено',
+	
 	'adm_delete' => 'Удален',
 	'adm_deletes' => 'Удаленные',
 	'adm_delete1' => 'Удалено',
 	'adm_delete2' => 'Удаленa',
+	
+	'adm_parent' => 'Родитель',
+	'adm_parent_null' => 'Корневая',
+	'adm_parent_cat' => 'Родительская категория',
+	
+	
+    'adm_static' => 'Статические тексты',
+    'adm_static_list' => 'Список',
+    'adm_static_list_header' => 'Список статических текстов',
+    'adm_static_edit' => 'Редактирование основного пункта',
+    'adm_static_edit_ru' => 'Редактирование основного русского пункта',
+    'adm_static_edit_en' => 'Редактирование основного английского пункта',
+    'adm_static_create' => 'Создание основного пункта',
+    'adm_static_add_ru' => 'Русские',
+    'adm_static_add_ru_header' => 'Русские статические тексты',
+	'adm_static_add_en' => 'Английские',
+    'adm_static_add_en_header' => 'Английские статические тексты',
+	
+    'adm_news_category' => 'Новости (блог)',
+    'adm_news_category_edit' => 'Редактирование категории новостей',
+    'adm_news_category_create' => 'Создание категории новостей',
+	'adm_text_cat' => 'Описание категории',
+	
+    'adm_news_category_ru_header' => 'Русские категории новостей',
+    'adm_news_category_en_header' => 'Английские категории новостей',
+	'adm_news_cat_add_ru' => 'Русские категории',
+	'adm_news_cat_add_en' => 'Английские категории',
+	
+	
+	
+	
+	
+	
+	
 ];

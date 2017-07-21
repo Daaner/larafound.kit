@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Model\StaticText;
 use App\Model\StaticTextAdd;
-use App\Traits\DatesTraitTimestamp;
 
 class StaticTextAddRu extends StaticTextAdd
 {
-    use DatesTraitTimestamp;
 
     protected $table = 'static_ru';
 

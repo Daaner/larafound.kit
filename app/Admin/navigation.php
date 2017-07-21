@@ -34,6 +34,23 @@ return [
         ],
     ],
 
+    //news
+    [
+        'title' => trans('admin.adm_news_category'),
+        'icon' => 'fa fa-newspaper-o',
+        'priority' => 400,
+        'pages' =>
+        [
+            (new Page(\App\Model\Lng\NewsCategoryRu::class))
+                ->setTitle(trans('admin.adm_news_cat_add_ru'))
+                ->setPriority(100),
+            (new Page(\App\Model\Lng\NewsCategoryEn::class))
+                ->setTitle(trans('admin.adm_news_cat_add_en'))
+                ->setPriority(200),
+
+        ],
+    ],
+
     //users
     [
         'title' => trans('admin.adm_users_group'),

@@ -12,9 +12,6 @@ class StaticTextAdd extends Model
 {
   use SoftDeletes;
 
-  // default table
-  // protected $table = 'static_ru';
-
   public function user() {
     return $this->belongsTo(User::class, 'user_id', 'id');
   }

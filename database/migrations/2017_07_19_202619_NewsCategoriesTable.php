@@ -18,8 +18,9 @@ class NewsCategoriesTable extends Migration
           $table->string('name');
           $table->string('image')->nullable();
           $table->string('alias')->unique();
+          $table->text('info');
           $table->boolean('published')->index('published')->default(true);
-          $table->integer('parent')->unsigned()->default(0);
+          $table->integer('parent')->unsigned()->nullable();
           $table->integer('order')->unsigned()->default(0);
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
@@ -31,8 +32,9 @@ class NewsCategoriesTable extends Migration
           $table->string('name');
           $table->string('image')->nullable();
           $table->string('alias')->unique();
+          $table->text('info');
           $table->boolean('published')->index('published')->default(true);
-          $table->integer('parent')->unsigned()->default(0);
+          $table->integer('parent')->unsigned()->nullable();
           $table->integer('order')->unsigned()->default(0);
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
