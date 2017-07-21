@@ -27,6 +27,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
 
         \App\Model\Lng\NewsCategoryRu::class     => 'App\Admin\Sections\NewsCategoriesRu',
         \App\Model\Lng\NewsCategoryEn::class     => 'App\Admin\Sections\NewsCategoriesEn',
+        \App\Model\Lng\NewsArticleRu::class     => 'App\Admin\Sections\NewsArticlesRu',
     ];
 
     /**

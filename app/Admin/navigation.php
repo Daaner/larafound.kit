@@ -30,7 +30,6 @@ return [
             (new Page(\App\Model\Lng\StaticTextAddEn::class))
                 ->setTitle(trans('admin.adm_static_add_en'))
                 ->setPriority(300),
-
         ],
     ],
 
@@ -47,6 +46,9 @@ return [
             (new Page(\App\Model\Lng\NewsCategoryEn::class))
                 ->setTitle(trans('admin.adm_news_cat_add_en'))
                 ->setPriority(200),
+            (new Page(\App\Model\Lng\NewsArticleRu::class))
+                ->setTitle(trans('admin.adm_news_article_ru'))
+                ->setPriority(300),
 
         ],
     ],

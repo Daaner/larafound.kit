@@ -17,7 +17,7 @@ class ArticlesTable extends Migration
           $table->increments('id');
           $table->string('title', 75);
           $table->string('alias')->unique();
-          $table->integer('category')->unsigned()->default(0);
+          $table->integer('category')->unsigned()->nullable();
           $table->string('image')->nullable();
 
           $table->string('keywords', 250)->nullable();
@@ -43,7 +43,7 @@ class ArticlesTable extends Migration
           $table->increments('id');
           $table->string('title', 75);
           $table->string('alias')->unique();
-          $table->integer('category')->unsigned()->default(0);
+          $table->integer('category')->unsigned()->nullable();
           $table->string('image')->nullable();
 
           $table->string('keywords', 250)->nullable();

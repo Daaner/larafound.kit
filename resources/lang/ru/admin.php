@@ -102,6 +102,8 @@ return [
     'adm_news_category_en_header' => 'Английские категории новостей',
 	'adm_news_cat_add_ru' => 'Русские категории',
 	'adm_news_cat_add_en' => 'Английские категории',
+	'adm_news_article_ru' => 'Русские новости',
+	'adm_news_article_en' => 'Английские новости',
 	
 	
 	
