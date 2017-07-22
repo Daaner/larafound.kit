@@ -5,16 +5,16 @@
 // Foundation
 @import "node_modules/foundation-sites/scss/foundation";
 
-@include foundation-everything(true);
-
-//if need flex-grid off
-//@include foundation-everything(false);
+// @include foundation-everything(true);
+@include foundation-everything(false);
+@include foundation-xy-grid-classes(true);
 
 @import "node_modules/motion-ui/motion-ui";
 
 // fonts css (fast watch than scss)
 @import "font-awesome.css";
 @import "foundation-icons.css";
+@import "fix";
 
 //global SCSS
 @import "color";

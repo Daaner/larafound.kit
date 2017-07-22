@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.30 on 2017-07-21.
+ * Generated for Laravel 5.4.30 on 2017-07-23.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14735,6 +14735,1453 @@ namespace SleepingOwl\Admin\Facades {
     }
 
     class MessageStack {
+         
+    }
+
+    class Admin {
+        
+        /**
+         * 
+         *
+         * @param \SleepingOwl\Admin\TemplateInterface $template
+         * @static 
+         */ 
+        public static function setTemplate($template)
+        {
+            return \SleepingOwl\Admin\Admin::setTemplate($template);
+        }
+        
+        /**
+         * Initialize class.
+         *
+         * @static 
+         */ 
+        public static function initialize()
+        {
+            return \SleepingOwl\Admin\Admin::initialize();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $class
+         * @param \Closure|null $callback
+         * @return $this 
+         * @static 
+         */ 
+        public static function registerModel($class, $callback = null)
+        {
+            return \SleepingOwl\Admin\Admin::registerModel($class, $callback);
+        }
+        
+        /**
+         * 
+         *
+         * @param \SleepingOwl\Admin\ModelConfigurationInterface $model
+         * @return $this 
+         * @static 
+         */ 
+        public static function register($model)
+        {
+            return \SleepingOwl\Admin\Admin::register($model);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $sections
+         * @return $this 
+         * @static 
+         */ 
+        public static function registerSections($sections)
+        {
+            return \SleepingOwl\Admin\Admin::registerSections($sections);
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getMissedSections()
+        {
+            return \SleepingOwl\Admin\Admin::getMissedSections();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $class
+         * @param \SleepingOwl\Admin\ModelConfigurationInterface $model
+         * @return $this 
+         * @static 
+         */ 
+        public static function setModel($class, $model)
+        {
+            return \SleepingOwl\Admin\Admin::setModel($class, $model);
+        }
+        
+        /**
+         * 
+         *
+         * @param string|\SleepingOwl\Admin\Model $class
+         * @return \SleepingOwl\Admin\ModelConfigurationInterface 
+         * @static 
+         */ 
+        public static function getModel($class)
+        {
+            return \SleepingOwl\Admin\Admin::getModel($class);
+        }
+        
+        /**
+         * 
+         *
+         * @return \SleepingOwl\Admin\ModelConfigurationInterface[]|\SleepingOwl\Admin\ModelCollection 
+         * @static 
+         */ 
+        public static function getModels()
+        {
+            return \SleepingOwl\Admin\Admin::getModels();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $class
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasModel($class)
+        {
+            return \SleepingOwl\Admin\Admin::hasModel($class);
+        }
+        
+        /**
+         * 
+         *
+         * @return \SleepingOwl\Admin\NavigationInterface 
+         * @static 
+         */ 
+        public static function navigation()
+        {
+            return \SleepingOwl\Admin\Admin::navigation();
+        }
+        
+        /**
+         * 
+         *
+         * @return \SleepingOwl\Admin\MetaInterface 
+         * @static 
+         */ 
+        public static function meta()
+        {
+            return \SleepingOwl\Admin\Admin::meta();
+        }
+        
+        /**
+         * 
+         *
+         * @return \SleepingOwl\Admin\TemplateInterface 
+         * @static 
+         */ 
+        public static function template()
+        {
+            return \SleepingOwl\Admin\Admin::template();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $class
+         * @param int $priority
+         * @return \SleepingOwl\Admin\Page 
+         * @static 
+         */ 
+        public static function addMenuPage($class = null, $priority = 100)
+        {
+            return \SleepingOwl\Admin\Admin::addMenuPage($class, $priority);
+        }
+        
+        /**
+         * 
+         *
+         * @return \SleepingOwl\Admin\Navigation 
+         * @deprecated 
+         * @static 
+         */ 
+        public static function getNavigation()
+        {
+            return \SleepingOwl\Admin\Admin::getNavigation();
+        }
+        
+        /**
+         * 
+         *
+         * @param string|\SleepingOwl\Admin\Renderable $content
+         * @param string|null $title
+         * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory 
+         * @static 
+         */ 
+        public static function view($content, $title = null)
+        {
+            return \SleepingOwl\Admin\Admin::view($content, $title);
+        }
+        
+        /**
+         * Получение массива глобальных переменных для JavaScript.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function scriptVariables()
+        {
+            return \SleepingOwl\Admin\Admin::scriptVariables();
+        }
+         
+    }
+
+    class Template {
+        
+        /**
+         * Получение названия текущего шаблона.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function name()
+        {
+            return \SleepingOwl\Admin\Templates\TemplateDefault::name();
+        }
+        
+        /**
+         * Версия темы.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function version()
+        {
+            return \SleepingOwl\Admin\Templates\TemplateDefault::version();
+        }
+        
+        /**
+         * URL проекта.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function homepage()
+        {
+            return \SleepingOwl\Admin\Templates\TemplateDefault::homepage();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function initialize()
+        {
+            return \SleepingOwl\Admin\Templates\TemplateDefault::initialize();
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getViewNamespace()
+        {
+            return \SleepingOwl\Admin\Templates\TemplateDefault::getViewNamespace();
+        }
+        
+        /**
+         * Получение относительного пути хранения asset файлов.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function assetDir()
+        {
+            return \SleepingOwl\Admin\Templates\TemplateDefault::assetDir();
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getLogo()
+        {
+            return \SleepingOwl\Admin\Templates\TemplateDefault::getLogo();
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getLogoMini()
+        {
+            return \SleepingOwl\Admin\Templates\TemplateDefault::getLogoMini();
+        }
+        
+        /**
+         * Название с указанием версии.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function longName()
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::longName();
+        }
+        
+        /**
+         * 
+         *
+         * @return \SleepingOwl\Admin\Templates\Breadcrumbs 
+         * @static 
+         */ 
+        public static function breadcrumbs()
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::breadcrumbs();
+        }
+        
+        /**
+         * 
+         *
+         * @return \SleepingOwl\Admin\Templates\MetaInterface 
+         * @static 
+         */ 
+        public static function meta()
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::meta();
+        }
+        
+        /**
+         * 
+         *
+         * @return \SleepingOwl\Admin\Templates\NavigationInterface 
+         * @static 
+         */ 
+        public static function navigation()
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::navigation();
+        }
+        
+        /**
+         * Генерация относительно пути до asset файлов для текущей темы.
+         *
+         * @param string $path относительный путь до файла, например `js/app.js`
+         * @return string 
+         * @static 
+         */ 
+        public static function assetPath($path = null)
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::assetPath($path);
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getTitle()
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::getTitle();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $separator
+         * @return string 
+         * @static 
+         */ 
+        public static function makeTitle($title, $separator = '|')
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::makeTitle($title, $separator);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $view
+         * @return string 
+         * @static 
+         */ 
+        public static function getViewPath($view)
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::getViewPath($view);
+        }
+        
+        /**
+         * 
+         *
+         * @param string|\Illuminate\View\View $view
+         * @param array $data
+         * @param array $mergeData
+         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View 
+         * @static 
+         */ 
+        public static function view($view, $data = array(), $mergeData = array())
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::view($view, $data, $mergeData);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $key
+         * @return string 
+         * @static 
+         */ 
+        public static function renderBreadcrumbs($key)
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::renderBreadcrumbs($key);
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function renderNavigation()
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::renderNavigation();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @return string 
+         * @static 
+         */ 
+        public static function renderMeta($title)
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::renderMeta($title);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function toArray()
+        {
+            //Method inherited from \SleepingOwl\Admin\Templates\Template            
+            return \SleepingOwl\Admin\Templates\TemplateDefault::toArray();
+        }
+         
+    }
+
+    class Navigation {
+        
+        /**
+         * Overload current page.
+         *
+         * @return \KodiComponents\Navigation\Contracts\PageInterface|null 
+         * @static 
+         */ 
+        public static function getCurrentPage()
+        {
+            return \SleepingOwl\Admin\Navigation::getCurrentPage();
+        }
+        
+        /**
+         * Set Alias Id to Page.
+         *
+         * @param \SleepingOwl\Admin\Collection $pages
+         * @static 
+         */ 
+        public static function setAliasesId($pages)
+        {
+            return \SleepingOwl\Admin\Navigation::setAliasesId($pages);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $data
+         * @param string $class
+         * @return \KodiComponents\Navigation\PageInterface 
+         * @static 
+         */ 
+        public static function makePage($data, $class = 'KodiComponents\Navigation\Contracts\PageInterface')
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::makePage($data, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @return null|string 
+         * @static 
+         */ 
+        public static function getCurrentUrl()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::getCurrentUrl();
+        }
+        
+        /**
+         * 
+         *
+         * @param null|string $url
+         * @return $this 
+         * @static 
+         */ 
+        public static function setCurrentUrl($url)
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::setCurrentUrl($url);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $navigation
+         * @static 
+         */ 
+        public static function setFromArray($navigation)
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::setFromArray($navigation);
+        }
+        
+        /**
+         * 
+         *
+         * @param string|array|\KodiComponents\Navigation\PageInterface $page
+         * @return \KodiComponents\Navigation\PageInterface|null 
+         * @static 
+         */ 
+        public static function addPage($page)
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::addPage($page);
+        }
+        
+        /**
+         * 
+         *
+         * @return \KodiComponents\Navigation\PageCollection|\KodiComponents\Navigation\PageInterface[] 
+         * @static 
+         */ 
+        public static function getPages()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::getPages();
+        }
+        
+        /**
+         * 
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function countPages()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::countPages();
+        }
+        
+        /**
+         * 
+         *
+         * @param \Closure $accessLogic
+         * @return $this 
+         * @static 
+         */ 
+        public static function setAccessLogic($accessLogic)
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::setAccessLogic($accessLogic);
+        }
+        
+        /**
+         * 
+         *
+         * @return \Closure 
+         * @static 
+         */ 
+        public static function getAccessLogic()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::getAccessLogic();
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function filterByAccessRights()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::filterByAccessRights();
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function filterEmptyPages()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::filterEmptyPages();
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function sort()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::sort();
+        }
+        
+        /**
+         * 
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasChild()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::hasChild();
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function toArray()
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::toArray();
+        }
+        
+        /**
+         * 
+         *
+         * @param string|null $view
+         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View 
+         * @static 
+         */ 
+        public static function render($view = null)
+        {
+            //Method inherited from \KodiComponents\Navigation\Navigation            
+            return \SleepingOwl\Admin\Navigation::render($view);
+        }
+         
+    }
+
+    class TableColumn {
+        
+        /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Routing\Registrar $router
+         * @return void 
+         * @static 
+         */ 
+        public static function registerRoutes($router)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            \SleepingOwl\Admin\Factories\DisplayColumnFactory::registerRoutes($router);
+        }
+        
+        /**
+         * Bind new alias.
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @static 
+         */ 
+        public static function bind($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFactory::bind($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @deprecated Use `bind` method
+         * @static 
+         */ 
+        public static function add($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFactory::add($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function register($classes)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFactory::register($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAliases()
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFactory::getAliases();
+        }
+        
+        /**
+         * Get class by alias.
+         *
+         * @param string $alias
+         * @return string 
+         * @static 
+         */ 
+        public static function getAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFactory::getAlias($alias);
+        }
+        
+        /**
+         * Check if alias is registered.
+         *
+         * @param string $alias
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFactory::hasAlias($alias);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param array $arguments
+         * @return object 
+         * @static 
+         */ 
+        public static function makeClass($alias, $arguments)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFactory::makeClass($alias, $arguments);
+        }
+         
+    }
+
+    class TableColumnEditable {
+        
+        /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Routing\Registrar $router
+         * @return void 
+         * @static 
+         */ 
+        public static function registerRoutes($router)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            \SleepingOwl\Admin\Factories\DisplayColumnEditableFactory::registerRoutes($router);
+        }
+        
+        /**
+         * Bind new alias.
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @static 
+         */ 
+        public static function bind($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnEditableFactory::bind($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @deprecated Use `bind` method
+         * @static 
+         */ 
+        public static function add($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnEditableFactory::add($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function register($classes)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnEditableFactory::register($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAliases()
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnEditableFactory::getAliases();
+        }
+        
+        /**
+         * Get class by alias.
+         *
+         * @param string $alias
+         * @return string 
+         * @static 
+         */ 
+        public static function getAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnEditableFactory::getAlias($alias);
+        }
+        
+        /**
+         * Check if alias is registered.
+         *
+         * @param string $alias
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnEditableFactory::hasAlias($alias);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param array $arguments
+         * @return object 
+         * @static 
+         */ 
+        public static function makeClass($alias, $arguments)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnEditableFactory::makeClass($alias, $arguments);
+        }
+         
+    }
+
+    class TableColumnFilter {
+        
+        /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Routing\Registrar $router
+         * @return void 
+         * @static 
+         */ 
+        public static function registerRoutes($router)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            \SleepingOwl\Admin\Factories\DisplayColumnFilterFactory::registerRoutes($router);
+        }
+        
+        /**
+         * Bind new alias.
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @static 
+         */ 
+        public static function bind($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFilterFactory::bind($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @deprecated Use `bind` method
+         * @static 
+         */ 
+        public static function add($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFilterFactory::add($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function register($classes)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFilterFactory::register($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAliases()
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFilterFactory::getAliases();
+        }
+        
+        /**
+         * Get class by alias.
+         *
+         * @param string $alias
+         * @return string 
+         * @static 
+         */ 
+        public static function getAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFilterFactory::getAlias($alias);
+        }
+        
+        /**
+         * Check if alias is registered.
+         *
+         * @param string $alias
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFilterFactory::hasAlias($alias);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param array $arguments
+         * @return object 
+         * @static 
+         */ 
+        public static function makeClass($alias, $arguments)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayColumnFilterFactory::makeClass($alias, $arguments);
+        }
+         
+    }
+
+    class DisplayFilter {
+        
+        /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Routing\Registrar $router
+         * @return void 
+         * @static 
+         */ 
+        public static function registerRoutes($router)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            \SleepingOwl\Admin\Factories\DisplayFilterFactory::registerRoutes($router);
+        }
+        
+        /**
+         * Bind new alias.
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @static 
+         */ 
+        public static function bind($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFilterFactory::bind($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @deprecated Use `bind` method
+         * @static 
+         */ 
+        public static function add($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFilterFactory::add($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function register($classes)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFilterFactory::register($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAliases()
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFilterFactory::getAliases();
+        }
+        
+        /**
+         * Get class by alias.
+         *
+         * @param string $alias
+         * @return string 
+         * @static 
+         */ 
+        public static function getAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFilterFactory::getAlias($alias);
+        }
+        
+        /**
+         * Check if alias is registered.
+         *
+         * @param string $alias
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFilterFactory::hasAlias($alias);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param array $arguments
+         * @return object 
+         * @static 
+         */ 
+        public static function makeClass($alias, $arguments)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFilterFactory::makeClass($alias, $arguments);
+        }
+         
+    }
+
+    class Form {
+        
+        /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Routing\Registrar $router
+         * @return void 
+         * @static 
+         */ 
+        public static function registerRoutes($router)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            \SleepingOwl\Admin\Factories\FormFactory::registerRoutes($router);
+        }
+        
+        /**
+         * Bind new alias.
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @static 
+         */ 
+        public static function bind($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormFactory::bind($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @deprecated Use `bind` method
+         * @static 
+         */ 
+        public static function add($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormFactory::add($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function register($classes)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormFactory::register($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAliases()
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormFactory::getAliases();
+        }
+        
+        /**
+         * Get class by alias.
+         *
+         * @param string $alias
+         * @return string 
+         * @static 
+         */ 
+        public static function getAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormFactory::getAlias($alias);
+        }
+        
+        /**
+         * Check if alias is registered.
+         *
+         * @param string $alias
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormFactory::hasAlias($alias);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param array $arguments
+         * @return object 
+         * @static 
+         */ 
+        public static function makeClass($alias, $arguments)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormFactory::makeClass($alias, $arguments);
+        }
+         
+    }
+
+    class FormElement {
+        
+        /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Routing\Registrar $router
+         * @return void 
+         * @static 
+         */ 
+        public static function registerRoutes($router)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            \SleepingOwl\Admin\Factories\FormElementFactory::registerRoutes($router);
+        }
+        
+        /**
+         * Bind new alias.
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @static 
+         */ 
+        public static function bind($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormElementFactory::bind($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @deprecated Use `bind` method
+         * @static 
+         */ 
+        public static function add($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormElementFactory::add($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function register($classes)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormElementFactory::register($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAliases()
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormElementFactory::getAliases();
+        }
+        
+        /**
+         * Get class by alias.
+         *
+         * @param string $alias
+         * @return string 
+         * @static 
+         */ 
+        public static function getAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormElementFactory::getAlias($alias);
+        }
+        
+        /**
+         * Check if alias is registered.
+         *
+         * @param string $alias
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormElementFactory::hasAlias($alias);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param array $arguments
+         * @return object 
+         * @static 
+         */ 
+        public static function makeClass($alias, $arguments)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\FormElementFactory::makeClass($alias, $arguments);
+        }
+         
+    }
+
+    class Display {
+        
+        /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Routing\Registrar $router
+         * @return void 
+         * @static 
+         */ 
+        public static function registerRoutes($router)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            \SleepingOwl\Admin\Factories\DisplayFactory::registerRoutes($router);
+        }
+        
+        /**
+         * Bind new alias.
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @static 
+         */ 
+        public static function bind($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFactory::bind($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param string $class
+         * @return $this 
+         * @deprecated Use `bind` method
+         * @static 
+         */ 
+        public static function add($alias, $class)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFactory::add($alias, $class);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function register($classes)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFactory::register($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAliases()
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFactory::getAliases();
+        }
+        
+        /**
+         * Get class by alias.
+         *
+         * @param string $alias
+         * @return string 
+         * @static 
+         */ 
+        public static function getAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFactory::getAlias($alias);
+        }
+        
+        /**
+         * Check if alias is registered.
+         *
+         * @param string $alias
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasAlias($alias)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFactory::hasAlias($alias);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $alias
+         * @param array $arguments
+         * @return object 
+         * @static 
+         */ 
+        public static function makeClass($alias, $arguments)
+        {
+            //Method inherited from \SleepingOwl\Admin\AliasBinder            
+            return \SleepingOwl\Admin\Factories\DisplayFactory::makeClass($alias, $arguments);
+        }
          
     }
 

@@ -1,47 +1,51 @@
 <br>
-<div class="row">
+<div class="grid-container">
+<div class="grid-x">
 
-  <div class="callout small-12 medium-4 columns">
-    <h5>This is a callout.</h5>
+
+    <div class="callout secondary small-12 medium-4 cell">
+    <h5>This is a secondary callout</h5>
     <p>It has an easy to override visual style, and is appropriately subdued.</p>
     <a href="#">It's dangerous to go alone, take this.</a>
   </div>
 
-  <div class="small-12 medium-4 columns">
-    <ul class="accordion" data-accordion data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" id="deeplinked-accordion">
-      <li class="accordion-item is-active" data-accordion-item>
-        <a href="#deeplink1" class="accordion-title">Accordion 1</a>
-        <div class="accordion-content" data-tab-content id="deeplink1">
-          Panel 1. Lorem ipsum dolor
-        </div>
-      </li>
-      <li class="accordion-item" data-accordion-item>
-        <a href="#deeplink2" class="accordion-title">Accordion 2</a>
-        <div class="accordion-content" data-tab-content id="deeplink2">
-          Panel 2. Lorem ipsum dolor
-        </div>
-      </li>
-      <li class="accordion-item" data-accordion-item>
-        <a href="#deeplink3" class="accordion-title">Accordion 3</a>
-        <div class="accordion-content" data-tab-content id="deeplink3">
-          Panel 3. Lorem ipsum dolor
-        </div>
-      </li>
-    </ul>
+
+    <div class="small-12 medium-4 cell">
+      <ul class="accordion" data-accordion>
+        <li class="accordion-item is-active" data-accordion-item>
+          <a href="#" class="accordion-title">Accordion 1</a>
+          <div class="accordion-content" data-tab-content>
+            Panel 1. I'm open because I'm loaded that way, but you can't close me
+          </div>
+        </li>
+        <li class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title">Accordion 2, you can't open me.</a>
+          <div class="accordion-content" data-tab-content>
+            Panel 2. Lorem ipsum dolor
+          </div>
+        </li>
+        <li class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title">Accordion 3, you can't open me.</a>
+          <div class="accordion-content" data-tab-content>
+            Panel 3. Lorem ipsum dolor
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="small-12 medium-4 columns">
+  <div class="small-12 medium-4 cell">
     <button class="button" type="button" data-toggle="example-dropdown">Toggle Dropdown</button>
     <div class="dropdown-pane" id="example-dropdown" data-dropdown data-auto-focus="true">
       Example form in a dropdown.
       <form>
         <div class="row">
-          <div class="medium-6 columns">
+          <div class="medium-6 cell">
             <label>Name
               <input type="text" placeholder="Kirk, James T.">
             </label>
           </div>
-          <div class="medium-6 columns">
+          <div class="medium-6 cell">
             <label>Rank
               <input type="text" placeholder="Captain">
             </label>
@@ -54,5 +58,5 @@
       Just some junk that needs to be said. Or not. Your choice.
     </div>
   </div>
-  
+
 </div>

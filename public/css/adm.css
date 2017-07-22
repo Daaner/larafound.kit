@@ -64,7 +64,6 @@ li.tab-delete a {
   height: 100%;
 }
 
-.form-element-date .input-group,
-.form-element-timestamp .input-group {
+.form-element-date .input-group, .form-element-timestamp .input-group {
   width: auto!important;
 }

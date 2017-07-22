@@ -166,6 +166,7 @@ $(document).ready(function() {
             $('#login-error p').html(data.error);
           } else {
             $('#login_form').foundation('close');
+            $('.login a').foundation('_destroy');
             $('#login').html(data);
             $('#login_form').html('');
             $('#register_form').html('');

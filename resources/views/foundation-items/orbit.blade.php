@@ -1,5 +1,5 @@
 
-<div class="row columns">
+<div class="grid-container">
   <h3>Orbit</h3>
   <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
     <ul class="orbit-container">
