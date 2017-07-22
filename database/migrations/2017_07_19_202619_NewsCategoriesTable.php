@@ -21,6 +21,7 @@ class NewsCategoriesTable extends Migration
           $table->text('info');
           $table->boolean('published')->index('published')->default(true);
           $table->integer('parent')->unsigned()->nullable();
+          $table->integer('template')->unsigned()->nullable();
           $table->integer('order')->unsigned()->default(0);
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();
@@ -35,6 +36,7 @@ class NewsCategoriesTable extends Migration
           $table->text('info');
           $table->boolean('published')->index('published')->default(true);
           $table->integer('parent')->unsigned()->nullable();
+          $table->integer('template')->unsigned()->nullable();
           $table->integer('order')->unsigned()->default(0);
           $table->integer('user_id')->unsigned()->nullable();
           $table->timestamps();

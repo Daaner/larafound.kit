@@ -63,3 +63,8 @@ li.tab-delete a {
 .form-element-files__image>img {
   height: 100%;
 }
+
+.form-element-date .input-group,
+.form-element-timestamp .input-group {
+  width: auto!important;
+}

@@ -61,10 +61,10 @@ class StaticTextsAddRu extends Section implements Initializable
                 $description = iconv_strlen($instance->description);
                 return $metatitle.' / '.$keyword.' / '.$description;
             })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::custom(trans('admin.adm_user_id'), function ($model) {
-                return $model->updated_at ? $model->user['username']
-                .'<br/><small>'. $model->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
-            })->setWidth('150px')->setHtmlAttribute('class', 'text-center')->setOrderable(false),
+            AdminColumn::custom(trans('admin.adm_user_id'), function ($instance) {
+                return $instance->updated_at ? $instance->user['username']
+                .'<br/><small>'. $instance->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
+            })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
         ];
 
         $tableActive =  AdminDisplay::datatables()
@@ -115,8 +115,11 @@ class StaticTextsAddRu extends Section implements Initializable
             AdminFormElement::text('video', trans('admin.adm_video')),
             AdminFormElement::textarea('keywords', trans('admin.adm_metakey'))->setRows(3),
             AdminFormElement::textarea('description', trans('admin.adm_metadesc'))->setRows(3),
-            AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
-            AdminFormElement::timestamp('updated_at', trans('admin.adm_updated'))->setReadonly(1),
+            AdminFormElement::columns()->addColumn([
+              AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
+            ], 6)->addColumn([
+              AdminFormElement::timestamp('updated_at', trans('admin.adm_updated'))->setReadonly(1),
+            ]),
             AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),
           ]),
           AdminFormElement::columns()->addColumn([

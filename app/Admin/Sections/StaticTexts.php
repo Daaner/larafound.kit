@@ -33,7 +33,7 @@ class StaticTexts extends Section implements Initializable
     }
 
     protected $checkAccess = false;
-    protected $alias = 'static';
+    protected $alias = 'static/list';
 
     public function getIcon()
     {
@@ -57,7 +57,7 @@ class StaticTexts extends Section implements Initializable
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link(function ($model) {
-                echo '<a href="'. $this->alias .'/'. $model->id.'/edit">'
+                echo '<a href="../'. $this->alias .'/'. $model->id.'/edit">'
                     . $model->name .'</a><br /><small>'. $model->alias .'</small>';
             }, trans('admin.adm_label')),
 
@@ -79,10 +79,10 @@ class StaticTexts extends Section implements Initializable
             ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::relatedLink('StaticAddEn.title', trans('admin.adm_lng_en'))
             ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::custom(trans('admin.adm_user_id'), function ($model) {
-                return $model->updated_at ? $model->user['username']
-                .'<br/><small>'. $model->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
-            })->setWidth('150px')->setHtmlAttribute('class', 'text-center')->setOrderable(false),
+            AdminColumn::custom(trans('admin.adm_user_id'), function ($instance) {
+                return $instance->updated_at ? $instance->user['username']
+                .'<br/><small>'. $instance->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
+            })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
         ];
 
         $tableActive =  AdminDisplay::datatables()
@@ -136,7 +136,7 @@ class StaticTexts extends Section implements Initializable
 
             ], 9)->addColumn([
                 AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
-                AdminFormElement::timestamp('created_at', trans('admin.adm_created1')),
+                AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
                 AdminFormElement::datetime('publish_up', trans('admin.adm_publish_up')),
                 AdminFormElement::datetime('publish_down', trans('admin.adm_publish_down')),
                 AdminFormElement::hidden('user_id')->setDefaultValue(auth()->user()->id),

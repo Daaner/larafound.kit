@@ -5,6 +5,7 @@ namespace App\Model\Lng;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\NewsArticle;
+use App\Model\Lng\NewsCategoryRu;
 
 
 class NewsArticleRu extends NewsArticle
@@ -23,5 +24,10 @@ class NewsArticleRu extends NewsArticle
   public function scopeNewsDel($query)
   {
       return $query->where('deleted_at', '<>', null);
+  }
+
+  public function ncatru()
+  {
+      return $this->belongsTo(NewsCategoryRu::class, 'category', 'id');
   }
 }

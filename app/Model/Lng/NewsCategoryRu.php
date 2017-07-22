@@ -5,6 +5,7 @@ namespace App\Model\Lng;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\NewsCategory;
+use App\Model\Lng\NewsArticleRu;
 
 class NewsCategoryRu extends NewsCategory
 {
@@ -23,4 +24,10 @@ class NewsCategoryRu extends NewsCategory
   {
       return $query->where('deleted_at', '<>', null);
   }
+
+  public function ntextru()
+  {
+      return $this->hasMany(NewsArticleRu::class);
+  }
+
 }

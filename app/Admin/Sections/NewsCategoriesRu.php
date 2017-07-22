@@ -112,7 +112,8 @@ class NewsCategoriesRu extends Section implements Initializable
           ],7)->addColumn([
             AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
             AdminFormElement::select('parent', trans('admin.adm_parent_cat'), NewsCategoryRu::class)
-            ->setDisplay('name')->nullable()->exclude($id),
+              ->setDisplay('name')->nullable()->exclude($id),
+            AdminFormElement::text('template', trans('admin.adm_template')),
             AdminFormElement::image('image', trans('admin.adm_image')),
 
             AdminFormElement::timestamp('created_at', trans('admin.adm_created1'))->setReadonly(1),
