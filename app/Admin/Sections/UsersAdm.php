@@ -78,7 +78,8 @@ class UsersAdm extends Section implements Initializable
                 AdminFormElement::checkbox('active', trans('admin.adm_email_check')),
                 AdminFormElement::select('role_id', trans('admin.adm_role'), Role::class)
                                 ->setDisplay('name')->setSortable(false)->required(),
-                // AdminFormElement::password('password', trans('admin.adm_password')),
+                // AdminFormElement::password('password', trans('admin.adm_password'))
+                //                 ->required()->addValidationRule('min:6'),
             ]),
 
             AdminFormElement::columns()->addColumn([

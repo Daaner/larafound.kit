@@ -56,6 +56,20 @@
     <button class="button" type="button" data-toggle="example-dropdown-1">Hoverable Dropdown</button>
     <div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
       Just some junk that needs to be said. Or not. Your choice.
+      <form>
+        <div class="row">
+          <div class="medium-6 cell">
+            <label>Name
+              <input type="text" placeholder="Kirk, James T.">
+            </label>
+          </div>
+          <div class="medium-6 cell">
+            <label>Rank
+              <input type="text" placeholder="Captain">
+            </label>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 

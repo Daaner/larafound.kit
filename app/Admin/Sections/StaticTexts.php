@@ -79,6 +79,7 @@ class StaticTexts extends Section implements Initializable
             ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::relatedLink('StaticAddEn.title', trans('admin.adm_lng_en'))
             ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+
             AdminColumn::custom(trans('admin.adm_user_id'), function ($instance) {
                 return $instance->updated_at ? $instance->user['username']
                 .'<br/><small>'. $instance->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
@@ -128,10 +129,10 @@ class StaticTexts extends Section implements Initializable
                 // Языковая связка
                 AdminFormElement::columns()->addColumn([
                     AdminFormElement::select('ru', trans('admin.adm_lng_ru_link'), StaticTextAddRu::class)
-                                    ->setDisplay('title')->nullable(), //->unique()
+                                    ->setDisplay('title'), //->unique()->nullable()
                 ], 6)->addColumn([
                     AdminFormElement::select('en', trans('admin.adm_lng_en_link'), StaticTextAddEn::class)
-                                    ->setDisplay('title')->nullable(), //->unique()
+                                    ->setDisplay('title'), //->unique()->nullable()
                 ]),
 
             ], 9)->addColumn([

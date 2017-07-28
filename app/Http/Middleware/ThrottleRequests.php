@@ -80,11 +80,6 @@ class ThrottleRequests
 
         return response()->json(['error' => trans('site.error_trolle')]);
 
-        // return $this->addHeaders(
-        //     $response, $maxAttempts,
-        //     $this->calculateRemainingAttempts($key, $maxAttempts, $retryAfter),
-        //     $retryAfter
-        // );
     }
 
     /**

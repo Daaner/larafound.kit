@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.30 on 2017-07-23.
+ * Generated for Laravel 5.4.30 on 2017-07-28.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15133,10 +15133,10 @@ namespace SleepingOwl\Admin\Facades {
         /**
          * 
          *
-         * @param string|\Illuminate\View\View $view
+         * @param string|\View $view
          * @param array $data
          * @param array $mergeData
-         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View 
+         * @return \Illuminate\Contracts\View\Factory|\View 
          * @static 
          */ 
         public static function view($view, $data = array(), $mergeData = array())
@@ -15184,8 +15184,9 @@ namespace SleepingOwl\Admin\Facades {
         }
         
         /**
-         * 
+         * Render func
          *
+         * @return array 
          * @static 
          */ 
         public static function toArray()
