@@ -77,6 +77,16 @@ class StaticTexts extends Section implements Initializable
             })->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::relatedLink('StaticAddRu.title', trans('admin.adm_lng_ru'))
             ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+
+            //test
+            AdminColumnEditable::checkbox('published','check'),
+            AdminColumnEditable::datetime('updated_at','date')->setFormat('d.m.Y')->setWidth('200px'),
+            AdminColumnEditable::text('alias','text'),
+            AdminColumnEditable::select('ru')
+                ->setModelForOptions(new StaticTextAddRu)
+                ->setLabel('Связка')
+                ->setDisplay('title'),
+
             AdminColumn::relatedLink('StaticAddEn.title', trans('admin.adm_lng_en'))
             ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
 
@@ -129,10 +139,10 @@ class StaticTexts extends Section implements Initializable
                 // Языковая связка
                 AdminFormElement::columns()->addColumn([
                     AdminFormElement::select('ru', trans('admin.adm_lng_ru_link'), StaticTextAddRu::class)
-                                    ->setDisplay('title'), //->unique()->nullable()
+                                    ->setDisplay('title')->nullable()->unique(), //->unique()
                 ], 6)->addColumn([
                     AdminFormElement::select('en', trans('admin.adm_lng_en_link'), StaticTextAddEn::class)
-                                    ->setDisplay('title'), //->unique()->nullable()
+                                    ->setDisplay('title')->nullable()->unique(), //->unique()
                 ]),
 
             ], 9)->addColumn([
