@@ -56,9 +56,9 @@ class StaticTexts extends Section implements Initializable
     {
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
-            AdminColumn::link(function ($model) {
-                echo '<a href="../'. $this->alias .'/'. $model->id.'/edit">'
-                    . $model->name .'</a><br /><small>'. $model->alias .'</small>';
+            AdminColumn::link(function ($instance) {
+                return '<a href="../'. $this->alias .'/'. $instance->id.'/edit">'
+                    . $instance->name .'</a><br /><small>'. $instance->alias .'</small>';
             }, trans('admin.adm_label')),
 
             AdminColumn::custom(trans('admin.adm_published'), function ($model) {
@@ -96,15 +96,15 @@ class StaticTexts extends Section implements Initializable
             })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
         ];
 
-        $tableActive =  AdminDisplay::datatables()
+        $tableActive =  AdminDisplay::datatablesAsync()
             ->setModelClass(StaticText::class)
             ->paginate(25)->getScopes()->set('StaticActive')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-success table-hover th-center');
-        $tableDraft =  AdminDisplay::datatables()
+        $tableDraft =  AdminDisplay::datatablesAsync()
             ->setModelClass(StaticText::class)
             ->paginate(25)->getScopes()->set('StaticDraft')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-warning table-hover th-center');
-        $tableDeleted =  AdminDisplay::datatables()
+        $tableDeleted =  AdminDisplay::datatablesAsync()
             ->setModelClass(StaticText::class)
             ->paginate(25)->getScopes()->set('StaticDel')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-danger table-hover th-center');

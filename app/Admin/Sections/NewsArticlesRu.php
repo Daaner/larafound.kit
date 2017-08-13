@@ -56,7 +56,7 @@ class NewsArticlesRu extends Section implements Initializable
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link(function ($instance) {
-                echo '<a href="../'. $this->alias .'/'. $instance->id.'/edit">'
+                return '<a href="../'. $this->alias .'/'. $instance->id.'/edit">'
                     . $instance->title .'</a><br /><small>'. $instance->alias .'</small>';
             }, trans('admin.adm_title')),
             AdminColumn::custom(trans('admin.adm_published'), function ($model) {
