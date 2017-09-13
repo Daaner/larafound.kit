@@ -1,7 +1,10 @@
-# Laravel 5.4.30 & ZURB Foundation 6.4.3
+# Laravel 5.5.4 & ZURB Foundation 6.4.3
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"> <img width="250" src="http://foundation.zurb.com/assets/img/homepage/responsive-through-and-through.svg"></p>
 
-Пакет предназначен для разработки сайтов на Laravel 5.4.30 + ZURB Foundation 6.4.1 (Bootstrap вырезан и присутствует только в админ-панеле).
+Пакет предназначен для разработки сайтов на Laravel 5.5 + ZURB Foundation 6.4 (Bootstrap вырезан и присутствует только в админ-панели).
+
+## Особенности
+Обновился до 5.5 без фиксов. Ошибок не замечено
 
 ## Установка
 Для установки сделайте клон репозитория (или распакуйте в папку).
