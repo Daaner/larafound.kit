@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.32 on 2017-08-12.
+ * Generated for Laravel 5.4.36 on 2017-09-13.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -416,7 +416,7 @@ namespace Illuminate\Support\Facades {
          * Register a deferred provider and service.
          *
          * @param string $provider
-         * @param string $service
+         * @param string|null $service
          * @return void 
          * @static 
          */ 
@@ -12182,17 +12182,17 @@ namespace KodiCMS\Assets\Facades {
         }
         
         /**
-         * Create a new collection by invoking the callback a given amount of times.
+         * Create a new collection by invoking the callback a given number of times.
          *
-         * @param int $amount
+         * @param int $number
          * @param callable $callback
          * @return static 
          * @static 
          */ 
-        public static function times($amount, $callback = null)
+        public static function times($number, $callback = null)
         {
             //Method inherited from \Illuminate\Support\Collection            
-            return \KodiCMS\Assets\PackageManager::times($amount, $callback);
+            return \KodiCMS\Assets\PackageManager::times($number, $callback);
         }
         
         /**
@@ -13028,17 +13028,17 @@ namespace KodiCMS\Assets\Facades {
         }
         
         /**
-         * Get zero or more items randomly from the collection.
+         * Get one or a specified number of items randomly from the collection.
          *
-         * @param int|null $amount
+         * @param int|null $number
          * @return mixed 
          * @throws \InvalidArgumentException
          * @static 
          */ 
-        public static function random($amount = null)
+        public static function random($number = null)
         {
             //Method inherited from \Illuminate\Support\Collection            
-            return \KodiCMS\Assets\PackageManager::random($amount);
+            return \KodiCMS\Assets\PackageManager::random($number);
         }
         
         /**
@@ -14944,7 +14944,7 @@ namespace  {
             /**
              * Add an "or where" clause to the query.
              *
-             * @param string|\Closure $column
+             * @param string|array|\Closure $column
              * @param string $operator
              * @param mixed $value
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -15444,6 +15444,18 @@ namespace  {
             }
          
             /**
+             * Pass the query to a given callback.
+             *
+             * @param \Closure $callback
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */ 
+            public static function tap($callback)
+            {    
+                return \Illuminate\Database\Eloquent\Builder::tap($callback);
+            }
+         
+            /**
              * Apply the callback's query changes if the given "value" is false.
              *
              * @param mixed $value
@@ -15502,6 +15514,18 @@ namespace  {
             }
          
             /**
+             * Add a relationship count / exists condition to the query with an "or".
+             *
+             * @param string $relation
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function orDoesntHave($relation)
+            {    
+                return \Illuminate\Database\Eloquent\Builder::orDoesntHave($relation);
+            }
+         
+            /**
              * Add a relationship count / exists condition to the query with where clauses.
              *
              * @param string $relation
@@ -15542,6 +15566,19 @@ namespace  {
             public static function whereDoesntHave($relation, $callback = null)
             {    
                 return \Illuminate\Database\Eloquent\Builder::whereDoesntHave($relation, $callback);
+            }
+         
+            /**
+             * Add a relationship count / exists condition to the query with where clauses and an "or".
+             *
+             * @param string $relation
+             * @param \Closure $callback
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function orWhereDoesntHave($relation, $callback = null)
+            {    
+                return \Illuminate\Database\Eloquent\Builder::orWhereDoesntHave($relation, $callback);
             }
          
             /**
@@ -15748,18 +15785,6 @@ namespace  {
             public static function crossJoin($table, $first = null, $operator = null, $second = null)
             {    
                 return \Illuminate\Database\Query\Builder::crossJoin($table, $first, $operator, $second);
-            }
-         
-            /**
-             * Pass the query to a given callback.
-             *
-             * @param \Closure $callback
-             * @return \Illuminate\Database\Query\Builder 
-             * @static 
-             */ 
-            public static function tap($callback)
-            {    
-                return \Illuminate\Database\Query\Builder::tap($callback);
             }
          
             /**
