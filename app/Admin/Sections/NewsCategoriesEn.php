@@ -29,7 +29,7 @@ class NewsCategoriesEn extends Section implements Initializable
     }
 
     protected $checkAccess = false;
-    protected $alias = 'news/category-en';
+    protected $alias = 'news-category-en';
 
     public function getIcon()
     {
@@ -68,14 +68,17 @@ class NewsCategoriesEn extends Section implements Initializable
         ];
 
         $tableActive =  AdminDisplay::datatables()
+            ->setName('news-cat-en-actives')
             ->setModelClass(NewsCategoryEn::class)
             ->paginate(25)->getScopes()->set('NewsCatActive')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-success table-hover th-center');
         $tableDraft =  AdminDisplay::datatables()
+            ->setName('news-cat-en-drafts')
             ->setModelClass(NewsCategoryEn::class)
             ->paginate(25)->getScopes()->set('NewsCatDraft')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-warning table-hover th-center');
         $tableDeleted =  AdminDisplay::datatables()
+            ->setName('news-cat-en-deletes')
             ->setModelClass(NewsCategoryEn::class)
             ->paginate(25)->getScopes()->set('NewsCatDel')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-danger table-hover th-center');

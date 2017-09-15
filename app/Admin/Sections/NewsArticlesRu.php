@@ -32,7 +32,7 @@ class NewsArticlesRu extends Section implements Initializable
     }
 
     protected $checkAccess = false;
-    protected $alias = 'news/article-ru';
+    protected $alias = 'news-article-ru';
 
     public function getIcon()
     {
@@ -56,7 +56,7 @@ class NewsArticlesRu extends Section implements Initializable
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link(function ($instance) {
-                return '<a href="../'. $this->alias .'/'. $instance->id.'/edit">'
+                return '<a href="'. $this->alias .'/'. $instance->id.'/edit">'
                     . $instance->title .'</a><br /><small>'. $instance->alias .'</small>';
             }, trans('admin.adm_title')),
             AdminColumn::custom(trans('admin.adm_published'), function ($model) {
@@ -71,16 +71,31 @@ class NewsArticlesRu extends Section implements Initializable
                         $publ ='<i class="fa fa-stop text-danger" data-toggle="tooltip" title="'. trans('admin.adm_date_down') .' '. $model->publish_down .'"></i>';
                     }
                 }
-                return $publ;
+                return '<p class="text-center">'. $publ .'</span>';
             })->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::custom(trans('admin.adm_category'), function ($instance) {
-                return $instance->category ? NewsCategoryRu::find($instance->category)->name : '<span class="text-muted">'. trans('admin.adm_parent_null') .'</span>';})
-                ->setWidth('200px')->setHtmlAttribute('class', 'text-center'),
+                $category = '<span class="text-muted">'. trans('admin.adm_parent_null') .'</span>';
+                if ($instance->category) {
+                    $delcat = NewsCategoryRu::withTrashed()->where('id', $instance->category)->first();
+                    if ($delcat) {
+                        if ($delcat->deleted_at) {
+                            $category = '<span class="text-muted">'. trans('admin.adm_parent_deleted') .'</span>';
+                        } else {
+                            $category = $delcat->name;
+                        }
+                    } else {
+                        $category = '<span class="text-muted">'. trans('admin.adm_parent_havent') .'</span>';
+                    }
+                }
+                return $category;
+            })->setWidth('230px'),
             AdminColumn::custom(trans('admin.adm_seo'), function ($instance) {
-                $metatitle = iconv_strlen($instance->title);
-                $keyword = iconv_strlen($instance->keywords);
-                $description = iconv_strlen($instance->description);
-                return $metatitle.' / '.$keyword.' / '.$description;
+              $metatitle = iconv_strlen($instance->title);
+              $keyword = iconv_strlen($instance->keywords);
+              $description = iconv_strlen($instance->description);
+              $meta = '<p class="text-center">'. $metatitle.' / '.$keyword.' / '.$description .'</span>';
+                return $meta;
+
             })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::custom(trans('admin.adm_user_id'), function ($instance) {
                 return $instance->updated_at ? $instance->user['username']
@@ -90,14 +105,17 @@ class NewsArticlesRu extends Section implements Initializable
         ];
 
         $tableActive =  AdminDisplay::datatables()
+            ->setName('news-ru-actives')
             ->setModelClass(NewsArticleRu::class)
             ->paginate(25)->getScopes()->set('NewsActive')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-success table-hover th-center');
-        $tableDraft =  AdminDisplay::datatables()
+        $tableDraft =  AdminDisplay::datatablesAsync()
+            ->setName('news-ru-drafts')
             ->setModelClass(NewsArticleRu::class)
             ->paginate(25)->getScopes()->set('NewsDraft')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-warning table-hover th-center');
-        $tableDeleted =  AdminDisplay::datatables()
+        $tableDeleted =  AdminDisplay::datatablesAsync()
+            ->setName('news-ru-deletes')
             ->setModelClass(NewsArticleRu::class)
             ->paginate(25)->getScopes()->set('NewsDel')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-danger table-hover th-center');
@@ -133,7 +151,7 @@ class NewsArticlesRu extends Section implements Initializable
             AdminFormElement::wysiwyg('full_text', trans('admin.adm_text_full'))->setHeight(300),
             AdminFormElement::text('links', trans('admin.adm_link')),
 
-          ],7)->addColumn([
+          ], 7)->addColumn([
             AdminFormElement::text('id', trans('admin.adm_id'))->setReadonly(1),
             AdminFormElement::select('category', trans('admin.adm_parent_cat'), NewsCategoryRu::class)
               ->setDisplay('name')->nullable()->exclude($id),

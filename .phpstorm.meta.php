@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-09-13.
+    * Generated on 2017-09-15.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -53,7 +53,7 @@ namespace PHPSTORM_META {
         'sleeping_owl.widgets' => \SleepingOwl\Admin\Widgets\WidgetsRegistry::class,
         'command.sleepingowl.ide.generate' => \SleepingOwl\Admin\Console\Commands\GeneratorCommand::class,
         'image' => \Intervention\Image\ImageManager::class,
-        'debugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'sleeping_owl.message' => \SleepingOwl\Admin\Widgets\Messages\MessageStack::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -200,7 +200,7 @@ namespace PHPSTORM_META {
         'sleeping_owl.widgets' => \SleepingOwl\Admin\Widgets\WidgetsRegistry::class,
         'command.sleepingowl.ide.generate' => \SleepingOwl\Admin\Console\Commands\GeneratorCommand::class,
         'image' => \Intervention\Image\ImageManager::class,
-        'debugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'sleeping_owl.message' => \SleepingOwl\Admin\Widgets\Messages\MessageStack::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -347,7 +347,7 @@ namespace PHPSTORM_META {
         'sleeping_owl.widgets' => \SleepingOwl\Admin\Widgets\WidgetsRegistry::class,
         'command.sleepingowl.ide.generate' => \SleepingOwl\Admin\Console\Commands\GeneratorCommand::class,
         'image' => \Intervention\Image\ImageManager::class,
-        'debugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'sleeping_owl.message' => \SleepingOwl\Admin\Widgets\Messages\MessageStack::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -494,7 +494,7 @@ namespace PHPSTORM_META {
         'sleeping_owl.widgets' => \SleepingOwl\Admin\Widgets\WidgetsRegistry::class,
         'command.sleepingowl.ide.generate' => \SleepingOwl\Admin\Console\Commands\GeneratorCommand::class,
         'image' => \Intervention\Image\ImageManager::class,
-        'debugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'sleeping_owl.message' => \SleepingOwl\Admin\Widgets\Messages\MessageStack::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -641,7 +641,7 @@ namespace PHPSTORM_META {
         'sleeping_owl.widgets' => \SleepingOwl\Admin\Widgets\WidgetsRegistry::class,
         'command.sleepingowl.ide.generate' => \SleepingOwl\Admin\Console\Commands\GeneratorCommand::class,
         'image' => \Intervention\Image\ImageManager::class,
-        'debugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'sleeping_owl.message' => \SleepingOwl\Admin\Widgets\Messages\MessageStack::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -788,7 +788,7 @@ namespace PHPSTORM_META {
         'sleeping_owl.widgets' => \SleepingOwl\Admin\Widgets\WidgetsRegistry::class,
         'command.sleepingowl.ide.generate' => \SleepingOwl\Admin\Console\Commands\GeneratorCommand::class,
         'image' => \Intervention\Image\ImageManager::class,
-        'debugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'sleeping_owl.message' => \SleepingOwl\Admin\Widgets\Messages\MessageStack::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -935,7 +935,7 @@ namespace PHPSTORM_META {
         'sleeping_owl.widgets' => \SleepingOwl\Admin\Widgets\WidgetsRegistry::class,
         'command.sleepingowl.ide.generate' => \SleepingOwl\Admin\Console\Commands\GeneratorCommand::class,
         'image' => \Intervention\Image\ImageManager::class,
-        'debugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'sleeping_owl.message' => \SleepingOwl\Admin\Widgets\Messages\MessageStack::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,

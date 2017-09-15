@@ -29,7 +29,7 @@ class StaticTextsAddRu extends Section implements Initializable
     }
 
     protected $checkAccess = false;
-    protected $alias = 'static/static-ru';
+    protected $alias = 'static-ru';
 
     public function getIcon()
     {
@@ -53,29 +53,32 @@ class StaticTextsAddRu extends Section implements Initializable
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link('title', trans('admin.adm_title')),
-            AdminColumn::relatedLink('stextru.name', trans('admin.adm_related'))->setHtmlAttribute('class', 'text-center'),
+            AdminColumn::relatedLink('stextru.name', trans('admin.adm_related')),
 
             AdminColumn::custom(trans('admin.adm_seo'), function ($instance) {
                 $metatitle = iconv_strlen($instance->title);
                 $keyword = iconv_strlen($instance->keywords);
                 $description = iconv_strlen($instance->description);
-                return $metatitle.' / '.$keyword.' / '.$description;
-            })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+                return '<p class="text-center">'. $metatitle.' / '.$keyword.' / '.$description .'</p>';
+            })->setWidth('150px'),
             AdminColumn::custom(trans('admin.adm_user_id'), function ($instance) {
                 return $instance->updated_at ? $instance->user['username']
                 .'<br/><small>'. $instance->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
-            })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+            })->setWidth('150px'),
         ];
 
-        $tableActive =  AdminDisplay::datatables()
+        $tableActive =  AdminDisplay::datatablesAsync()
+            ->setName('static-ru-actives')
             ->setModelClass(StaticTextAddRu::class)
             ->paginate(25)->getScopes()->set('StaticActive')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-success table-hover th-center');
-        $tableDraft =  AdminDisplay::datatables()
+        $tableDraft =  AdminDisplay::datatablesAsync()
+            ->setName('static-ru-drafts')
             ->setModelClass(StaticTextAddRu::class)
             ->paginate(25)->getScopes()->set('StaticDraft')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-warning table-hover th-center');
-        $tableDeleted =  AdminDisplay::datatables()
+        $tableDeleted =  AdminDisplay::datatablesAsync()
+            ->setName('static-ru-deletes')
             ->setModelClass(StaticTextAddRu::class)
             ->paginate(25)->getScopes()->set('StaticDel')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-danger table-hover th-center');

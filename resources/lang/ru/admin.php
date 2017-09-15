@@ -4,7 +4,7 @@ return [
     'adm_dashboard' => 'Панель виджетов',
     'adm_information' => 'Информация',
     'adm_lng' => 'Язык',
-	
+
     'adm_users_group' => 'Пользователи',
     'adm_users_2' => 'Пользователей',
     'adm_users_all' => 'Все пользователи',
@@ -13,12 +13,12 @@ return [
     'adm_users_deleted' => 'Удаленные пользователи',
     'adm_users_moderators' => 'Модераторы',
     'adm_users_admins' => 'Администраторы',
-	
+
     'adm_roles' => 'Роли',
     'adm_roles_edit' => 'Редактирование ролей',
     'adm_roles_create' => 'Создание новой роли',
     'adm_role' => 'Роль',
-	
+
 	'adm_label' => 'Метка',
 	'adm_title' => 'Название',
 	'adm_related' => 'Связано с пунктом',
@@ -41,7 +41,7 @@ return [
 	'adm_user_id' => '<small>Последняя редакция</small>',
 	'adm_date_up' => 'Будет опубликовано',
 	'adm_date_down' => 'Окончилось',
-	
+
 	'adm_id' => '#',
 	'adm_name' => 'Имя',
 	'adm_username' => 'Логин',
@@ -56,34 +56,36 @@ return [
 	'adm_desc' => 'Описание',
 	'adm_ip_sign' => 'IP при регистрации',
 	'adm_ip_confirm' => 'IP при подтверждении почты',
-	
+
 	'adm_draft' => 'Черновик',
 	'adm_drafts' => 'Черновики',
-	
+
 	'adm_active' => 'Активен',
 	'adm_actives' => 'Активны',
 	'adm_active1' => 'Активно',
 	'adm_active2' => 'Активные',
-	
+
 	'adm_created' => 'Создан',
 	'adm_createds' => 'Созданы',
 	'adm_created1' => 'Создано',
 	'adm_created2' => 'Созданные',
 	'adm_publish_up' => 'Показывать с',
 	'adm_publish_down' => 'Показывать до',
-	
+
 	'adm_updated' => 'Изменено',
-	
+
 	'adm_delete' => 'Удален',
 	'adm_deletes' => 'Удаленные',
 	'adm_delete1' => 'Удалено',
 	'adm_delete2' => 'Удаленa',
-	
+
 	'adm_parent' => 'Родитель',
 	'adm_parent_null' => 'Корневая',
+	'adm_parent_deleted' => 'Категория удалена',
+	'adm_parent_havent' => 'Категории не существует',
 	'adm_parent_cat' => 'Родительская категория',
-	
-	
+
+
     'adm_static' => 'Статические тексты',
     'adm_static_list' => 'Список',
     'adm_static_list_header' => 'Список статических текстов',
@@ -95,24 +97,24 @@ return [
     'adm_static_add_ru_header' => 'Русские статические тексты',
 	'adm_static_add_en' => 'Английские',
     'adm_static_add_en_header' => 'Английские статические тексты',
-	
+
     'adm_news_category' => 'Новости (блог)',
     'adm_news_category_edit' => 'Редактирование категории новостей',
     'adm_news_category_create' => 'Создание категории новостей',
 	'adm_text_cat' => 'Описание категории',
 	'adm_category' => 'Категория',
-	
+
     'adm_news_category_ru_header' => 'Русские категории новостей',
     'adm_news_category_en_header' => 'Английские категории новостей',
 	'adm_news_cat_add_ru' => 'Русские категории',
 	'adm_news_cat_add_en' => 'Английские категории',
 	'adm_news_article_ru' => 'Русские новости',
 	'adm_news_article_en' => 'Английские новости',
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 ];

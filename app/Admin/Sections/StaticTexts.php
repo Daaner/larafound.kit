@@ -33,7 +33,7 @@ class StaticTexts extends Section implements Initializable
     }
 
     protected $checkAccess = false;
-    protected $alias = 'static/list';
+    protected $alias = 'static';
 
     public function getIcon()
     {
@@ -52,12 +52,13 @@ class StaticTexts extends Section implements Initializable
         return trans('admin.adm_static_create');
     }
 
+
     public function onDisplay()
     {
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
             AdminColumn::link(function ($instance) {
-                return '<a href="../'. $this->alias .'/'. $instance->id.'/edit">'
+                return '<a href="'. $this->alias .'/'. $instance->id.'/edit">'
                     . $instance->name .'</a><br /><small>'. $instance->alias .'</small>';
             }, trans('admin.adm_label')),
 
@@ -73,38 +74,42 @@ class StaticTexts extends Section implements Initializable
                         $publ ='<i class="fa fa-stop text-danger" data-toggle="tooltip" title="'. trans('admin.adm_date_down') .' '. $model->publish_down .'"></i>';
                     }
                 }
-                return $publ;
-            })->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
+                return '<p class="text-center">'. $publ .'</p>';
+            })->setWidth('50px'),
             AdminColumn::relatedLink('StaticAddRu.title', trans('admin.adm_lng_ru'))
-            ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+            ->setWidth('150px'),
 
             //test
-            AdminColumnEditable::checkbox('published','check'),
-            AdminColumnEditable::datetime('updated_at','date')->setFormat('d.m.Y')->setWidth('200px'),
-            AdminColumnEditable::text('alias','text'),
-            AdminColumnEditable::select('ru')
-                ->setModelForOptions(new StaticTextAddRu)
-                ->setLabel('Связка')
-                ->setDisplay('title'),
+            // AdminColumnEditable::checkbox('published','check'),
+            // AdminColumnEditable::datetime('updated_at','date')->setFormat('d.m.Y')->setWidth('200px'),
+            // AdminColumnEditable::text('alias','text'),
+            // AdminColumnEditable::select('ru')
+            //     ->setModelForOptions(new StaticTextAddRu)
+            //     ->setLabel('Связка')
+            //     ->setDisplay('title'),
 
             AdminColumn::relatedLink('StaticAddEn.title', trans('admin.adm_lng_en'))
-            ->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+            ->setWidth('150px'),
 
             AdminColumn::custom(trans('admin.adm_user_id'), function ($instance) {
                 return $instance->updated_at ? $instance->user['username']
                 .'<br/><small>'. $instance->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
-            })->setWidth('150px')->setHtmlAttribute('class', 'text-center'),
+            })->setWidth('150px'),
         ];
 
         $tableActive =  AdminDisplay::datatablesAsync()
+            ->setName('static-actives')
             ->setModelClass(StaticText::class)
-            ->paginate(25)->getScopes()->set('StaticActive')->setColumns($columns)
+            ->paginate(25)->getScopes()->set('StaticActive')
+            ->setColumns($columns)
             ->setHtmlAttribute('class', 'table-success table-hover th-center');
         $tableDraft =  AdminDisplay::datatablesAsync()
+            ->setName('static-drafts')
             ->setModelClass(StaticText::class)
             ->paginate(25)->getScopes()->set('StaticDraft')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-warning table-hover th-center');
         $tableDeleted =  AdminDisplay::datatablesAsync()
+            ->setName('static-deleted')
             ->setModelClass(StaticText::class)
             ->paginate(25)->getScopes()->set('StaticDel')->setColumns($columns)
             ->setHtmlAttribute('class', 'table-danger table-hover th-center');
