@@ -130,16 +130,16 @@
         },
         {
             "name": "caouecs/laravel-lang",
-            "version": "3.0.36",
+            "version": "3.0.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "fce0289a05fe35a6ba2d0625654efce6dd4fa553"
+                "reference": "869a3c0d0a6791768ff320e9b9631b6afa5d033e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/fce0289a05fe35a6ba2d0625654efce6dd4fa553",
-                "reference": "fce0289a05fe35a6ba2d0625654efce6dd4fa553",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/869a3c0d0a6791768ff320e9b9631b6afa5d033e",
+                "reference": "869a3c0d0a6791768ff320e9b9631b6afa5d033e",
                 "shasum": ""
             },
             "require-dev": {
@@ -168,7 +168,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2017-09-05T11:25:47+00:00"
+            "time": "2017-09-25T07:19:55+00:00"
         },
         {
             "name": "components/jquery",
@@ -935,16 +935,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3"
+                "reference": "3603dbcc9a17d307533473246a6c58c31cf17919"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/322a4ade249467179c50a3e50eda8760ff3af2a3",
-                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/3603dbcc9a17d307533473246a6c58c31cf17919",
+                "reference": "3603dbcc9a17d307533473246a6c58c31cf17919",
                 "shasum": ""
             },
             "require": {
@@ -1001,7 +1001,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-07-03T15:50:40+00:00"
+            "time": "2017-09-21T16:29:17+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1225,16 +1225,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.4",
+            "version": "v5.5.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d3e0493bead126cf7fb9a005c64e6b58a9190e51"
+                "reference": "bfbe20d32ee9f98c89df852847827407a5127be4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d3e0493bead126cf7fb9a005c64e6b58a9190e51",
-                "reference": "d3e0493bead126cf7fb9a005c64e6b58a9190e51",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/bfbe20d32ee9f98c89df852847827407a5127be4",
+                "reference": "bfbe20d32ee9f98c89df852847827407a5127be4",
                 "shasum": ""
             },
             "require": {
@@ -1353,7 +1353,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-09-13T13:36:29+00:00"
+            "time": "2017-09-24T19:09:38+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1489,12 +1489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
-                "reference": "edc1f609087d1801f7c30dba83d61c20447680fb"
+                "reference": "35292cfb0bd70fb7f00823b5545ff2ddd9859696"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/edc1f609087d1801f7c30dba83d61c20447680fb",
-                "reference": "edc1f609087d1801f7c30dba83d61c20447680fb",
+                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/35292cfb0bd70fb7f00823b5545ff2ddd9859696",
+                "reference": "35292cfb0bd70fb7f00823b5545ff2ddd9859696",
                 "shasum": ""
             },
             "require": {
@@ -1558,7 +1558,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2017-09-10 13:52:33"
+            "time": "2017-09-25 18:51:54"
         },
         {
             "name": "league/flysystem",
@@ -2186,16 +2186,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "3.7.0",
+            "version": "3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "0ef23d1b10cf1bc576e9d865a7e9c47982c5715e"
+                "reference": "45cffe822057a09e05f7bd09ec5fb88eeecd2334"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/0ef23d1b10cf1bc576e9d865a7e9c47982c5715e",
-                "reference": "0ef23d1b10cf1bc576e9d865a7e9c47982c5715e",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/45cffe822057a09e05f7bd09ec5fb88eeecd2334",
+                "reference": "45cffe822057a09e05f7bd09ec5fb88eeecd2334",
                 "shasum": ""
             },
             "require": {
@@ -2264,7 +2264,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2017-08-04T13:39:04+00:00"
+            "time": "2017-09-22T20:46:04+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3264,16 +3264,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.0.1",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "bce341e3194bbeffa60ac782d645067557f5075e"
+                "reference": "01a859752094e00aa8548832312366753272f8af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/bce341e3194bbeffa60ac782d645067557f5075e",
-                "reference": "bce341e3194bbeffa60ac782d645067557f5075e",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/01a859752094e00aa8548832312366753272f8af",
+                "reference": "01a859752094e00aa8548832312366753272f8af",
                 "shasum": ""
             },
             "require": {
@@ -3328,7 +3328,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2017-08-29T08:54:25+00:00"
+            "time": "2017-09-18T13:32:46+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -4271,16 +4271,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.3.0",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb"
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9501bab711403a1ab5b8378a8adb4ec3db3debdb",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c0ff817b36a827e64bf5f57bc72278150cf30a77",
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77",
                 "shasum": ""
             },
             "require": {
@@ -4351,7 +4351,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-04T05:20:39+00:00"
+            "time": "2017-09-24T07:25:54+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
