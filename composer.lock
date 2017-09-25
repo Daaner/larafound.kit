@@ -1489,12 +1489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
-                "reference": "edc1f609087d1801f7c30dba83d61c20447680fb"
+                "reference": "3b3a8e0b204ebe2b7cc2e3b6d217cbe9962b7e0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/edc1f609087d1801f7c30dba83d61c20447680fb",
-                "reference": "edc1f609087d1801f7c30dba83d61c20447680fb",
+                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/3b3a8e0b204ebe2b7cc2e3b6d217cbe9962b7e0e",
+                "reference": "3b3a8e0b204ebe2b7cc2e3b6d217cbe9962b7e0e",
                 "shasum": ""
             },
             "require": {
@@ -1558,7 +1558,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2017-09-10 13:52:33"
+            "time": "2017-09-16 12:45:25"
         },
         {
             "name": "league/flysystem",
@@ -3264,16 +3264,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.0.1",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "bce341e3194bbeffa60ac782d645067557f5075e"
+                "reference": "01a859752094e00aa8548832312366753272f8af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/bce341e3194bbeffa60ac782d645067557f5075e",
-                "reference": "bce341e3194bbeffa60ac782d645067557f5075e",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/01a859752094e00aa8548832312366753272f8af",
+                "reference": "01a859752094e00aa8548832312366753272f8af",
                 "shasum": ""
             },
             "require": {
@@ -3328,7 +3328,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2017-08-29T08:54:25+00:00"
+            "time": "2017-09-18T13:32:46+00:00"
         },
         {
             "name": "doctrine/instantiator",
