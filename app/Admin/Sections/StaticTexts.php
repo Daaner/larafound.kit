@@ -57,12 +57,7 @@ class StaticTexts extends Section implements Initializable
     {
         $columns = [
             AdminColumn::text('id', trans('admin.adm_id'))->setWidth('30px'),
-            AdminColumn::link('name', trans('admin.adm_id'), 'alias')->setWidth('30px'),
-            AdminColumn::link(function ($instance) {
-                return '<a href="'. $this->alias .'/'. $instance->id.'/edit">'
-                    . $instance->name .'</a><br /><small>'. $instance->alias .'</small>';
-            }, trans('admin.adm_label')),
-
+            AdminColumn::link('name', trans('admin.adm_id'), 'alias'),
             AdminColumn::custom(trans('admin.adm_published'), function ($model) {
                 $publ = '<i class="fa fa-close text-primary"></i>';
                 $date = Carbon::now()->format('Y-m-d H:i:s');
@@ -80,22 +75,10 @@ class StaticTexts extends Section implements Initializable
             AdminColumn::relatedLink('StaticAddRu.title', trans('admin.adm_lng_ru'))
             ->setWidth('150px'),
 
-            //test
-            // AdminColumnEditable::checkbox('published','check'),
-            // AdminColumnEditable::datetime('updated_at','date')->setFormat('d.m.Y')->setWidth('200px'),
-            // AdminColumnEditable::text('alias','text'),
-            // AdminColumnEditable::select('ru')
-            //     ->setModelForOptions(new StaticTextAddRu)
-            //     ->setLabel('Связка')
-            //     ->setDisplay('title'),
-
             AdminColumn::relatedLink('StaticAddEn.title', trans('admin.adm_lng_en'))
             ->setWidth('150px'),
 
-            AdminColumn::custom(trans('admin.adm_user_id'), function ($instance) {
-                return $instance->updated_at ? $instance->user['username']
-                .'<br/><small>'. $instance->updated_at .'</small>' : '<i class="fa fa-minus"></i>';
-            })->setWidth('150px'),
+            AdminColumn::text('user.username', trans('admin.adm_user_id'), 'updated_at')->setWidth('150px'),
         ];
 
         $tableActive =  AdminDisplay::datatablesAsync()

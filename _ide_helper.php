@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.4 on 2017-09-18.
+ * Generated for Laravel 5.5.13 on 2017-09-25.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -8907,6 +8907,18 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Register a new Fallback route with the router.
+         *
+         * @param \Closure|array|string|null $action
+         * @return \Illuminate\Routing\Route 
+         * @static 
+         */ 
+        public static function fallback($action)
+        {
+            return \Illuminate\Routing\Router::fallback($action);
+        }
+        
+        /**
          * Create a redirect from one URI to another.
          *
          * @param string $uri
@@ -9022,6 +9034,18 @@ namespace Illuminate\Support\Facades {
         public static function getLastGroupPrefix()
         {
             return \Illuminate\Routing\Router::getLastGroupPrefix();
+        }
+        
+        /**
+         * Return the response returned by the given route.
+         *
+         * @param string $name
+         * @return mixed 
+         * @static 
+         */ 
+        public static function respondWithRoute($name)
+        {
+            return \Illuminate\Routing\Router::respondWithRoute($name);
         }
         
         /**
@@ -12662,66 +12686,6 @@ namespace Barryvdh\Debugbar {
  
 }
 
-namespace Intervention\Image\Facades { 
-
-    class Image {
-        
-        /**
-         * Overrides configuration settings
-         *
-         * @param array $config
-         * @static 
-         */ 
-        public static function configure($config = array())
-        {
-            return \Intervention\Image\ImageManager::configure($config);
-        }
-        
-        /**
-         * Initiates an Image instance from different input types
-         *
-         * @param mixed $data
-         * @return \Intervention\Image\Image 
-         * @static 
-         */ 
-        public static function make($data)
-        {
-            return \Intervention\Image\ImageManager::make($data);
-        }
-        
-        /**
-         * Creates an empty image canvas
-         *
-         * @param integer $width
-         * @param integer $height
-         * @param mixed $background
-         * @return \Intervention\Image\Image 
-         * @static 
-         */ 
-        public static function canvas($width, $height, $background = null)
-        {
-            return \Intervention\Image\ImageManager::canvas($width, $height, $background);
-        }
-        
-        /**
-         * Create new cached image and run callback
-         * (requires additional package intervention/imagecache)
-         *
-         * @param \Closure $callback
-         * @param integer $lifetime
-         * @param boolean $returnObj
-         * @return \Image 
-         * @static 
-         */ 
-        public static function cache($callback, $lifetime = null, $returnObj = false)
-        {
-            return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
-        }
-         
-    }
- 
-}
-
 namespace Collective\Html { 
 
     class FormFacade {
@@ -14141,6 +14105,66 @@ namespace Collective\Html {
  
 }
 
+namespace Intervention\Image\Facades { 
+
+    class Image {
+        
+        /**
+         * Overrides configuration settings
+         *
+         * @param array $config
+         * @static 
+         */ 
+        public static function configure($config = array())
+        {
+            return \Intervention\Image\ImageManager::configure($config);
+        }
+        
+        /**
+         * Initiates an Image instance from different input types
+         *
+         * @param mixed $data
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function make($data)
+        {
+            return \Intervention\Image\ImageManager::make($data);
+        }
+        
+        /**
+         * Creates an empty image canvas
+         *
+         * @param integer $width
+         * @param integer $height
+         * @param mixed $background
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function canvas($width, $height, $background = null)
+        {
+            return \Intervention\Image\ImageManager::canvas($width, $height, $background);
+        }
+        
+        /**
+         * Create new cached image and run callback
+         * (requires additional package intervention/imagecache)
+         *
+         * @param \Closure $callback
+         * @param integer $lifetime
+         * @param boolean $returnObj
+         * @return \Image 
+         * @static 
+         */ 
+        public static function cache($callback, $lifetime = null, $returnObj = false)
+        {
+            return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
+        }
+         
+    }
+ 
+}
+
 namespace KodiCMS\Assets\Facades { 
 
     class PackageManager {
@@ -15385,6 +15409,20 @@ namespace KodiCMS\Assets\Facades {
         {
             //Method inherited from \Illuminate\Support\Collection            
             return \KodiCMS\Assets\PackageManager::zip($items);
+        }
+        
+        /**
+         * Pad collection to the specified length with a value.
+         *
+         * @param int $size
+         * @param mixed $value
+         * @return static 
+         * @static 
+         */ 
+        public static function pad($size, $value)
+        {
+            //Method inherited from \Illuminate\Support\Collection            
+            return \KodiCMS\Assets\PackageManager::pad($size, $value);
         }
         
         /**
@@ -18020,11 +18058,11 @@ namespace  {
 
     class Debugbar extends \Barryvdh\Debugbar\Facade {}
 
-    class Image extends \Intervention\Image\Facades\Image {}
-
     class Form extends \Collective\Html\FormFacade {}
 
     class Html extends \Collective\Html\HtmlFacade {}
+
+    class Image extends \Intervention\Image\Facades\Image {}
 
     class PackageManager extends \KodiCMS\Assets\Facades\PackageManager {}
 
